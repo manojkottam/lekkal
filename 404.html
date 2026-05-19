@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page not found — Lekkal</title>
+<meta name="description" content="That page doesn't exist on Lekkal — but here are the tools that do." />
+<meta name="robots" content="noindex, follow" />
+<meta name="theme-color" content="#0f766e" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+<script src="nav.js" defer></script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="/" class="brand" style="text-decoration:none;">
+      <div class="mark">L</div><div class="name">Lekkal</div>
+    </a>
+    <div class="links">
+      <a href="/invoice-generator.html">Invoice</a>
+      <a href="/emi-calculator.html">EMI</a>
+      <a href="/burn-rate-calculator.html">Burn</a>
+      <a href="/roi-calculator.html">ROI</a>
+      <details class="nav-dropdown">
+        <summary>
+          India
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="/gst-calculator.html">
+            <span>GST calculator<span class="meta">CGST · SGST · IGST</span></span>
+            <span class="pill">Live</span>
+          </a>
+          <div class="divider"></div>
+          <div class="footer">Coming soon</div>
+          <a class="disabled"><span>Income tax<span class="meta">Old vs new regime</span></span><span class="pill soon">Soon</span></a>
+          <a class="disabled"><span>SIP calculator<span class="meta">Returns + step-up SIP</span></span><span class="pill soon">Soon</span></a>
+          <a class="disabled"><span>Salary breakup<span class="meta">CTC to in-hand</span></span><span class="pill soon">Soon</span></a>
+          <a class="disabled"><span>TDS calculator<span class="meta">Sec 192 / 194C / 194J</span></span><span class="pill soon">Soon</span></a>
+        </div>
+      </details>
+      <a href="/#tools">All tools</a>
+    </div>
+  </div>
+</nav>
+
+<section class="landing-hero" style="padding: 96px 0 32px;">
+  <div class="wrap" style="text-align:center;">
+    <div style="font-family: ui-serif, Georgia, serif; font-size: 96px; font-weight: 600; line-height: 1; letter-spacing: -0.04em; color: var(--accent); margin-bottom: 8px;">404</div>
+    <h1 style="font-family: ui-serif, Georgia, serif; font-size: 32px; letter-spacing: -0.02em; margin: 0 0 12px;">This page is off the ledger.</h1>
+    <p style="color: var(--text-muted); max-width: 460px; margin: 0 auto 28px; font-size: 16px;">The URL you followed doesn't match anything on Lekkal. It might be mistyped, moved, or simply never existed.</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <a href="/" class="btn btn-large">Back to home →</a>
+      <a href="/#tools" class="btn secondary btn-large">Browse tools</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-bottom: 64px;">
+  <h2 class="section-title" style="text-align:center;margin:32px 0 16px;">Or try one of these</h2>
+  <div class="tool-grid">
+    <a href="/invoice-generator.html" class="tool-card">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </div>
+      <h3>Invoice generator</h3>
+      <p>Create a polished PDF invoice in seconds.</p>
+    </a>
+    <a href="/roi-calculator.html" class="tool-card">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <h3>ROI calculator</h3>
+      <p>CAC, LTV, ROAS, payback period — all in one view.</p>
+    </a>
+  </div>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  document.documentElement.dataset.theme = t;
+</script>
+</body>
+</html>

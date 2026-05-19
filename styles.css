@@ -101,6 +101,73 @@ nav.top .links a:hover { background: var(--surface-2); color: var(--text); text-
 nav.top .links a.active { color: var(--text); background: var(--surface-2); }
 nav.top .right { display: flex; align-items: center; gap: 8px; }
 
+/* Dropdown menus in the top nav */
+.nav-dropdown { position: relative; display: inline-block; }
+.nav-dropdown summary {
+  list-style: none; cursor: pointer;
+  padding: 6px 12px; color: var(--text-muted);
+  font-size: 14px; font-weight: 500; border-radius: 6px;
+  display: inline-flex; align-items: center; gap: 4px;
+  user-select: none;
+}
+.nav-dropdown summary::-webkit-details-marker { display: none; }
+.nav-dropdown summary:hover { background: var(--surface-2); color: var(--text); }
+.nav-dropdown summary.active,
+.nav-dropdown[open] summary { background: var(--surface-2); color: var(--text); }
+.nav-dropdown summary .caret {
+  width: 10px; height: 10px;
+  transition: transform 0.15s ease;
+  display: inline-block;
+}
+.nav-dropdown[open] summary .caret { transform: rotate(180deg); }
+.nav-dropdown-menu {
+  position: absolute; top: calc(100% + 4px); left: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 6px;
+  min-width: 240px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  z-index: 20;
+}
+.nav-dropdown-menu a {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 12px; border-radius: 6px;
+  color: var(--text); font-size: 14px; font-weight: 500;
+  text-decoration: none;
+}
+.nav-dropdown-menu a:hover { background: var(--surface-2); text-decoration: none; }
+.nav-dropdown-menu a.disabled {
+  color: var(--text-soft); pointer-events: none; cursor: default;
+}
+.nav-dropdown-menu .meta {
+  display: block; font-size: 12px; color: var(--text-soft);
+  font-weight: 400; margin-top: 2px;
+}
+.nav-dropdown-menu .pill {
+  font-size: 10px; font-weight: 500;
+  background: var(--accent-soft); color: var(--accent);
+  padding: 2px 7px; border-radius: 99px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+.nav-dropdown-menu .pill.soon {
+  background: var(--surface-2); color: var(--text-soft);
+}
+.nav-dropdown-menu .divider {
+  height: 1px; background: var(--border);
+  margin: 4px 0;
+}
+.nav-dropdown-menu .footer {
+  font-size: 11px; color: var(--text-soft);
+  padding: 6px 12px 4px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  font-weight: 500;
+}
+@media (max-width: 720px) {
+  .nav-dropdown-menu { min-width: 200px; }
+  .nav-dropdown summary { padding: 6px 8px; font-size: 13px; }
+}
+
 .iconbtn {
   height: 32px; width: 32px;
   border-radius: 8px;
