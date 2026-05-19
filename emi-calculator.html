@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary SEO -->
+<title>Free Loan & EMI Calculator — Mortgage, Car, Personal Loan with Amortization | Lekkal</title>
+<meta name="description" content="Free loan calculator. Compute monthly payment, total interest, and a full amortization schedule for mortgages, car loans, personal loans, and education loans. Works in INR, USD, EUR, GBP, AUD, CAD — with regional default rates. No signup, runs in your browser." />
+<meta name="keywords" content="loan calculator, EMI calculator, mortgage calculator, monthly payment calculator, home loan calculator, car loan calculator, personal loan calculator, amortization schedule, loan interest calculator, free loan calculator, international loan calculator" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<link rel="canonical" href="https://lekkal.com/emi-calculator.html" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/emi-calculator.html" />
+<meta property="og:title" content="Free Loan & EMI Calculator — Mortgage, Car, Personal" />
+<meta property="og:description" content="Monthly payment, total interest, and a full amortization schedule for any loan. Multi-currency with regional default rates. Free, no signup." />
+<meta property="og:image" content="https://lekkal.com/og-emi.png" />
+<meta property="og:site_name" content="Lekkal" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Loan & EMI Calculator — Multi-Currency" />
+<meta name="twitter:description" content="Monthly payment, total interest, full amortization. Works in 6 currencies. Free, runs in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-emi.png" />
+
+<!-- WebApplication schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lekkal Loan & EMI Calculator",
+  "url": "https://lekkal.com/emi-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free loan and EMI calculator. Computes monthly payment, total interest, and a full month-by-month amortization schedule for mortgages, car loans, personal loans, and education loans in 6 currencies with region-specific default rates.",
+  "featureList": [
+    "Closed-form loan payment formula",
+    "Full amortization schedule",
+    "Principal-vs-interest chart",
+    "Six currencies (INR, USD, EUR, GBP, AUD, CAD)",
+    "Region-specific default rates",
+    "Locale-aware number formatting",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<!-- Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "EMI Calculator", "item": "https://lekkal.com/emi-calculator.html" }
+  ]
+}
+</script>
+
+<!-- FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is a loan payment calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The monthly loan payment (called EMI in India, monthly mortgage payment in the US/UK) is calculated using the formula: Payment = P × r × (1+r)^n / ((1+r)^n − 1), where P is the principal, r is the monthly interest rate (annual rate divided by 12 and by 100), and n is the total number of monthly payments. The formula gives a fixed monthly amount that pays off both principal and interest over the loan term." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between fixed and variable interest rates?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A fixed rate stays constant for the full term — your monthly payment never changes. A variable (or floating) rate is tied to a benchmark such as a central bank policy rate and can change periodically, which means your payment can go up or down. This calculator assumes a fixed rate for the full term." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I take a longer or shorter loan term?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A longer term means a smaller monthly payment but significantly more total interest paid. A shorter term has a higher monthly payment but you pay much less interest overall. The amortization schedule on this page shows exactly how much of each payment goes to principal vs interest, so you can see the trade-off month by month." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does prepayment reduce my monthly payment?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most lenders give you a choice: a prepayment can either reduce your monthly payment (keeping the term the same) or reduce the term (keeping the payment the same). Reducing the term usually saves more in total interest. Some lenders charge a prepayment penalty on fixed-rate loans — check your loan agreement before prepaying." }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="invoice-generator.html">Invoice</a>
+      <a href="gst-calculator.html">GST</a>
+      <a href="emi-calculator.html" class="active">EMI</a>
+      <a href="roi-calculator.html">ROI</a>
+      <a href="index.html#tools">All tools</a>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>Loan & EMI calculator</h1>
+  <p>Plug in your loan amount, interest rate, and term. Get your monthly payment, total interest, and a full amortization schedule. Works for any loan — mortgage, car, personal, education — in six currencies with regional default rates.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>Loan inputs</h2>
+
+      <div class="field">
+        <label>Loan type <span class="hint">presets</span></label>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;" id="preset-pills">
+          <button class="slab-pill active" data-preset="custom">Custom</button>
+          <button class="slab-pill" data-preset="home">Home</button>
+          <button class="slab-pill" data-preset="car">Car</button>
+          <button class="slab-pill" data-preset="personal">Personal</button>
+          <button class="slab-pill" data-preset="education">Education</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Loan amount <span class="hint" id="amountHint">₹5,000,000</span></label>
+        <input type="range" id="amountRange" min="10000" max="50000000" step="10000" value="5000000" />
+        <input type="number" id="amount" value="5000000" min="0" step="1000" style="margin-top:8px;" />
+      </div>
+
+      <div class="field">
+        <label>Annual interest rate <span class="hint" id="rateHint">8.5%</span></label>
+        <input type="range" id="rateRange" min="0" max="30" step="0.05" value="8.5" />
+        <input type="number" id="rate" value="8.5" min="0" max="100" step="0.05" style="margin-top:8px;" />
+      </div>
+
+      <div class="field">
+        <label>Tenure <span class="hint" id="tenureHint">20 years</span></label>
+        <div class="seg" id="tenure-unit" style="display:flex;margin-bottom:10px;">
+          <button data-val="years" class="active" style="flex:1;">Years</button>
+          <button data-val="months" style="flex:1;">Months</button>
+        </div>
+        <input type="range" id="tenureRange" min="1" max="30" step="1" value="20" />
+        <input type="number" id="tenure" value="20" min="1" step="1" style="margin-top:8px;" />
+      </div>
+
+      <div class="field">
+        <label>Currency</label>
+        <select id="currency">
+          <option value="INR">₹ INR — Indian Rupee</option>
+          <option value="USD">$ USD — US Dollar</option>
+          <option value="EUR">€ EUR — Euro</option>
+          <option value="GBP">£ GBP — British Pound</option>
+          <option value="AUD">A$ AUD — Australian Dollar</option>
+          <option value="CAD">C$ CAD — Canadian Dollar</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Your payment</h2>
+
+      <div class="verdict success" style="margin-bottom:14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        <div class="text">
+          <strong>Monthly payment</strong>
+          <span id="emi" class="tabular" style="font-size:20px;font-weight:600;">—</span>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Principal</div>
+          <div class="value tabular" id="rPrincipal">—</div>
+          <div class="sub">amount borrowed</div>
+        </div>
+        <div class="stat">
+          <div class="label">Total interest</div>
+          <div class="value tabular" id="rInterest">—</div>
+          <div class="sub" id="rInterestSub">over loan term</div>
+        </div>
+        <div class="stat">
+          <div class="label">Total payment</div>
+          <div class="value tabular" id="rTotal">—</div>
+          <div class="sub">principal + interest</div>
+        </div>
+        <div class="stat">
+          <div class="label">Interest %</div>
+          <div class="value tabular" id="rInterestPct">—</div>
+          <div class="sub">of total payment</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:22px;">Payment over time</h2>
+      <div class="chart-wrap"><canvas id="chart"></canvas></div>
+      <div style="display:flex;gap:14px;font-size:12px;color:var(--text-muted);margin-top:8px;justify-content:center;">
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:#0f766e;"></span>Principal paid</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:#f59e0b;"></span>Interest paid</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:#94a3b8;"></span>Balance</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="card mt-6">
+    <h2 style="display:flex;justify-content:space-between;align-items:center;">
+      <span>Amortization schedule</span>
+      <span class="muted" style="font-size:12px;text-transform:none;letter-spacing:0;font-weight:400;" id="schedSummary"></span>
+    </h2>
+    <div class="seg" id="sched-view" style="margin-bottom:12px;">
+      <button data-val="yearly" class="active">Yearly</button>
+      <button data-val="monthly">Monthly</button>
+    </div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;" id="schedTable">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border);">
+            <th style="text-align:left;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);font-weight:600;" id="periodHeader">Year</th>
+            <th style="text-align:right;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);font-weight:600;">Principal paid</th>
+            <th style="text-align:right;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);font-weight:600;">Interest paid</th>
+            <th style="text-align:right;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);font-weight:600;">Total paid</th>
+            <th style="text-align:right;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);font-weight:600;">Balance</th>
+          </tr>
+        </thead>
+        <tbody id="schedBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About EMI calculations</h2>
+    <details class="faq" open>
+      <summary>How is a monthly loan payment calculated?</summary>
+      <p>The monthly loan payment (also called EMI in India, monthly mortgage payment in the US and UK) uses the closed-form formula: <strong>Payment = P × r × (1+r)<sup>n</sup> / ((1+r)<sup>n</sup> − 1)</strong>, where P is the principal, r is the monthly interest rate (annual ÷ 12 ÷ 100), and n is the total number of months. It produces a fixed monthly amount that pays off both principal and interest over the loan term.</p>
+    </details>
+    <details class="faq">
+      <summary>What's the difference between fixed and variable interest rates?</summary>
+      <p>A <strong>fixed rate</strong> stays constant for the full term — your monthly payment never changes. A <strong>variable</strong> (or floating) rate is tied to a benchmark such as a central bank policy rate, prime rate, or MCLR, and can move up or down. This calculator assumes a fixed rate; for variable rates, run it with a few different rate scenarios to gauge your sensitivity.</p>
+    </details>
+    <details class="faq">
+      <summary>Should I take a longer or shorter loan term?</summary>
+      <p>A longer term means a smaller monthly payment but significantly more total interest. A shorter term has a higher monthly payment but you pay much less interest overall. The amortization schedule above shows exactly how much of each payment goes to principal vs interest, so you can see the trade-off month by month.</p>
+    </details>
+    <details class="faq">
+      <summary>Does prepayment reduce my monthly payment?</summary>
+      <p>Most lenders give you a choice: a prepayment can either <strong>reduce your monthly payment</strong> (keeping the term the same) or <strong>reduce the term</strong> (keeping the payment the same). Reducing the term usually saves more in total interest. Some lenders charge a prepayment penalty on fixed-rate loans — check your loan agreement before prepaying.</p>
+    </details>
+    <details class="faq">
+      <summary>What are the regional default rates based on?</summary>
+      <p>When you switch currency, the loan-type presets adjust to approximate typical rates in that region — for example, US mortgages around 6.5%, Eurozone mortgages around 4%, Indian home loans around 8.5%. These are starting points only; your actual rate depends on your credit, the lender, loan-to-value, and prevailing benchmarks at the time of borrowing.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. This calculator runs entirely in your browser. None of your inputs are sent to any server. You can use it for sensitive financial planning with confidence.</p>
+    </details>
+  </section>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>Tools</h4>
+      <a href="invoice-generator.html">Invoice generator</a>
+      <a href="gst-calculator.html">GST calculator</a>
+      <a href="emi-calculator.html">EMI calculator</a>
+      <a href="roi-calculator.html">ROI calculator</a>
+    </div>
+    <div class="col">
+      <h4>About</h4>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#tools">All tools</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .slab-pill {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .slab-pill:hover { background: var(--surface-3); color: var(--text); }
+  .slab-pill.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  #schedTable tbody tr { border-bottom: 1px solid var(--border); }
+  #schedTable td { padding: 8px 10px; font-variant-numeric: tabular-nums; }
+  #schedTable td:not(:first-child) { text-align: right; }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+  refreshChart();
+});
+
+const CURRENCIES = { INR:"₹", USD:"$", EUR:"€", GBP:"£", AUD:"A$", CAD:"C$" };
+const LOCALES = { INR:"en-IN", USD:"en-US", EUR:"de-DE", GBP:"en-GB", AUD:"en-AU", CAD:"en-CA" };
+
+// Per-currency slider max for the loan amount — keeps the slider useful at any scale.
+const AMOUNT_MAX = { INR: 50_000_000, USD: 2_000_000, EUR: 1_500_000, GBP: 1_000_000, AUD: 2_500_000, CAD: 2_000_000 };
+
+// Currency-aware regional defaults. Rates approximate typical fixed-rate loans in each region.
+const REGION_PRESETS = {
+  INR: { home:{a:5000000, r:8.5, t:20}, car:{a:800000, r:9.5, t:7}, personal:{a:500000, r:12,  t:5}, education:{a:1500000, r:10,  t:10} },
+  USD: { home:{a:400000,  r:6.5, t:30}, car:{a:35000,  r:7.5, t:6}, personal:{a:15000,  r:11,  t:5}, education:{a:30000,   r:7,   t:10} },
+  EUR: { home:{a:350000,  r:4.0, t:25}, car:{a:25000,  r:5.5, t:5}, personal:{a:12000,  r:8,   t:5}, education:{a:20000,   r:4.5, t:10} },
+  GBP: { home:{a:250000,  r:5.5, t:25}, car:{a:20000,  r:8.0, t:5}, personal:{a:10000,  r:9,   t:5}, education:{a:25000,   r:7.5, t:15} },
+  AUD: { home:{a:550000,  r:6.0, t:30}, car:{a:35000,  r:8.0, t:5}, personal:{a:20000,  r:11,  t:5}, education:{a:40000,   r:7,   t:10} },
+  CAD: { home:{a:500000,  r:6.0, t:25}, car:{a:30000,  r:8.0, t:6}, personal:{a:15000,  r:11,  t:5}, education:{a:30000,   r:7,   t:10} }
+};
+
+function ccy(){ return $("currency").value; }
+function symbol(){ return CURRENCIES[ccy()]; }
+function locale(){ return LOCALES[ccy()]; }
+
+function fmt(n, decimals = 2){
+  if (!isFinite(n) || isNaN(n)) return "—";
+  return symbol() + n.toLocaleString(locale(), { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+}
+
+// Currency-aware abbreviation: Indian (Lakh/Crore) for INR, Western (K/M/B) for everything else.
+function fmtShort(n){
+  if (!isFinite(n) || isNaN(n)) return "—";
+  const s = symbol(), abs = Math.abs(n);
+  if (ccy() === "INR") {
+    if (abs >= 10_000_000) return s + (n/10_000_000).toFixed(2) + " Cr";
+    if (abs >= 100_000)    return s + (n/100_000).toFixed(2) + " L";
+    if (abs >= 1000)       return s + Math.round(n).toLocaleString("en-IN");
+    return s + Math.round(n);
+  } else {
+    if (abs >= 1_000_000_000) return s + (n/1_000_000_000).toFixed(2) + "B";
+    if (abs >= 1_000_000)     return s + (n/1_000_000).toFixed(2) + "M";
+    if (abs >= 1000)          return s + (n/1000).toFixed(1) + "K";
+    return s + Math.round(n).toLocaleString(locale());
+  }
+}
+
+// Detect a sensible default currency from the user's browser locale.
+function detectDefaultCurrency(){
+  try {
+    const lang = (navigator.language || "").toLowerCase();
+    if (lang.endsWith("-in") || lang === "hi" || lang === "te" || lang === "ta") return "INR";
+    if (lang.endsWith("-gb") || lang === "en-uk") return "GBP";
+    if (lang.endsWith("-au")) return "AUD";
+    if (lang.endsWith("-ca")) return "CAD";
+    if (lang.startsWith("de") || lang.startsWith("fr") || lang.startsWith("es") || lang.startsWith("it") || lang.startsWith("nl") || lang.startsWith("pt")) return "EUR";
+    return "USD";
+  } catch { return "USD"; }
+}
+
+function applyPreset(name){
+  const preset = REGION_PRESETS[ccy()] && REGION_PRESETS[ccy()][name];
+  if (!preset) return;
+  $("amount").value = preset.a;
+  $("rate").value = preset.r;
+  $("tenure").value = preset.t;
+  // Always switch to years when applying a preset
+  tenureUnit = "years";
+  document.querySelectorAll("#tenure-unit button").forEach(x => x.classList.toggle("active", x.dataset.val === "years"));
+  $("tenureRange").min = 1; $("tenureRange").max = 30; $("tenureRange").step = 1;
+  $("amountRange").value = preset.a;
+  $("rateRange").value = preset.r;
+  $("tenureRange").value = preset.t;
+}
+
+$("preset-pills").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  document.querySelectorAll("#preset-pills .slab-pill").forEach(x => x.classList.toggle("active", x === b));
+  if (b.dataset.preset !== "custom") {
+    applyPreset(b.dataset.preset);
+    update();
+  }
+});
+
+// When currency changes: update slider max, re-format the amount hint, refresh values.
+function applyCurrencyChange(){
+  const max = AMOUNT_MAX[ccy()] || 1_000_000;
+  $("amountRange").max = max;
+  // If the current amount is above the new max, clamp it
+  if (+$("amount").value > max) {
+    $("amount").value = max;
+    $("amountRange").value = max;
+  }
+  $("amountHint").textContent = fmtShort(+$("amount").value);
+  update();
+}
+
+// Tenure unit toggle
+let tenureUnit = "years";
+$("tenure-unit").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const prev = tenureUnit;
+  tenureUnit = b.dataset.val;
+  document.querySelectorAll("#tenure-unit button").forEach(x => x.classList.toggle("active", x === b));
+  // Convert
+  if (prev === "years" && tenureUnit === "months") {
+    $("tenure").value = +$("tenure").value * 12;
+  } else if (prev === "months" && tenureUnit === "years") {
+    $("tenure").value = Math.round(+$("tenure").value / 12);
+  }
+  // Update slider bounds
+  if (tenureUnit === "years") { $("tenureRange").min = 1; $("tenureRange").max = 30; $("tenureRange").step = 1; }
+  else { $("tenureRange").min = 6; $("tenureRange").max = 360; $("tenureRange").step = 6; }
+  $("tenureRange").value = $("tenure").value;
+  update();
+});
+
+// Wire ranges <-> numbers
+function syncPair(rangeId, inputId, hint, hintFmt){
+  $(rangeId).addEventListener("input", () => { $(inputId).value = $(rangeId).value; if (hintFmt) $(hint).textContent = hintFmt(+$(rangeId).value); update(); });
+  $(inputId).addEventListener("input", () => { $(rangeId).value = $(inputId).value; if (hintFmt) $(hint).textContent = hintFmt(+$(inputId).value); update(); });
+}
+syncPair("amountRange","amount","amountHint", v => fmtShort(v));
+syncPair("rateRange","rate","rateHint", v => v.toFixed(2) + "%");
+syncPair("tenureRange","tenure","tenureHint", v => v + " " + tenureUnit);
+
+$("currency").addEventListener("change", applyCurrencyChange);
+$("sched-view").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  document.querySelectorAll("#sched-view button").forEach(x => x.classList.toggle("active", x === b));
+  renderSchedule();
+});
+
+// EMI math
+function calcEMI(P, annualRatePct, months){
+  if (months <= 0 || P <= 0) return 0;
+  const r = annualRatePct / 100 / 12;
+  if (r === 0) return P / months;
+  return P * r * Math.pow(1+r, months) / (Math.pow(1+r, months) - 1);
+}
+
+function getTotalMonths(){
+  return tenureUnit === "years" ? +$("tenure").value * 12 : +$("tenure").value;
+}
+
+function getAmortization(){
+  const P = +$("amount").value;
+  const annualRate = +$("rate").value;
+  const months = getTotalMonths();
+  const emi = calcEMI(P, annualRate, months);
+  const r = annualRate / 100 / 12;
+  const rows = [];
+  let balance = P;
+  for (let m = 1; m <= months; m++) {
+    const interest = balance * r;
+    const principal = emi - interest;
+    balance = Math.max(0, balance - principal);
+    rows.push({ month: m, emi, principal, interest, balance });
+  }
+  return { rows, emi, totalInterest: emi * months - P, totalPayment: emi * months };
+}
+
+let chart;
+function update(){
+  const P = +$("amount").value;
+  const months = getTotalMonths();
+  const { rows, emi, totalInterest, totalPayment } = getAmortization();
+
+  $("emi").textContent = fmt(emi);
+  $("rPrincipal").textContent = fmt(P, 0);
+  $("rInterest").textContent = fmt(totalInterest, 0);
+  $("rInterestSub").textContent = "over " + (months >= 12 ? Math.round(months/12) + " yr" : months + " mo");
+  $("rTotal").textContent = fmt(totalPayment, 0);
+  $("rInterestPct").textContent = totalPayment > 0 ? ((totalInterest/totalPayment)*100).toFixed(1) + "%" : "—";
+
+  renderChart(rows);
+  renderSchedule();
+}
+
+function renderChart(rows){
+  // Sample at most 240 points
+  const step = Math.max(1, Math.floor(rows.length / 240));
+  const xs = [], pCum = [], iCum = [], bal = [];
+  let pTotal = 0, iTotal = 0;
+  for (let i = 0; i < rows.length; i++) {
+    pTotal += rows[i].principal;
+    iTotal += rows[i].interest;
+    if (i % step === 0 || i === rows.length - 1) {
+      xs.push(rows[i].month);
+      pCum.push(pTotal);
+      iCum.push(iTotal);
+      bal.push(rows[i].balance);
+    }
+  }
+  const labels = xs.map(m => m % 12 === 0 ? "Yr " + (m/12) : "");
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  if (chart) {
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = pCum;
+    chart.data.datasets[1].data = iCum;
+    chart.data.datasets[2].data = bal;
+    chart.update("none");
+  } else {
+    chart = new Chart($("chart"), {
+      type: "line",
+      data: {
+        labels,
+        datasets: [
+          { data: pCum, label: "Principal paid", borderColor: "#0f766e", backgroundColor: "rgba(15,118,110,0.18)", fill: true, tension: 0.2, pointRadius: 0, borderWidth: 2 },
+          { data: iCum, label: "Interest paid", borderColor: "#f59e0b", backgroundColor: "rgba(245,158,11,0.18)", fill: true, tension: 0.2, pointRadius: 0, borderWidth: 2 },
+          { data: bal, label: "Balance", borderColor: "#94a3b8", backgroundColor: "rgba(148,163,184,0.10)", fill: false, tension: 0.2, pointRadius: 0, borderWidth: 2, borderDash: [4,4] }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => c.dataset.label + ": " + fmt(c.parsed.y, 0) }}},
+        interaction: { mode: 'index', intersect: false },
+        scales: {
+          y: { ticks: { callback: v => fmtShort(v), color: muted }, grid: { color: "rgba(125,125,125,0.10)" } },
+          x: { ticks: { maxTicksLimit: 8, color: muted, autoSkip: true }, grid: { display: false } }
+        }
+      }
+    });
+  }
+}
+function refreshChart(){
+  if (!chart) return;
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  chart.options.scales.x.ticks.color = muted;
+  chart.options.scales.y.ticks.color = muted;
+  chart.update("none");
+}
+
+function renderSchedule(){
+  const view = document.querySelector("#sched-view button.active").dataset.val;
+  $("periodHeader").textContent = view === "yearly" ? "Year" : "Month";
+  const { rows } = getAmortization();
+  const tbody = $("schedBody");
+  tbody.innerHTML = "";
+
+  let display;
+  if (view === "yearly") {
+    // Aggregate by year
+    const years = {};
+    rows.forEach(r => {
+      const y = Math.ceil(r.month / 12);
+      if (!years[y]) years[y] = { period: "Year " + y, principal: 0, interest: 0, total: 0, balance: r.balance };
+      years[y].principal += r.principal;
+      years[y].interest += r.interest;
+      years[y].total += r.emi;
+      years[y].balance = r.balance;
+    });
+    display = Object.values(years);
+  } else {
+    display = rows.map(r => ({ period: "Month " + r.month, principal: r.principal, interest: r.interest, total: r.emi, balance: r.balance }));
+  }
+
+  $("schedSummary").textContent = display.length + " " + (view === "yearly" ? "years" : "months") + " · scrollable";
+
+  // Cap monthly view to 360 rows for performance; user can scroll
+  display.forEach(d => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${d.period}</td><td>${fmt(d.principal, 0)}</td><td>${fmt(d.interest, 0)}</td><td>${fmt(d.total, 0)}</td><td>${fmt(d.balance, 0)}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+// Init — detect default currency from browser locale and load the regional "Home" preset
+$("currency").value = detectDefaultCurrency();
+$("amountRange").max = AMOUNT_MAX[ccy()];
+applyPreset("home");
+// Mark the Home pill active
+document.querySelectorAll("#preset-pills .slab-pill").forEach(x => x.classList.toggle("active", x.dataset.preset === "home"));
+$("amountHint").textContent = fmtShort(+$("amount").value);
+$("rateHint").textContent = (+$("rate").value).toFixed(2) + "%";
+$("tenureHint").textContent = $("tenure").value + " " + tenureUnit;
+update();
+</script>
+</body>
+</html>
