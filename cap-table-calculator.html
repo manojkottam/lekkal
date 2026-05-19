@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary SEO -->
+<title>Free Cap Table & Equity Dilution Calculator for Startups | Lekkal</title>
+<meta name="description" content="Free cap table calculator. Model founder dilution across pre-seed, seed, Series A and beyond. Includes ESOP refresh, post-money valuation math, and a per-round ownership chart. No signup, runs in your browser." />
+<meta name="keywords" content="cap table calculator, dilution calculator, founder dilution, equity dilution simulator, startup cap table, ESOP refresh, post-money valuation, seed funding calculator, Series A dilution, founder equity calculator" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<link rel="canonical" href="https://lekkal.com/cap-table-calculator.html" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/cap-table-calculator.html" />
+<meta property="og:title" content="Free Cap Table & Equity Dilution Calculator for Startups" />
+<meta property="og:description" content="Model founder dilution across funding rounds. ESOP refresh, post-money math, ownership chart. Free, no signup." />
+<meta property="og:image" content="https://lekkal.com/og-cap-table.png" />
+<meta property="og:site_name" content="Lekkal" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Cap Table & Dilution Calculator" />
+<meta name="twitter:description" content="Model founder dilution across funding rounds. ESOP refresh included. Free, runs in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-cap-table.png" />
+
+<!-- WebApplication schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lekkal Cap Table & Dilution Calculator",
+  "url": "https://lekkal.com/cap-table-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free startup cap table and equity dilution calculator. Model founder ownership across multiple funding rounds with ESOP refresh, pre-money and post-money valuations, and a snapshot per round.",
+  "featureList": [
+    "Unlimited funding rounds",
+    "ESOP refresh (option pool shuffle)",
+    "Pre-money and post-money valuation math",
+    "Per-round snapshot of ownership",
+    "Founder dilution trajectory",
+    "Stacked ownership chart",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<!-- Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Cap Table Calculator", "item": "https://lekkal.com/cap-table-calculator.html" }
+  ]
+}
+</script>
+
+<!-- FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a cap table?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A cap table (capitalization table) is a record of who owns what percentage of a company. It lists founders, employees with options (ESOP), and investors, with their respective ownership stakes. Every time the company issues new equity — a funding round, ESOP refresh, or employee grant — the cap table changes." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does dilution mean?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Dilution is the reduction in existing shareholders' ownership percentage when new shares are issued. If you owned 50% of a company and the company issues new shares to a Series A investor for 20% of post-money, your new ownership is 50% × (1 - 20%) = 40%. Founders typically end up with 20–40% combined after 3-4 funding rounds." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is ESOP refresh?",
+      "acceptedAnswer": { "@type": "Answer", "text": "ESOP refresh (also called option pool shuffle) is when a new option pool is created or topped up as part of a funding round. Typically the new pool comes out of the pre-money valuation, meaning existing shareholders are diluted before the new investor comes in. This is one of the most under-appreciated sources of founder dilution." }
+    },
+    {
+      "@type": "Question",
+      "name": "Pre-money vs post-money — what's the difference?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pre-money valuation is the company's value before the new investment lands. Post-money = pre-money + investment. The new investor's ownership percentage = investment ÷ post-money. So a $2M investment at $10M pre-money gives the investor $2M / $12M = 16.7% of the post-round company." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much dilution should I expect per round?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Typical dilution per round: pre-seed 10–15%, seed 15–25%, Series A 20–25%, Series B+ 15–20%. Add 5–15% ESOP refresh on top, usually at the seed or Series A round. After three rounds, founders combined typically retain 30–50% of the company." }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="styles.css" />
+<script src="nav.js" defer></script>
+<style>
+  .holder-row, .round-row {
+    display: grid; gap: 8px; align-items: center;
+    margin-bottom: 8px;
+  }
+  .holder-row { grid-template-columns: 1fr 90px 28px; }
+  .round-row { grid-template-columns: 1fr 110px 110px 90px 28px; }
+  .holder-row input, .round-row input { height: 34px !important; }
+  .x-btn { background: transparent; border: 0; color: var(--text-soft); cursor: pointer; font-size: 18px; padding: 0; }
+  .x-btn:hover { color: var(--danger); }
+  .colhead {
+    display: grid; gap: 8px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-muted); margin-bottom: 6px; font-weight: 600;
+  }
+  .colhead.holder { grid-template-columns: 1fr 90px 28px; }
+  .colhead.round { grid-template-columns: 1fr 110px 110px 90px 28px; }
+  .colhead span:nth-child(2), .colhead span:nth-child(3), .colhead span:nth-child(4) { text-align: right; }
+  .cap-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .cap-table th { text-align: left; padding: 8px 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border); }
+  .cap-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+  .cap-table th:not(:first-child), .cap-table td:not(:first-child) { text-align: right; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 8px; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="invoice-generator.html">Invoice</a>
+      <a href="emi-calculator.html">EMI</a>
+      <a href="burn-rate-calculator.html">Burn</a>
+      <a href="cap-table-calculator.html" class="active">Cap table</a>
+      <a href="roi-calculator.html">ROI</a>
+      <details class="nav-dropdown">
+        <summary>
+          India
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="gst-calculator.html"><span>GST calculator<span class="meta">CGST · SGST · IGST</span></span><span class="pill">Live</span></a>
+          <a href="income-tax-calculator.html"><span>Income tax<span class="meta">Old vs new regime · FY 2025-26</span></span><span class="pill">Live</span></a>
+          <a href="sip-calculator.html"><span>SIP calculator<span class="meta">Regular · step-up · lump sum</span></span><span class="pill">Live</span></a>
+          <a href="salary-breakup-calculator.html"><span>Salary breakup<span class="meta">CTC to in-hand</span></span><span class="pill">Live</span></a>
+          <div class="divider"></div>
+          <div class="footer">Coming soon</div>
+          <a class="disabled"><span>TDS calculator<span class="meta">Sec 192 / 194C / 194J</span></span><span class="pill soon">Soon</span></a>
+        </div>
+      </details>
+      <a href="index.html#tools">All tools</a>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>Cap table & dilution calculator</h1>
+  <p>Model how your ownership changes across pre-seed, seed, Series A, and beyond. Includes ESOP refresh, pre-money math, and a per-round chart. Free, no signup, runs in your browser.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>Founders</h2>
+      <div class="colhead holder">
+        <span style="text-align:left;">Name</span>
+        <span>Initial %</span>
+        <span></span>
+      </div>
+      <div id="founders"></div>
+      <button class="btn secondary" id="addFounder" style="margin-top:6px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add founder
+      </button>
+      <p id="founderSumWarn" class="soft" style="font-size:12px;margin:8px 0 0;">Initial percentages should sum to 100%.</p>
+
+      <div class="field" style="margin-top: 18px;">
+        <label>Initial ESOP / option pool <span class="hint" id="esop0Hint">0%</span></label>
+        <input type="range" id="initEsop" min="0" max="20" step="0.5" value="0" />
+        <p class="soft" style="font-size:12px;margin:4px 0 0;">Optional. Most companies start with 0% and add an option pool at seed.</p>
+      </div>
+
+      <h2 style="margin-top:24px;">Funding rounds</h2>
+      <div class="colhead round">
+        <span style="text-align:left;">Round name</span>
+        <span>Investment</span>
+        <span>Pre-money</span>
+        <span>ESOP target</span>
+        <span></span>
+      </div>
+      <div id="rounds"></div>
+      <button class="btn secondary" id="addRound" style="margin-top:6px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add round
+      </button>
+      <p class="soft" style="font-size:12px;margin:8px 0 0;">ESOP target is the desired option pool size <em>after</em> the round (post-money %). Leave blank for no refresh.</p>
+
+      <button class="btn secondary" id="resetBtn" style="margin-top: 20px;">Reset to default scenario</button>
+    </div>
+
+    <div class="card">
+      <h2>Outcome</h2>
+
+      <div class="verdict success" style="margin-bottom: 14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="text">
+          <strong id="vTitle">—</strong>
+          <span id="vBody">—</span>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Founders combined</div>
+          <div class="value tabular" id="founderTotal">—</div>
+          <div class="sub" id="founderTotalSub">at final round</div>
+        </div>
+        <div class="stat">
+          <div class="label">Total raised</div>
+          <div class="value tabular" id="totalRaised">—</div>
+          <div class="sub">across all rounds</div>
+        </div>
+        <div class="stat">
+          <div class="label">Final valuation</div>
+          <div class="value tabular" id="finalVal">—</div>
+          <div class="sub">post-money, last round</div>
+        </div>
+        <div class="stat">
+          <div class="label">Investors combined</div>
+          <div class="value tabular" id="investorTotal">—</div>
+          <div class="sub">at final round</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top: 22px;">Ownership across rounds</h2>
+      <div class="chart-wrap"><canvas id="chart"></canvas></div>
+      <div id="legend" style="display:flex; gap:14px; font-size:12px; color:var(--text-muted); margin-top: 8px; flex-wrap: wrap; justify-content: center;"></div>
+    </div>
+  </div>
+
+  <section class="card mt-6">
+    <h2 style="display:flex;justify-content:space-between;align-items:center;">
+      <span>Full cap table by round</span>
+      <span class="muted" id="snapSummary" style="font-size:12px;text-transform:none;letter-spacing:0;font-weight:400;"></span>
+    </h2>
+    <div style="overflow-x:auto;">
+      <table class="cap-table" id="capTable">
+        <thead id="capHead"></thead>
+        <tbody id="capBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="grid-3 mt-6">
+    <div class="card-flat">
+      <p class="section-title">Typical dilution per round</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        Pre-seed: <strong>10–15%</strong>. Seed: <strong>15–25%</strong>. Series A: <strong>20–25%</strong>. Series B+: <strong>15–20%</strong>. Add 5–15% ESOP refresh on top, usually at seed or Series A.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">ESOP refresh</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        New option pool comes out of pre-money — existing shareholders dilute <em>before</em> the new investor. Often the hidden 5–10% extra dilution founders don't model. This calculator handles it correctly.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Typical end state</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        After 3–4 rounds, founders combined usually retain <strong>20–40%</strong>. ESOP sits at 10–15%. The rest is investors. If founders drop below 20% before Series B, future rounds will be hard.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About cap tables and dilution</h2>
+    <details class="faq" open>
+      <summary>What is a cap table?</summary>
+      <p>A <strong>cap table</strong> (capitalization table) is a record of who owns what percentage of a company. It lists founders, employees with options (ESOP), and investors, with their respective ownership stakes. Every time the company issues new equity — a funding round, ESOP refresh, or employee grant — the cap table changes.</p>
+    </details>
+    <details class="faq">
+      <summary>What does dilution mean?</summary>
+      <p><strong>Dilution</strong> is the reduction in existing shareholders' ownership percentage when new shares are issued. If you owned 50% of a company and the company issues new shares to a Series A investor for 20% of post-money, your new ownership is 50% × (1 - 20%) = 40%. Founders typically end up with 20–40% combined after 3–4 funding rounds.</p>
+    </details>
+    <details class="faq">
+      <summary>What is ESOP refresh?</summary>
+      <p><strong>ESOP refresh</strong> (also called option pool shuffle) is when a new option pool is created or topped up as part of a funding round. Typically the new pool comes out of the pre-money valuation, meaning existing shareholders are diluted <em>before</em> the new investor comes in. This is one of the most under-appreciated sources of founder dilution.</p>
+    </details>
+    <details class="faq">
+      <summary>Pre-money vs post-money — what's the difference?</summary>
+      <p><strong>Pre-money valuation</strong> is the company's value before the new investment lands. <strong>Post-money</strong> = pre-money + investment. The new investor's ownership percentage = investment ÷ post-money. So a $2M investment at $10M pre-money gives the investor $2M / $12M = 16.7% of the post-round company.</p>
+    </details>
+    <details class="faq">
+      <summary>How much dilution should I expect per round?</summary>
+      <p>Typical dilution per round: pre-seed <strong>10–15%</strong>, seed <strong>15–25%</strong>, Series A <strong>20–25%</strong>, Series B+ <strong>15–20%</strong>. Add 5–15% ESOP refresh on top, usually at the seed or Series A round. After three rounds, founders combined typically retain 30–50% of the company.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. This calculator runs entirely in your browser. None of your cap table data is sent to any server. You can use it for sensitive scenario planning with confidence.</p>
+    </details>
+  </section>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>Founder tools</h4>
+      <a href="cap-table-calculator.html">Cap table</a>
+      <a href="burn-rate-calculator.html">Burn rate & runway</a>
+      <a href="roi-calculator.html">Marketing ROI</a>
+    </div>
+    <div class="col">
+      <h4>All tools</h4>
+      <a href="index.html#tools">Browse →</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+  refreshChartColors();
+});
+
+function fmt(n) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  if (Math.abs(n) >= 1e9) return "$" + (n/1e9).toFixed(2) + "B";
+  if (Math.abs(n) >= 1e6) return "$" + (n/1e6).toFixed(2) + "M";
+  if (Math.abs(n) >= 1000) return "$" + (n/1000).toFixed(0) + "K";
+  return "$" + Math.round(n).toLocaleString();
+}
+
+// Color palette for stakeholders
+const COLORS = {
+  founder: ["#0f766e", "#14b8a6", "#5eead4", "#2dd4bf"],
+  esop:    ["#f59e0b"],
+  investor:["#6366f1", "#8b5cf6", "#a855f7", "#d946ef", "#ec4899", "#f43f5e"]
+};
+function colorFor(stake, founderIdx, investorIdx) {
+  if (stake.cat === "founder") return COLORS.founder[founderIdx % COLORS.founder.length];
+  if (stake.cat === "esop") return COLORS.esop[0];
+  return COLORS.investor[investorIdx % COLORS.investor.length];
+}
+
+// State
+const DEFAULT_STATE = {
+  founders: [
+    { name: "Alice", pct: 50 },
+    { name: "Bob",   pct: 50 }
+  ],
+  initialEsop: 0,
+  rounds: [
+    { name: "Pre-seed", investment: 500000,   preMoney: 4000000,  esopRefresh: null },
+    { name: "Seed",     investment: 2000000,  preMoney: 10000000, esopRefresh: 10 },
+    { name: "Series A", investment: 10000000, preMoney: 30000000, esopRefresh: null }
+  ]
+};
+
+let state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+
+// ---- Render founders & rounds editors ----
+function renderFounders() {
+  const box = $("founders");
+  box.innerHTML = "";
+  state.founders.forEach((f, i) => {
+    const row = document.createElement("div");
+    row.className = "holder-row";
+    row.innerHTML = `
+      <input type="text" placeholder="Name" value="${escapeHtml(f.name)}" data-i="${i}" data-k="name" />
+      <input type="number" placeholder="50" value="${f.pct}" min="0" max="100" step="0.5" data-i="${i}" data-k="pct" style="text-align:right;" />
+      <button class="x-btn" data-rm="${i}" title="Remove">×</button>
+    `;
+    box.appendChild(row);
+  });
+}
+$("founders").addEventListener("input", e => {
+  const t = e.target;
+  if (t.dataset.i != null) {
+    const i = +t.dataset.i, k = t.dataset.k;
+    state.founders[i][k] = k === "name" ? t.value : (+t.value || 0);
+    update();
+  }
+});
+$("founders").addEventListener("click", e => {
+  const b = e.target.closest("button[data-rm]");
+  if (b && state.founders.length > 1) {
+    state.founders.splice(+b.dataset.rm, 1);
+    renderFounders(); update();
+  }
+});
+$("addFounder").addEventListener("click", () => {
+  const names = ["Alice","Bob","Carol","Dave","Eve","Frank"];
+  const i = state.founders.length;
+  state.founders.push({ name: names[i] || `Founder ${i+1}`, pct: 0 });
+  renderFounders(); update();
+});
+
+function renderRounds() {
+  const box = $("rounds");
+  box.innerHTML = "";
+  state.rounds.forEach((r, i) => {
+    const row = document.createElement("div");
+    row.className = "round-row";
+    row.innerHTML = `
+      <input type="text" placeholder="Round name" value="${escapeHtml(r.name)}" data-i="${i}" data-k="name" />
+      <input type="number" placeholder="Investment $" value="${r.investment}" min="0" step="10000" data-i="${i}" data-k="investment" style="text-align:right;" />
+      <input type="number" placeholder="Pre-money $" value="${r.preMoney}" min="0" step="10000" data-i="${i}" data-k="preMoney" style="text-align:right;" />
+      <input type="number" placeholder="optional" value="${r.esopRefresh != null ? r.esopRefresh : ""}" min="0" max="40" step="0.5" data-i="${i}" data-k="esopRefresh" style="text-align:right;" />
+      <button class="x-btn" data-rm="${i}" title="Remove">×</button>
+    `;
+    box.appendChild(row);
+  });
+}
+$("rounds").addEventListener("input", e => {
+  const t = e.target;
+  if (t.dataset.i != null) {
+    const i = +t.dataset.i, k = t.dataset.k;
+    if (k === "name") state.rounds[i].name = t.value;
+    else if (k === "esopRefresh") state.rounds[i].esopRefresh = t.value === "" ? null : +t.value;
+    else state.rounds[i][k] = +t.value || 0;
+    update();
+  }
+});
+$("rounds").addEventListener("click", e => {
+  const b = e.target.closest("button[data-rm]");
+  if (b) { state.rounds.splice(+b.dataset.rm, 1); renderRounds(); update(); }
+});
+$("addRound").addEventListener("click", () => {
+  const labels = ["Pre-seed","Seed","Series A","Series B","Series C","Series D","Series E","Series F"];
+  const i = state.rounds.length;
+  state.rounds.push({ name: labels[i] || `Round ${i+1}`, investment: 1000000, preMoney: 5000000, esopRefresh: null });
+  renderRounds(); update();
+});
+$("initEsop").addEventListener("input", () => { state.initialEsop = +$("initEsop").value; update(); });
+$("resetBtn").addEventListener("click", () => {
+  state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+  $("initEsop").value = state.initialEsop;
+  renderFounders(); renderRounds(); update();
+});
+
+function escapeHtml(s) { return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+// ---- Compute snapshots ----
+function computeSnapshots() {
+  const founderSum = state.founders.reduce((s, f) => s + (f.pct || 0), 0);
+  const founderNorm = founderSum > 0 ? founderSum / 100 : 1;  // shouldn't happen but guard
+  const initEsopPct = (state.initialEsop || 0) / 100;
+
+  let stake = state.founders.map(f => ({
+    name: f.name || "Founder",
+    cat: "founder",
+    pct: ((f.pct || 0) / 100 / founderNorm) * (1 - initEsopPct)
+  }));
+  if (initEsopPct > 0) {
+    stake.push({ name: "Option pool", cat: "esop", pct: initEsopPct });
+  }
+
+  const snaps = [{ label: "Pre-funding", stake: stake.map(s => ({...s})), post: null, raised: 0, totalRaised: 0 }];
+  let totalRaised = 0;
+
+  for (const r of state.rounds) {
+    const post = r.preMoney + r.investment;
+    if (post <= 0) continue;
+    const N = r.investment / post;
+    const existingEsop = (stake.find(s => s.cat === "esop") || {}).pct || 0;
+    const dilutedEsop = existingEsop * (1 - N);
+    const targetEsop = r.esopRefresh != null ? (+r.esopRefresh / 100) : dilutedEsop;
+    const netEsopAdd = Math.max(0, targetEsop - dilutedEsop);
+    const newEsopTotal = dilutedEsop + netEsopAdd;
+    const existingNonEsopBefore = 1 - existingEsop;
+    const remainingForNonEsop = 1 - newEsopTotal - N;
+    const X = existingNonEsopBefore > 0 ? remainingForNonEsop / existingNonEsopBefore : 0;
+
+    stake = stake.map(s => {
+      if (s.cat === "esop") return { ...s, pct: newEsopTotal };
+      return { ...s, pct: s.pct * X };
+    });
+    if (!stake.some(s => s.cat === "esop") && netEsopAdd > 0) {
+      stake.push({ name: "Option pool", cat: "esop", pct: netEsopAdd });
+    }
+    stake.push({ name: r.name + " investors", cat: "investor", pct: N });
+
+    totalRaised += r.investment;
+    snaps.push({ label: r.name, stake: stake.map(s => ({...s})), post, raised: r.investment, totalRaised });
+  }
+  return snaps;
+}
+
+// ---- Render outputs ----
+let chart;
+function update() {
+  // Sum warning
+  const fSum = state.founders.reduce((s, f) => s + (f.pct || 0), 0);
+  $("founderSumWarn").style.color = Math.abs(fSum - 100) < 0.5 ? "var(--text-soft)" : "var(--warning)";
+  $("founderSumWarn").textContent = `Initial percentages sum to ${fSum.toFixed(1)}% (auto-normalized to 100%).`;
+  $("esop0Hint").textContent = (state.initialEsop || 0) + "%";
+
+  const snaps = computeSnapshots();
+  const last = snaps[snaps.length - 1];
+
+  // Headline stats
+  const founderTotal = last.stake.filter(s => s.cat === "founder").reduce((a, s) => a + s.pct, 0);
+  const investorTotal = last.stake.filter(s => s.cat === "investor").reduce((a, s) => a + s.pct, 0);
+  $("founderTotal").textContent = (founderTotal * 100).toFixed(1) + "%";
+  $("founderTotalSub").textContent = `at ${last.label}`;
+  $("investorTotal").textContent = (investorTotal * 100).toFixed(1) + "%";
+  $("totalRaised").textContent = fmt(last.totalRaised);
+  $("finalVal").textContent = last.post ? fmt(last.post) : "—";
+
+  // Verdict
+  const vT = $("vTitle"), vB = $("vBody"), v = $("verdict");
+  v.classList.remove("success","warning","danger","neutral");
+  const initialFounders = snaps[0].stake.filter(s => s.cat === "founder").reduce((a, s) => a + s.pct, 0);
+  const dilution = initialFounders - founderTotal;
+  if (state.rounds.length === 0) {
+    v.classList.add("neutral");
+    vT.textContent = "Add a funding round to see dilution";
+    vB.textContent = "Founders currently hold 100%.";
+  } else if (founderTotal >= 0.50) {
+    v.classList.add("success");
+    vT.textContent = `Founders retain ${(founderTotal*100).toFixed(1)}% — strong position`;
+    vB.textContent = `Diluted ${(dilution*100).toFixed(1)}% across ${state.rounds.length} round${state.rounds.length === 1 ? "" : "s"}. You have leverage in future negotiations.`;
+  } else if (founderTotal >= 0.30) {
+    v.classList.add("success");
+    vT.textContent = `Founders retain ${(founderTotal*100).toFixed(1)}% — healthy`;
+    vB.textContent = `Diluted ${(dilution*100).toFixed(1)}% across ${state.rounds.length} rounds. Within the typical 30–50% range after 3 rounds.`;
+  } else if (founderTotal >= 0.20) {
+    v.classList.add("warning");
+    vT.textContent = `Founders retain ${(founderTotal*100).toFixed(1)}% — getting tight`;
+    vB.textContent = `Diluted ${(dilution*100).toFixed(1)}%. Future rounds will compress further — plan ahead.`;
+  } else {
+    v.classList.add("danger");
+    vT.textContent = `Founders retain ${(founderTotal*100).toFixed(1)}% — heavily diluted`;
+    vB.textContent = `Diluted ${(dilution*100).toFixed(1)}%. Below 20% combined makes Series B+ rounds difficult and reduces motivation.`;
+  }
+
+  renderChart(snaps);
+  renderCapTable(snaps);
+}
+
+function renderChart(snaps) {
+  // Build per-stakeholder series across snapshots
+  // Stakeholders evolve — we collect all unique names across snapshots
+  const allHolders = [];
+  const seen = new Set();
+  snaps.forEach(s => s.stake.forEach(x => {
+    if (!seen.has(x.name)) { seen.add(x.name); allHolders.push({ name: x.name, cat: x.cat }); }
+  }));
+
+  // Assign colors
+  let founderIdx = 0, investorIdx = 0;
+  allHolders.forEach(h => {
+    if (h.cat === "founder") h.color = colorFor(h, founderIdx++, 0);
+    else if (h.cat === "esop") h.color = colorFor(h, 0, 0);
+    else h.color = colorFor(h, 0, investorIdx++);
+  });
+
+  const labels = snaps.map(s => s.label);
+  const datasets = allHolders.map(h => ({
+    label: h.name,
+    data: snaps.map(s => {
+      const found = s.stake.find(x => x.name === h.name);
+      return found ? +(found.pct * 100).toFixed(2) : 0;
+    }),
+    backgroundColor: h.color,
+    borderColor: h.color,
+    borderWidth: 0,
+    stack: "ownership"
+  }));
+
+  const muted = getComputedStyle(document.body).getPropertyValue("--text-muted");
+  if (chart) {
+    chart.data.labels = labels;
+    chart.data.datasets = datasets;
+    chart.update("none");
+  } else {
+    chart = new Chart($("chart"), {
+      type: "bar",
+      data: { labels, datasets },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: c => c.dataset.label + ": " + c.parsed.y.toFixed(2) + "%"
+            }
+          }
+        },
+        scales: {
+          x: { stacked: true, ticks: { color: muted }, grid: { display: false }},
+          y: { stacked: true, max: 100, ticks: { callback: v => v + "%", color: muted }, grid: { color: "rgba(125,125,125,0.10)" }}
+        }
+      }
+    });
+  }
+
+  // Legend
+  const legend = $("legend");
+  legend.innerHTML = "";
+  allHolders.forEach(h => {
+    const el = document.createElement("span");
+    el.style.cssText = "display:flex;align-items:center;gap:6px;";
+    el.innerHTML = `<span class="dot" style="background:${h.color};"></span>${escapeHtml(h.name)}`;
+    legend.appendChild(el);
+  });
+}
+
+function refreshChartColors() {
+  if (!chart) return;
+  const muted = getComputedStyle(document.body).getPropertyValue("--text-muted");
+  chart.options.scales.x.ticks.color = muted;
+  chart.options.scales.y.ticks.color = muted;
+  chart.update("none");
+}
+
+function renderCapTable(snaps) {
+  const allHolders = [];
+  const seen = new Set();
+  snaps.forEach(s => s.stake.forEach(x => {
+    if (!seen.has(x.name)) { seen.add(x.name); allHolders.push({ name: x.name, cat: x.cat }); }
+  }));
+  let fI = 0, iI = 0;
+  allHolders.forEach(h => {
+    if (h.cat === "founder") h.color = colorFor(h, fI++, 0);
+    else if (h.cat === "esop") h.color = colorFor(h, 0, 0);
+    else h.color = colorFor(h, 0, iI++);
+  });
+
+  // Header
+  const head = $("capHead");
+  head.innerHTML = "<tr><th style='text-align:left;'>Stakeholder</th>" + snaps.map(s => `<th>${escapeHtml(s.label)}</th>`).join("") + "</tr>";
+
+  // Body
+  const body = $("capBody");
+  body.innerHTML = allHolders.map(h => {
+    const cells = snaps.map(s => {
+      const f = s.stake.find(x => x.name === h.name);
+      return `<td>${f ? (f.pct * 100).toFixed(2) + "%" : "—"}</td>`;
+    }).join("");
+    return `<tr><td style='text-align:left;'><span class="dot" style="background:${h.color}"></span>${escapeHtml(h.name)}</td>${cells}</tr>`;
+  }).join("");
+
+  // Footer with valuation
+  body.innerHTML += `<tr style="border-top:2px solid var(--border-2);font-weight:500;"><td style='text-align:left;color:var(--text-muted);'>Post-money valuation</td>${snaps.map(s => `<td>${s.post ? fmt(s.post) : "—"}</td>`).join("")}</tr>`;
+
+  $("snapSummary").textContent = `${snaps.length} snapshot${snaps.length === 1 ? "" : "s"} · ${state.rounds.length} round${state.rounds.length === 1 ? "" : "s"}`;
+}
+
+// Init
+renderFounders();
+renderRounds();
+update();
+</script>
+</body>
+</html>
