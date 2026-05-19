@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary SEO -->
+<title>Free SIP Calculator (India) — Regular, Step-up & Lump Sum | Lekkal</title>
+<meta name="description" content="Free SIP calculator for India. Estimate mutual fund returns for regular SIP, step-up SIP, and lump sum investments. See total corpus, returns, and a year-by-year growth chart with optional inflation adjustment. No signup." />
+<meta name="keywords" content="SIP calculator, SIP calculator India, step-up SIP calculator, mutual fund SIP calculator, lump sum calculator, monthly investment calculator, corpus calculator, free SIP calculator, SIP returns calculator" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<link rel="canonical" href="https://lekkal.com/sip-calculator.html" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/sip-calculator.html" />
+<meta property="og:title" content="Free SIP Calculator (India) — Regular, Step-up, Lump Sum" />
+<meta property="og:description" content="Estimate mutual fund returns. Regular SIP, step-up SIP, lump sum. With inflation-adjusted real value. Free, no signup." />
+<meta property="og:image" content="https://lekkal.com/og-sip.png" />
+<meta property="og:site_name" content="Lekkal" />
+<meta property="og:locale" content="en_IN" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free SIP Calculator (India)" />
+<meta name="twitter:description" content="Regular, step-up, lump sum. Year-by-year corpus growth chart. Free, runs in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-sip.png" />
+
+<!-- WebApplication schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lekkal SIP Calculator (India)",
+  "url": "https://lekkal.com/sip-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free SIP calculator for India. Project mutual fund returns for regular SIP, step-up SIP, and lump sum investments. Includes inflation-adjusted real value and year-by-year corpus growth.",
+  "featureList": [
+    "Regular SIP projection",
+    "Step-up SIP (annual increment)",
+    "Lump sum investment",
+    "Inflation-adjusted real value",
+    "Year-by-year corpus growth chart",
+    "Wealth multiplier (X times invested)",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<!-- Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "SIP Calculator", "item": "https://lekkal.com/sip-calculator.html" }
+  ]
+}
+</script>
+
+<!-- FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is SIP return calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "SIP future value uses the formula: FV = P × [((1+r)^n − 1) / r] × (1+r), where P is the monthly investment, r is the monthly return rate (annual rate ÷ 12 ÷ 100), and n is the total number of months. This assumes contributions are made at the start of each month and returns compound monthly." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a step-up SIP?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A step-up SIP (also called a top-up SIP) is one where your monthly investment increases by a fixed percentage every year — usually 5% to 15%. It matches your investing pace to your income growth and significantly boosts the final corpus. A 10% annual step-up on a 20-year SIP can roughly double the final corpus compared to a flat SIP." }
+    },
+    {
+      "@type": "Question",
+      "name": "What return rate should I assume?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Equity mutual funds in India have historically returned 10–14% CAGR over long periods (15+ years). Debt funds and FDs return 6–8%. Hybrid funds sit in the middle at 8–11%. Use 12% as a reasonable equity benchmark for long-term planning, but remember actual returns vary and short-term swings are normal." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I adjust for inflation?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, especially for long-horizon planning. India's long-term inflation averages 5–7%. A nominal ₹1 crore in 20 years at 6% inflation is worth only about ₹31 lakh in today's purchasing power. The inflation-adjusted real value shows what your corpus can actually buy in present-day terms." }
+    },
+    {
+      "@type": "Question",
+      "name": "Lump sum vs SIP — which is better?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Mathematically, if you have a large amount available and the market trends upward, lump sum usually wins because it gets fully invested immediately. SIP wins when markets are volatile or declining because you rupee-cost-average — buying more units when prices are low. For most retail investors with monthly income, SIP is the practical choice." }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="styles.css" />
+<script src="nav.js" defer></script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="invoice-generator.html">Invoice</a>
+      <a href="emi-calculator.html">EMI</a>
+      <a href="burn-rate-calculator.html">Burn</a>
+      <a href="roi-calculator.html">ROI</a>
+      <details class="nav-dropdown">
+        <summary class="active">
+          India
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="gst-calculator.html">
+            <span>GST calculator<span class="meta">CGST · SGST · IGST</span></span>
+            <span class="pill">Live</span>
+          </a>
+          <a href="income-tax-calculator.html">
+            <span>Income tax<span class="meta">Old vs new regime · FY 2025-26</span></span>
+            <span class="pill">Live</span>
+          </a>
+          <a href="sip-calculator.html">
+            <span>SIP calculator<span class="meta">Regular · step-up · lump sum</span></span>
+            <span class="pill">Live</span>
+          </a>
+          <div class="divider"></div>
+          <div class="footer">Coming soon</div>
+          <a href="salary-breakup-calculator.html"><span>Salary breakup<span class="meta">CTC to in-hand</span></span><span class="pill">Live</span></a>
+          <a class="disabled"><span>TDS calculator<span class="meta">Sec 192 / 194C / 194J</span></span><span class="pill soon">Soon</span></a>
+        </div>
+      </details>
+      <a href="index.html#tools">All tools</a>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>SIP calculator (India)</h1>
+  <p>Project your mutual fund corpus across regular SIP, step-up SIP, and lump sum modes. See total invested, estimated returns, wealth multiplier, and a year-by-year growth chart with optional inflation adjustment.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>Investment plan</h2>
+
+      <div class="field">
+        <label>Mode</label>
+        <div class="seg" id="mode-seg" style="display:flex;">
+          <button data-val="regular" class="active" style="flex:1;">Regular SIP</button>
+          <button data-val="stepup" style="flex:1;">Step-up SIP</button>
+          <button data-val="lumpsum" style="flex:1;">Lump sum</button>
+        </div>
+      </div>
+
+      <div class="field" id="monthlyField">
+        <label><span id="amtLabel">Monthly investment</span> <span class="hint" id="amtHint">₹10,000</span></label>
+        <input type="range" id="amtRange" min="500" max="500000" step="500" value="10000" />
+        <input type="number" id="amt" value="10000" min="0" step="500" style="margin-top:8px;" />
+      </div>
+
+      <div class="field">
+        <label>Expected annual return <span class="hint" id="rateHint">12%</span></label>
+        <input type="range" id="rateRange" min="1" max="25" step="0.5" value="12" />
+        <p class="soft" style="font-size:12px;margin:6px 0 0;">Long-term equity: 10–14%. Debt: 6–8%. Hybrid: 8–11%.</p>
+      </div>
+
+      <div class="field">
+        <label>Time period <span class="hint" id="yearsHint">20 years</span></label>
+        <input type="range" id="yearsRange" min="1" max="40" step="1" value="20" />
+      </div>
+
+      <div class="field" id="stepupField" style="display:none;">
+        <label>Annual step-up <span class="hint" id="stepHint">10%</span></label>
+        <input type="range" id="stepRange" min="0" max="30" step="0.5" value="10" />
+        <p class="soft" style="font-size:12px;margin:6px 0 0;">Your monthly SIP grows by this % every year — matches a typical salary hike.</p>
+      </div>
+
+      <h2 style="margin-top:22px;">Inflation adjustment</h2>
+      <div class="field">
+        <label>
+          Show real (inflation-adjusted) value
+          <span style="display:inline-block;margin-left:8px;">
+            <input type="checkbox" id="inflToggle" checked style="vertical-align:middle;width:auto;height:auto;" />
+          </span>
+        </label>
+      </div>
+      <div class="field" id="inflField">
+        <label>Expected inflation <span class="hint" id="inflHint">6%</span></label>
+        <input type="range" id="inflRange" min="0" max="12" step="0.5" value="6" />
+        <p class="soft" style="font-size:12px;margin:6px 0 0;">India long-term inflation has averaged 5–7%.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Projected corpus</h2>
+
+      <div class="verdict success" style="margin-bottom:14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 5-10"/></svg>
+        <div class="text">
+          <strong>Estimated total corpus</strong>
+          <span id="corpus" class="tabular" style="font-size:20px;font-weight:600;">—</span>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Total invested</div>
+          <div class="value tabular" id="invested">—</div>
+          <div class="sub" id="investedSub">your contribution</div>
+        </div>
+        <div class="stat">
+          <div class="label">Estimated returns</div>
+          <div class="value tabular" id="returns">—</div>
+          <div class="sub" id="returnsSub">market gain</div>
+        </div>
+        <div class="stat">
+          <div class="label">Wealth multiplier</div>
+          <div class="value tabular" id="multiplier">—</div>
+          <div class="sub">× of money invested</div>
+        </div>
+        <div class="stat" id="realCard">
+          <div class="label">Real value</div>
+          <div class="value tabular" id="realValue">—</div>
+          <div class="sub" id="realSub">today's purchasing power</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:22px;">Growth over time</h2>
+      <div class="chart-wrap"><canvas id="chart"></canvas></div>
+      <div style="display:flex;gap:14px;font-size:12px;color:var(--text-muted);margin-top:8px;justify-content:center;">
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:#94a3b8;"></span>Invested</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:#0f766e;"></span>Total corpus</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="card mt-6">
+    <h2 style="display:flex;justify-content:space-between;align-items:center;">
+      <span>Year-by-year breakdown</span>
+      <span class="muted" id="yearSummary" style="font-size:12px;text-transform:none;letter-spacing:0;font-weight:400;"></span>
+    </h2>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;" id="yearTable">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border);">
+            <th style="text-align:left;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);font-weight:600;">Year</th>
+            <th style="text-align:right;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);font-weight:600;">Annual invested</th>
+            <th style="text-align:right;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);font-weight:600;">Cumulative invested</th>
+            <th style="text-align:right;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);font-weight:600;">Corpus end of year</th>
+            <th style="text-align:right;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);font-weight:600;">Wealth multiplier</th>
+          </tr>
+        </thead>
+        <tbody id="yearBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="grid-3 mt-6">
+    <div class="card-flat">
+      <p class="section-title">Equity vs debt</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        <strong style="color:var(--success);">Equity:</strong> 10–14% long-term CAGR, volatile short term.<br>
+        <strong style="color:var(--warning);">Hybrid:</strong> 8–11%, moderate volatility.<br>
+        <strong style="color:var(--text-muted);">Debt / FD:</strong> 6–8%, low volatility.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Step-up vs flat SIP</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        A 10% annual step-up on a 20-year SIP can roughly double your final corpus compared to a flat SIP — at the cost of investing ~3× the amount. Match it to your expected salary growth.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Lump sum vs SIP</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        Lump sum mathematically wins in rising markets. SIP wins in volatile markets via rupee-cost averaging. For monthly-salary investors, SIP is the practical default.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About SIP and mutual fund returns</h2>
+    <details class="faq" open>
+      <summary>How is SIP return calculated?</summary>
+      <p>SIP future value uses the formula: <strong>FV = P × [((1+r)<sup>n</sup> − 1) / r] × (1+r)</strong>, where P is the monthly investment, r is the monthly return rate (annual rate ÷ 12 ÷ 100), and n is the total number of months. This assumes contributions are made at the start of each month and returns compound monthly.</p>
+    </details>
+    <details class="faq">
+      <summary>What is a step-up SIP?</summary>
+      <p>A <strong>step-up SIP</strong> (also called a top-up SIP) is one where your monthly investment increases by a fixed percentage every year — usually 5% to 15%. It matches your investing pace to your income growth and significantly boosts the final corpus. A 10% annual step-up on a 20-year SIP can roughly double the final corpus compared to a flat SIP.</p>
+    </details>
+    <details class="faq">
+      <summary>What return rate should I assume?</summary>
+      <p>Equity mutual funds in India have historically returned <strong>10–14% CAGR</strong> over long periods (15+ years). Debt funds and FDs return 6–8%. Hybrid funds sit in the middle at 8–11%. Use 12% as a reasonable equity benchmark for long-term planning, but remember actual returns vary and short-term swings are normal.</p>
+    </details>
+    <details class="faq">
+      <summary>Should I adjust for inflation?</summary>
+      <p>Yes, especially for long-horizon planning. India's long-term inflation averages <strong>5–7%</strong>. A nominal ₹1 crore in 20 years at 6% inflation is worth only about ₹31 lakh in today's purchasing power. The inflation-adjusted "real value" on this calculator shows what your corpus can actually buy in present-day terms.</p>
+    </details>
+    <details class="faq">
+      <summary>Lump sum vs SIP — which is better?</summary>
+      <p>Mathematically, if you have a large amount available and the market trends upward, <strong>lump sum</strong> usually wins because it gets fully invested immediately. <strong>SIP</strong> wins when markets are volatile or declining because you rupee-cost-average — buying more units when prices are low. For most retail investors with monthly income, SIP is the practical choice.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. This calculator runs entirely in your browser. None of your inputs are sent to any server. You can use it for sensitive financial planning with confidence.</p>
+    </details>
+  </section>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>India tools</h4>
+      <a href="gst-calculator.html">GST calculator</a>
+      <a href="income-tax-calculator.html">Income tax</a>
+      <a href="sip-calculator.html">SIP calculator</a>
+    </div>
+    <div class="col">
+      <h4>Universal tools</h4>
+      <a href="invoice-generator.html">Invoice generator</a>
+      <a href="emi-calculator.html">EMI calculator</a>
+      <a href="burn-rate-calculator.html">Burn rate & runway</a>
+      <a href="roi-calculator.html">ROI calculator</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+  refreshChartColors();
+});
+
+function fmt(n) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  return "₹" + Math.round(n).toLocaleString("en-IN");
+}
+function fmtShort(n) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  const abs = Math.abs(n);
+  if (abs >= 1e7) return "₹" + (n/1e7).toFixed(2) + " Cr";
+  if (abs >= 1e5) return "₹" + (n/1e5).toFixed(2) + " L";
+  if (abs >= 1000) return "₹" + (n/1000).toFixed(1) + "K";
+  return "₹" + Math.round(n).toLocaleString("en-IN");
+}
+
+let mode = "regular";
+
+$("mode-seg").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  mode = b.dataset.val;
+  document.querySelectorAll("#mode-seg button").forEach(x => x.classList.toggle("active", x === b));
+  $("stepupField").style.display = mode === "stepup" ? "" : "none";
+  $("amtLabel").textContent = mode === "lumpsum" ? "Lump sum amount" : "Monthly investment";
+  if (mode === "lumpsum") {
+    $("amtRange").max = 10000000; $("amtRange").step = 10000;
+    if (+$("amt").value < 50000) { $("amt").value = $("amtRange").value = 500000; }
+  } else {
+    $("amtRange").max = 500000; $("amtRange").step = 500;
+    if (+$("amt").value > 200000) { $("amt").value = $("amtRange").value = 10000; }
+  }
+  update();
+});
+
+function syncPair(rangeId, inputId) {
+  $(rangeId).addEventListener("input", () => { $(inputId).value = $(rangeId).value; update(); });
+  $(inputId).addEventListener("input", () => { $(rangeId).value = $(inputId).value; update(); });
+}
+syncPair("amtRange", "amt");
+$("rateRange").addEventListener("input", update);
+$("yearsRange").addEventListener("input", update);
+$("stepRange").addEventListener("input", update);
+$("inflRange").addEventListener("input", update);
+$("inflToggle").addEventListener("change", () => {
+  $("inflField").style.display = $("inflToggle").checked ? "" : "none";
+  $("realCard").style.display = $("inflToggle").checked ? "" : "none";
+  update();
+});
+
+// ---- SIP math ----
+
+// Returns year-by-year series: [{ year, annualInvested, cumulativeInvested, corpus }, ...]
+function simulate(monthly, annualRatePct, years, stepUpPct, modeKey) {
+  const r = annualRatePct / 100 / 12;
+  const series = [];
+  let balance = 0, cumulativeInvested = 0;
+
+  if (modeKey === "lumpsum") {
+    // Lump sum: invest 'monthly' (treated as the lump amount) at t=0, compound annually
+    const lump = monthly;
+    cumulativeInvested = lump;
+    for (let y = 1; y <= years; y++) {
+      const corpus = lump * Math.pow(1 + annualRatePct/100, y);
+      series.push({ year: y, annualInvested: y === 1 ? lump : 0, cumulativeInvested, corpus });
+    }
+    return series;
+  }
+
+  for (let y = 1; y <= years; y++) {
+    const monthlyAmt = modeKey === "stepup" ? monthly * Math.pow(1 + stepUpPct/100, y - 1) : monthly;
+    let annualInvested = 0;
+    for (let m = 1; m <= 12; m++) {
+      balance = balance * (1 + r) + monthlyAmt;
+      annualInvested += monthlyAmt;
+    }
+    cumulativeInvested += annualInvested;
+    series.push({ year: y, annualInvested, cumulativeInvested, corpus: balance });
+  }
+  return series;
+}
+
+let chart;
+function update() {
+  const amt = Math.max(0, +$("amt").value);
+  const rate = Math.max(0, +$("rateRange").value);
+  const years = Math.max(1, +$("yearsRange").value);
+  const stepUp = Math.max(0, +$("stepRange").value);
+  const inflation = Math.max(0, +$("inflRange").value);
+  const showInfl = $("inflToggle").checked;
+
+  $("amtHint").textContent = fmtShort(amt);
+  $("rateHint").textContent = rate.toFixed(1) + "%";
+  $("yearsHint").textContent = years + " year" + (years === 1 ? "" : "s");
+  $("stepHint").textContent = stepUp.toFixed(1) + "%";
+  $("inflHint").textContent = inflation.toFixed(1) + "%";
+
+  const series = simulate(amt, rate, years, stepUp, mode);
+  const last = series[series.length - 1];
+  const corpus = last.corpus;
+  const invested = last.cumulativeInvested;
+  const returns = corpus - invested;
+  const multiplier = invested > 0 ? corpus / invested : 0;
+  const realValue = corpus / Math.pow(1 + inflation/100, years);
+
+  $("corpus").textContent = fmt(corpus);
+  $("invested").textContent = fmt(invested);
+  $("returns").textContent = fmt(returns);
+  $("returnsSub").textContent = invested > 0 ? `${((returns/invested)*100).toFixed(0)}% of invested` : "—";
+  $("multiplier").textContent = multiplier.toFixed(2) + "×";
+  $("realValue").textContent = showInfl ? fmt(realValue) : "—";
+  $("realSub").textContent = showInfl ? `at ${inflation.toFixed(1)}% inflation` : "toggle inflation on";
+
+  // Update year table
+  const tbody = $("yearBody");
+  tbody.innerHTML = "";
+  // Render every year for tenures ≤25, otherwise every 2-3 years
+  const step = years <= 25 ? 1 : (years <= 35 ? 2 : 3);
+  const rows = [];
+  for (let i = 0; i < series.length; i += step) rows.push(series[i]);
+  if (rows[rows.length-1] !== last) rows.push(last);
+  rows.forEach(r => {
+    const mult = r.cumulativeInvested > 0 ? (r.corpus / r.cumulativeInvested).toFixed(2) + "×" : "—";
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>Year ${r.year}</td><td>${fmtShort(r.annualInvested)}</td><td>${fmtShort(r.cumulativeInvested)}</td><td>${fmtShort(r.corpus)}</td><td>${mult}</td>`;
+    tbody.appendChild(tr);
+  });
+  $("yearSummary").textContent = `${years} year projection${mode === "stepup" ? " · step-up" : mode === "lumpsum" ? " · lump sum" : ""}`;
+
+  // Chart
+  const labels = series.map(s => "Y" + s.year);
+  const investedData = series.map(s => s.cumulativeInvested);
+  const corpusData = series.map(s => s.corpus);
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  if (chart) {
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = investedData;
+    chart.data.datasets[1].data = corpusData;
+    chart.update("none");
+  } else {
+    chart = new Chart($("chart"), {
+      type: "line",
+      data: {
+        labels,
+        datasets: [
+          { data: investedData, label: "Invested", borderColor: "#94a3b8", backgroundColor: "rgba(148,163,184,0.18)", fill: true, tension: 0.2, pointRadius: 0, borderWidth: 2 },
+          { data: corpusData, label: "Total corpus", borderColor: "#0f766e", backgroundColor: "rgba(15,118,110,0.20)", fill: true, tension: 0.2, pointRadius: 0, borderWidth: 2 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { mode: "index", intersect: false, callbacks: { label: c => c.dataset.label + ": " + fmt(c.parsed.y) }}},
+        interaction: { mode: 'index', intersect: false },
+        scales: {
+          y: { ticks: { callback: v => fmtShort(v), color: muted }, grid: { color: "rgba(125,125,125,0.10)" }},
+          x: { ticks: { maxTicksLimit: 8, color: muted, autoSkip: true }, grid: { display: false }}
+        }
+      }
+    });
+  }
+}
+
+function refreshChartColors() {
+  if (!chart) return;
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  chart.options.scales.x.ticks.color = muted;
+  chart.options.scales.y.ticks.color = muted;
+  chart.update("none");
+}
+
+update();
+</script>
+</body>
+</html>
