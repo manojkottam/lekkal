@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary SEO -->
+<title>Free MRR / ARR / NRR Calculator for SaaS Founders | Lekkal</title>
+<meta name="description" content="Free SaaS metrics calculator. Compute MRR, ARR, Net Revenue Retention (NRR), Gross Revenue Retention (GRR), customer churn, revenue churn, and ARPU from one month of data. With a 12-month projection chart. No signup, runs in your browser." />
+<meta name="keywords" content="MRR calculator, ARR calculator, NRR calculator, GRR calculator, SaaS metrics calculator, net revenue retention, gross revenue retention, churn calculator, recurring revenue calculator, ARPU calculator, SaaS growth calculator" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<link rel="canonical" href="https://lekkal.com/mrr-calculator.html" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/mrr-calculator.html" />
+<meta property="og:title" content="Free MRR / ARR / NRR Calculator for SaaS Founders" />
+<meta property="og:description" content="MRR, ARR, NRR, GRR, churn, ARPU — from one month of data. With 12-month projection. Free, no signup." />
+<meta property="og:image" content="https://lekkal.com/og-mrr.png" />
+<meta property="og:site_name" content="Lekkal" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free MRR / ARR / NRR Calculator" />
+<meta name="twitter:description" content="Full SaaS metrics from one month of data. NRR, GRR, churn, projection chart. Free, runs in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-mrr.png" />
+
+<!-- WebApplication schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lekkal MRR / ARR / NRR Calculator",
+  "url": "https://lekkal.com/mrr-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free SaaS metrics calculator. Compute MRR, ARR, NRR, GRR, customer churn, revenue churn, ARPU, and net new MRR from a single month of data, plus a 12-month compound growth projection.",
+  "featureList": [
+    "Net New MRR breakdown",
+    "Net Revenue Retention (NRR)",
+    "Gross Revenue Retention (GRR)",
+    "Customer churn rate",
+    "Revenue churn rate",
+    "ARPU and ARR",
+    "12-month projection chart",
+    "Multi-currency support",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<!-- Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "MRR / ARR / NRR Calculator", "item": "https://lekkal.com/mrr-calculator.html" }
+  ]
+}
+</script>
+
+<!-- FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the difference between MRR and ARR?",
+      "acceptedAnswer": { "@type": "Answer", "text": "MRR (Monthly Recurring Revenue) is the predictable subscription revenue you bill in a month. ARR (Annual Recurring Revenue) is simply MRR × 12 — the annualized run rate. ARR is what investors and boards focus on; MRR is what operators track day-to-day. Both exclude one-time charges, services revenue, and non-recurring fees." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is NRR and what's a good NRR?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Net Revenue Retention (NRR) measures how much revenue you keep from your starting customer base after a period, including expansions, contractions, and churn. NRR = (Starting MRR + Expansion − Contraction − Churn) ÷ Starting MRR. Best-in-class SaaS companies hit 120%+, healthy is 100–120%, marginal is 90–100%, and below 90% signals serious retention issues." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between NRR and GRR?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Gross Revenue Retention (GRR) measures retention without expansion — it's the floor. GRR = (Starting MRR − Contraction − Churn) ÷ Starting MRR. It can never exceed 100%. NRR includes expansion revenue, so it can exceed 100%. The gap between NRR and GRR tells you how much expansion is masking churn. A company at 120% NRR but 85% GRR has serious retention problems hidden by upsell." }
+    },
+    {
+      "@type": "Question",
+      "name": "How are customer churn and revenue churn different?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Customer churn rate = number of customers lost ÷ starting customer count. Revenue churn rate = revenue lost ÷ starting MRR. They diverge when churned customers have different ARPU than the average. If your largest customers churn, revenue churn is much higher than customer churn — that's a much bigger problem than the count suggests." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does 100% NRR mean?",
+      "acceptedAnswer": { "@type": "Answer", "text": "100% NRR means your existing customer base generates the same revenue this month as last month — expansion exactly offsets contraction and churn. Net new growth comes entirely from new customer acquisition. Above 100%, your existing customers grow with you (the holy grail). Below 100%, you have a leaky bucket — you're acquiring just to replace lost revenue." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the 12-month projection calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The projection assumes your current monthly net new MRR growth rate compounds for 12 months. It's the simplest possible forward-look, intended to show what 'maintaining this month's pace' produces over a year. Real-world growth is rarely smooth — use the projection as a planning anchor, not a forecast." }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="styles.css" />
+<script src="nav.js" defer></script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="invoice-generator.html">Invoice</a>
+      <a href="emi-calculator.html">EMI</a>
+      <a href="burn-rate-calculator.html">Burn</a>
+      <a href="cap-table-calculator.html">Cap table</a>
+      <a href="mrr-calculator.html" class="active">MRR</a>
+      <a href="roi-calculator.html">ROI</a>
+      <details class="nav-dropdown">
+        <summary>
+          India
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="gst-calculator.html"><span>GST calculator<span class="meta">CGST · SGST · IGST</span></span><span class="pill">Live</span></a>
+          <a href="income-tax-calculator.html"><span>Income tax<span class="meta">Old vs new regime · FY 2025-26</span></span><span class="pill">Live</span></a>
+          <a href="sip-calculator.html"><span>SIP calculator<span class="meta">Regular · step-up · lump sum</span></span><span class="pill">Live</span></a>
+          <a href="salary-breakup-calculator.html"><span>Salary breakup<span class="meta">CTC to in-hand</span></span><span class="pill">Live</span></a>
+          <div class="divider"></div>
+          <div class="footer">Coming soon</div>
+          <a class="disabled"><span>TDS calculator<span class="meta">Sec 192 / 194C / 194J</span></span><span class="pill soon">Soon</span></a>
+        </div>
+      </details>
+      <a href="index.html#tools">All tools</a>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>MRR / ARR / NRR calculator</h1>
+  <p>Plug in last month's revenue and customer movements. Get a full SaaS metrics readout — net new MRR, NRR, GRR, churn, ARPU, ARR — and a 12-month compound projection.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>Last month's data</h2>
+
+      <div class="row2">
+        <div class="field">
+          <label>Starting MRR <span class="hint" id="sMrrHint">$50,000</span></label>
+          <input type="number" id="sMRR" value="50000" min="0" step="1000" />
+        </div>
+        <div class="field">
+          <label>Starting customers</label>
+          <input type="number" id="sCust" value="200" min="0" step="1" />
+        </div>
+      </div>
+
+      <h2 style="margin-top:18px;">MRR movements</h2>
+
+      <div class="row2">
+        <div class="field">
+          <label>New MRR <span class="hint">from new customers</span></label>
+          <input type="number" id="newMRR" value="6250" min="0" step="100" />
+        </div>
+        <div class="field">
+          <label>New customers</label>
+          <input type="number" id="newCust" value="25" min="0" step="1" />
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label>Expansion MRR <span class="hint">upgrades + add-ons</span></label>
+          <input type="number" id="expMRR" value="3000" min="0" step="100" />
+        </div>
+        <div class="field">
+          <label>Contraction MRR <span class="hint">downgrades</span></label>
+          <input type="number" id="conMRR" value="300" min="0" step="100" />
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label>Churn MRR <span class="hint">lost revenue</span></label>
+          <input type="number" id="churnMRR" value="2000" min="0" step="100" />
+        </div>
+        <div class="field">
+          <label>Churned customers</label>
+          <input type="number" id="churnCust" value="8" min="0" step="1" />
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:18px;">
+        <label>Currency</label>
+        <select id="currency">
+          <option value="USD">$ USD — US Dollar</option>
+          <option value="EUR">€ EUR — Euro</option>
+          <option value="GBP">£ GBP — British Pound</option>
+          <option value="INR">₹ INR — Indian Rupee</option>
+          <option value="AUD">A$ AUD — Australian Dollar</option>
+          <option value="CAD">C$ CAD — Canadian Dollar</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Your metrics</h2>
+
+      <div class="verdict" id="verdict" style="margin-bottom: 14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 5-10"/></svg>
+        <div class="text"><strong id="vTitle">—</strong><span id="vBody">—</span></div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Ending MRR</div>
+          <div class="value tabular" id="endMRR">—</div>
+          <div class="sub" id="endMRRSub">net new this month</div>
+        </div>
+        <div class="stat">
+          <div class="label">ARR</div>
+          <div class="value tabular" id="arr">—</div>
+          <div class="sub">annualized</div>
+        </div>
+        <div class="stat">
+          <div class="label">Customers</div>
+          <div class="value tabular" id="endCust">—</div>
+          <div class="sub" id="endCustSub">ARPU</div>
+        </div>
+        <div class="stat">
+          <div class="label">NRR</div>
+          <div class="value tabular" id="nrr">—</div>
+          <div class="sub" id="nrrSub">net revenue retention</div>
+        </div>
+        <div class="stat">
+          <div class="label">GRR</div>
+          <div class="value tabular" id="grr">—</div>
+          <div class="sub">gross retention</div>
+        </div>
+        <div class="stat">
+          <div class="label">Monthly growth</div>
+          <div class="value tabular" id="growth">—</div>
+          <div class="sub" id="growthSub">net new ÷ starting</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:22px;">12-month projection</h2>
+      <div class="chart-wrap"><canvas id="chart"></canvas></div>
+      <div style="display:flex;gap:14px;font-size:12px;color:var(--text-muted);margin-top:8px;justify-content:center;">
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:#0f766e;"></span>Projected MRR</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:#f59e0b;"></span>Projected ARR (÷12 scale)</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="card mt-6">
+    <h2>MRR breakdown this month</h2>
+    <div id="breakdown" style="font-size:13px;"></div>
+  </section>
+
+  <section class="grid-3 mt-6">
+    <div class="card-flat">
+      <p class="section-title">NRR benchmarks</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        <strong style="color:var(--success);">≥120%:</strong> Best-in-class.<br>
+        <strong style="color:var(--success);">100–120%:</strong> Healthy.<br>
+        <strong style="color:var(--warning);">90–100%:</strong> Marginal.<br>
+        <strong style="color:var(--danger);">&lt;90%:</strong> Leaky bucket — fix retention before scaling acquisition.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">NRR vs GRR gap</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        If NRR is 120% but GRR is 85%, expansion is masking serious churn. Always look at both — high NRR alone can hide a leaky bucket. A small gap (NRR-GRR &lt; 10pp) usually means stable retention with modest upsell.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Customer vs revenue churn</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        When revenue churn exceeds customer churn, your biggest customers are leaving. When the reverse is true, it's small accounts churning — less urgent but still worth investigating.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About SaaS metrics</h2>
+    <details class="faq" open>
+      <summary>What's the difference between MRR and ARR?</summary>
+      <p><strong>MRR</strong> (Monthly Recurring Revenue) is the predictable subscription revenue you bill in a month. <strong>ARR</strong> (Annual Recurring Revenue) is simply MRR × 12 — the annualized run rate. ARR is what investors and boards focus on; MRR is what operators track day-to-day. Both exclude one-time charges, services revenue, and non-recurring fees.</p>
+    </details>
+    <details class="faq">
+      <summary>What is NRR and what's a good NRR?</summary>
+      <p><strong>Net Revenue Retention</strong> measures how much revenue you keep from your starting customer base after a period, including expansions, contractions, and churn. NRR = (Starting MRR + Expansion − Contraction − Churn) ÷ Starting MRR. Best-in-class SaaS hit <strong>120%+</strong>, healthy is <strong>100–120%</strong>, marginal is 90–100%, and below 90% signals serious retention issues.</p>
+    </details>
+    <details class="faq">
+      <summary>What's the difference between NRR and GRR?</summary>
+      <p><strong>Gross Revenue Retention</strong> measures retention without expansion — it's the floor. GRR = (Starting MRR − Contraction − Churn) ÷ Starting MRR. It can never exceed 100%. NRR includes expansion, so it can exceed 100%. The gap between NRR and GRR tells you how much expansion is masking churn. A company at 120% NRR but 85% GRR has serious retention problems hidden by upsell.</p>
+    </details>
+    <details class="faq">
+      <summary>How are customer churn and revenue churn different?</summary>
+      <p><strong>Customer churn rate</strong> = customers lost ÷ starting customer count. <strong>Revenue churn rate</strong> = revenue lost ÷ starting MRR. They diverge when churned customers have different ARPU than average. If your largest customers churn, revenue churn is much higher than customer churn — a much bigger problem than the count suggests.</p>
+    </details>
+    <details class="faq">
+      <summary>What does 100% NRR mean?</summary>
+      <p>100% NRR means your existing customer base generates the same revenue this month as last month — expansion exactly offsets contraction and churn. Net new growth comes entirely from new customer acquisition. Above 100%, your existing customers grow with you. Below 100%, you have a leaky bucket — you're acquiring just to replace lost revenue.</p>
+    </details>
+    <details class="faq">
+      <summary>How is the 12-month projection calculated?</summary>
+      <p>The projection assumes your current monthly net new MRR growth rate compounds for 12 months. It's the simplest possible forward-look — what "maintaining this month's pace" produces over a year. Real growth is rarely smooth; use this as a planning anchor, not a forecast.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. This calculator runs entirely in your browser. None of your revenue or customer data is sent to any server. You can use it for sensitive scenario planning with confidence.</p>
+    </details>
+  </section>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>Founder tools</h4>
+      <a href="mrr-calculator.html">MRR / ARR / NRR</a>
+      <a href="cap-table-calculator.html">Cap table & dilution</a>
+      <a href="burn-rate-calculator.html">Burn rate & runway</a>
+      <a href="roi-calculator.html">Marketing ROI</a>
+    </div>
+    <div class="col">
+      <h4>All tools</h4>
+      <a href="index.html#tools">Browse →</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+  refreshChartColors();
+});
+
+const CURRENCIES = { USD:"$", EUR:"€", GBP:"£", INR:"₹", AUD:"A$", CAD:"C$" };
+const LOCALES = { USD:"en-US", EUR:"de-DE", GBP:"en-GB", INR:"en-IN", AUD:"en-AU", CAD:"en-CA" };
+function ccy() { return $("currency").value; }
+function symbol() { return CURRENCIES[ccy()]; }
+function locale() { return LOCALES[ccy()]; }
+
+function fmt(n) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  return symbol() + Math.round(n).toLocaleString(locale());
+}
+function fmtShort(n) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  const s = symbol(), abs = Math.abs(n);
+  if (ccy() === "INR") {
+    if (abs >= 1e7) return s + (n/1e7).toFixed(2) + " Cr";
+    if (abs >= 1e5) return s + (n/1e5).toFixed(2) + " L";
+    if (abs >= 1000) return s + Math.round(n).toLocaleString("en-IN");
+    return s + Math.round(n);
+  } else {
+    if (abs >= 1e9) return s + (n/1e9).toFixed(2) + "B";
+    if (abs >= 1e6) return s + (n/1e6).toFixed(2) + "M";
+    if (abs >= 1000) return s + (n/1000).toFixed(1) + "K";
+    return s + Math.round(n).toLocaleString(locale());
+  }
+}
+function detectDefaultCurrency() {
+  try {
+    const lang = (navigator.language || "").toLowerCase();
+    if (lang.endsWith("-in") || lang === "hi" || lang === "te" || lang === "ta") return "INR";
+    if (lang.endsWith("-gb")) return "GBP";
+    if (lang.endsWith("-au")) return "AUD";
+    if (lang.endsWith("-ca")) return "CAD";
+    if (lang.startsWith("de") || lang.startsWith("fr") || lang.startsWith("es") || lang.startsWith("it") || lang.startsWith("nl") || lang.startsWith("pt")) return "EUR";
+    return "USD";
+  } catch { return "USD"; }
+}
+
+function pct(n, d=1) { if (!isFinite(n)) return "—"; return (n*100).toFixed(d) + "%"; }
+
+function compute() {
+  const startMRR = +$("sMRR").value || 0;
+  const startCust = +$("sCust").value || 0;
+  const newMRR = +$("newMRR").value || 0;
+  const newCust = +$("newCust").value || 0;
+  const expMRR = +$("expMRR").value || 0;
+  const conMRR = +$("conMRR").value || 0;
+  const churnMRR = +$("churnMRR").value || 0;
+  const churnCust = +$("churnCust").value || 0;
+
+  const netNew = newMRR + expMRR - conMRR - churnMRR;
+  const endingMRR = startMRR + netNew;
+  const endingCust = startCust + newCust - churnCust;
+  const arr = endingMRR * 12;
+  const arpu = endingCust > 0 ? endingMRR / endingCust : 0;
+  const nrr = startMRR > 0 ? (startMRR + expMRR - conMRR - churnMRR) / startMRR : 0;
+  const grr = startMRR > 0 ? (startMRR - conMRR - churnMRR) / startMRR : 0;
+  const custChurn = startCust > 0 ? churnCust / startCust : 0;
+  const revChurn = startMRR > 0 ? churnMRR / startMRR : 0;
+  const growthRate = startMRR > 0 ? netNew / startMRR : 0;
+
+  return { startMRR, startCust, newMRR, newCust, expMRR, conMRR, churnMRR, churnCust,
+           netNew, endingMRR, endingCust, arr, arpu, nrr, grr, custChurn, revChurn, growthRate };
+}
+
+let chart;
+function update() {
+  const m = compute();
+  $("sMrrHint").textContent = fmtShort(m.startMRR);
+  $("endMRR").textContent = fmt(m.endingMRR);
+  $("endMRRSub").textContent = (m.netNew >= 0 ? "+" : "") + fmt(m.netNew) + " net new";
+  $("arr").textContent = fmtShort(m.arr);
+  $("endCust").textContent = m.endingCust.toLocaleString();
+  $("endCustSub").textContent = "ARPU " + fmt(m.arpu);
+  $("nrr").textContent = pct(m.nrr);
+  $("nrrSub").textContent = m.nrr >= 1.20 ? "best-in-class" : m.nrr >= 1.0 ? "healthy" : m.nrr >= 0.9 ? "marginal" : "leaky bucket";
+  $("grr").textContent = pct(m.grr);
+  $("growth").textContent = (m.growthRate >= 0 ? "+" : "") + pct(m.growthRate, 2);
+  $("growthSub").textContent = "rev churn " + pct(m.revChurn, 2) + " · cust churn " + pct(m.custChurn, 2);
+
+  // Verdict
+  const v = $("verdict"), vT = $("vTitle"), vB = $("vBody");
+  v.classList.remove("success","warning","danger","neutral");
+  if (m.startMRR === 0) {
+    v.classList.add("neutral");
+    vT.textContent = "Enter your starting MRR to see metrics";
+    vB.textContent = "—";
+  } else if (m.nrr >= 1.20) {
+    v.classList.add("success");
+    vT.textContent = `Best-in-class — ${pct(m.nrr)} NRR`;
+    vB.textContent = `Expansion is outpacing churn meaningfully. At this pace, MRR ${pct(m.growthRate,1)} compound monthly grows ${(Math.pow(1+m.growthRate,12)).toFixed(1)}× in 12 months.`;
+  } else if (m.nrr >= 1.0) {
+    v.classList.add("success");
+    vT.textContent = `Healthy growth — ${pct(m.nrr)} NRR`;
+    vB.textContent = `Existing customers slightly net-positive after churn. GRR ${pct(m.grr)} shows the underlying floor.`;
+  } else if (m.nrr >= 0.9) {
+    v.classList.add("warning");
+    vT.textContent = `Marginal retention — ${pct(m.nrr)} NRR`;
+    vB.textContent = `Churn + contraction is eating into your customer base. Push on expansion programs or fix retention before scaling acquisition.`;
+  } else {
+    v.classList.add("danger");
+    vT.textContent = `Leaky bucket — ${pct(m.nrr)} NRR`;
+    vB.textContent = `Acquiring customers but losing them faster. New customer revenue is going to replace churn, not growth. Fix retention first.`;
+  }
+
+  renderBreakdown(m);
+  renderChart(m);
+}
+
+function renderBreakdown(m) {
+  const row = (label, amt, opts = {}) => {
+    const sign = opts.minus ? "− " : opts.plus ? "+ " : "";
+    const color = opts.minus ? "var(--danger)" : opts.plus ? "var(--success)" : "var(--text)";
+    const cls = opts.bold ? 'style="font-weight:600;font-size:14px;"' : '';
+    const labelCls = opts.bold ? '' : 'class="muted"';
+    return `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);${opts.bold ? 'border-top:1px solid var(--border-2);margin-top:4px;':''}" ${cls}><span ${labelCls}>${label}</span><span class="tabular" style="${opts.minus||opts.plus ? 'color:'+color : ''}">${sign}${fmt(amt)}</span></div>`;
+  };
+  let html = '<div style="font-size:13px;">';
+  html += row("Starting MRR", m.startMRR);
+  html += row("New customer MRR (" + m.newCust + " customers)", m.newMRR, { plus: true });
+  html += row("Expansion MRR (upgrades)", m.expMRR, { plus: true });
+  html += row("Contraction MRR (downgrades)", m.conMRR, { minus: true });
+  html += row("Churned MRR (" + m.churnCust + " customers lost)", m.churnMRR, { minus: true });
+  html += row("Net new MRR", m.netNew, { bold: true });
+  html += row("Ending MRR", m.endingMRR, { bold: true });
+  html += '</div>';
+  $("breakdown").innerHTML = html;
+}
+
+function renderChart(m) {
+  // 12-month projection at current compound growth rate
+  const labels = ["M0"];
+  const mrrData = [m.endingMRR];
+  const arrData = [m.endingMRR];  // arr in MRR scale for chart, divided by 12 conceptually
+  let mrr = m.endingMRR;
+  for (let i = 1; i <= 12; i++) {
+    mrr = mrr * (1 + m.growthRate);
+    labels.push("M" + i);
+    mrrData.push(mrr);
+    arrData.push(mrr); // same series, just visualized as MRR (ARR = MRR × 12)
+  }
+
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  if (chart) {
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = mrrData;
+    chart.update("none");
+  } else {
+    chart = new Chart($("chart"), {
+      type: "line",
+      data: {
+        labels,
+        datasets: [
+          { data: mrrData, label: "MRR", borderColor: "#0f766e", backgroundColor: "rgba(15,118,110,0.20)", fill: true, tension: 0.25, pointRadius: 0, borderWidth: 2 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => "MRR: " + fmt(c.parsed.y) + "  ·  ARR: " + fmt(c.parsed.y * 12) }}},
+        scales: {
+          y: { ticks: { callback: v => fmtShort(v), color: muted }, grid: { color: "rgba(125,125,125,0.10)" }},
+          x: { ticks: { maxTicksLimit: 13, color: muted, autoSkip: false }, grid: { display: false }}
+        }
+      }
+    });
+  }
+}
+
+function refreshChartColors() {
+  if (!chart) return;
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  chart.options.scales.x.ticks.color = muted;
+  chart.options.scales.y.ticks.color = muted;
+  chart.update("none");
+}
+
+["sMRR","sCust","newMRR","newCust","expMRR","conMRR","churnMRR","churnCust","currency"].forEach(id => $(id).addEventListener("input", update));
+
+$("currency").value = detectDefaultCurrency();
+update();
+</script>
+</body>
+</html>
