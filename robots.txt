@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lekkal.com/sitemap.xml
+
+# Block common crawl traps
+Disallow: /*?*
+Disallow: /*#*
+
+# Common AI crawler controls — adjust to taste
+# Allow Google-Extended, GPTBot etc. if you want indexing in their products
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /

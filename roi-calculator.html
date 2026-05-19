@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary SEO -->
+<title>Marketing ROI Calculator — Free CAC, LTV, ROAS & Payback | Lekkal</title>
+<meta name="description" content="Free marketing ROI calculator. Compute CAC, LTV, LTV:CAC ratio, ROAS, and payback period in seconds. No signup. Includes a unit-economics health verdict for your campaigns." />
+<meta name="keywords" content="marketing ROI calculator, CAC calculator, LTV calculator, LTV CAC ratio, ROAS calculator, payback period, customer acquisition cost, customer lifetime value, marketing economics" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<link rel="canonical" href="https://lekkal.com/roi-calculator.html" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/roi-calculator.html" />
+<meta property="og:title" content="Free Marketing ROI Calculator — CAC, LTV, ROAS, Payback" />
+<meta property="og:description" content="Calculate CAC, LTV, LTV:CAC ratio, ROAS, and payback period for your marketing campaigns. Free, no signup, runs in your browser." />
+<meta property="og:image" content="https://lekkal.com/og-roi.png" />
+<meta property="og:site_name" content="Lekkal" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Marketing ROI Calculator" />
+<meta name="twitter:description" content="CAC, LTV, ROAS, and payback period — with a unit-economics health verdict. Free and browser-based." />
+<meta name="twitter:image" content="https://lekkal.com/og-roi.png" />
+
+<!-- WebApplication schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Marketing ROI Calculator",
+  "url": "https://lekkal.com/roi-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free marketing ROI calculator. Computes CAC, LTV, LTV:CAC ratio, ROAS, and payback period with a unit-economics health verdict."
+}
+</script>
+
+<!-- Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Marketing ROI Calculator", "item": "https://lekkal.com/roi-calculator.html" }
+  ]
+}
+</script>
+
+<!-- FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a healthy LTV:CAC ratio?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A LTV:CAC ratio of 3:1 or higher is generally considered healthy. Below 1:1 means you're losing money on every customer. Ratios above 5:1 may indicate you're under-investing in growth and could spend more aggressively to capture market share." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good payback period?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For SaaS, aim for under 12 months for SMB customers, under 18 for mid-market, and under 24 for enterprise. For ecommerce, recovering CAC on the first purchase (under 6 months) is ideal." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between ROAS and ROI?",
+      "acceptedAnswer": { "@type": "Answer", "text": "ROAS is revenue divided by ad spend — it ignores margins and retention. ROI factors in cost of goods, retention, and lifetime value. A 4x ROAS sounds great, but if your margin is 25%, you're break-even. Always pair ROAS with LTV:CAC." }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="invoice-generator.html">Invoice</a>
+      <a href="roi-calculator.html" class="active">ROI</a>
+      <a href="index.html#tools">All tools</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>Marketing ROI calculator</h1>
+  <p>Plug in your spend, traffic, and customer economics. Get CAC, LTV, LTV:CAC, ROAS, payback period, and a clear health verdict — in seconds, free, no signup.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>Campaign inputs</h2>
+      <div class="row2">
+        <div class="field">
+          <label>Ad spend <span class="hint">period total</span></label>
+          <input type="number" id="spend" value="20000" min="0" step="100" />
+        </div>
+        <div class="field">
+          <label>Visitors</label>
+          <input type="number" id="visitors" value="15000" min="0" step="100" />
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Conversions <span class="hint">paying customers</span></label>
+          <input type="number" id="conversions" value="450" min="0" step="1" />
+        </div>
+        <div class="field">
+          <label>Avg order value <span class="hint">first purchase</span></label>
+          <input type="number" id="aov" value="120" min="0" step="1" />
+        </div>
+      </div>
+
+      <h2 style="margin-top:20px;">Customer economics</h2>
+      <div class="row2">
+        <div class="field">
+          <label>Gross margin <span class="hint" id="marginHint">60%</span></label>
+          <input type="range" id="margin" min="0" max="100" step="1" value="60" />
+        </div>
+        <div class="field">
+          <label>Avg purchases per customer</label>
+          <input type="number" id="purchases" value="3" min="1" step="0.1" />
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Avg customer lifespan <span class="hint">months</span></label>
+          <input type="number" id="lifespan" value="18" min="1" step="1" />
+        </div>
+        <div class="field">
+          <label>Currency</label>
+          <select id="currency">
+            <option value="USD">$ USD</option>
+            <option value="EUR">€ EUR</option>
+            <option value="GBP">£ GBP</option>
+            <option value="INR">₹ INR</option>
+            <option value="AUD">A$ AUD</option>
+            <option value="CAD">C$ CAD</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Results</h2>
+      <div class="verdict" id="verdict">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <div class="text"><strong id="verdictTitle">—</strong><span id="verdictBody">—</span></div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat"><div class="label">Conversion rate</div><div class="value tabular" id="cvr">—</div><div class="sub" id="cvrSub">visitors → customers</div></div>
+        <div class="stat"><div class="label">CAC</div><div class="value tabular" id="cac">—</div><div class="sub">cost per customer</div></div>
+        <div class="stat"><div class="label">LTV</div><div class="value tabular" id="ltv">—</div><div class="sub">gross profit per customer</div></div>
+        <div class="stat"><div class="label">LTV : CAC</div><div class="value tabular" id="ratio">—</div><div class="sub" id="ratioSub">health ratio</div></div>
+        <div class="stat"><div class="label">ROAS</div><div class="value tabular" id="roas">—</div><div class="sub">revenue / spend</div></div>
+        <div class="stat"><div class="label">Payback</div><div class="value tabular" id="payback">—</div><div class="sub" id="paybackSub">months to recoup CAC</div></div>
+      </div>
+
+      <details style="margin-top:18px;">
+        <summary style="font-size:13px;color:var(--text-muted);cursor:pointer;">Calculation breakdown</summary>
+        <div style="margin-top:10px;font-size:13px;">
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span class="muted">Revenue per customer (LTV revenue)</span><span class="tabular" id="ltvRev">—</span></div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span class="muted">Total period revenue</span><span class="tabular" id="totalRev">—</span></div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;"><span class="muted">Total period profit</span><span class="tabular" id="totalProfit">—</span></div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="grid-3" style="margin-top:24px;">
+    <div class="card-flat">
+      <p class="section-title">LTV : CAC health</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        <strong style="color:var(--danger);">&lt; 1.0:</strong> losing money on every customer.<br>
+        <strong style="color:var(--warning);">1.0–2.9:</strong> marginal, needs work.<br>
+        <strong style="color:var(--success);">3.0+:</strong> healthy.<br>
+        <strong style="color:var(--text-muted);">5.0+:</strong> may be under-investing in growth.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Payback period</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        SaaS benchmark: under 12 months for SMB, under 18 for mid-market, under 24 for enterprise. Ecommerce: aim for under 6 months on the first purchase if possible.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">ROAS vs ROI</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        ROAS = revenue / spend. It ignores margin and retention. A "4× ROAS" sounds great but if your margin is 25% you're break-even. Always pair it with LTV : CAC.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>How to use the marketing ROI calculator</h2>
+    <details class="faq" open>
+      <summary>What is a healthy LTV : CAC ratio?</summary>
+      <p>A LTV : CAC ratio of <strong>3 : 1 or higher</strong> is generally considered healthy. Below 1 : 1 means you're losing money on every customer. Ratios above 5 : 1 may indicate you're under-investing in growth and could spend more aggressively to capture market share before competitors do.</p>
+    </details>
+    <details class="faq">
+      <summary>What is a good payback period?</summary>
+      <p>For SaaS, aim for under <strong>12 months for SMB customers</strong>, under 18 for mid-market, and under 24 for enterprise. For ecommerce, recovering CAC on the first purchase (under 6 months) is ideal. The shorter your payback, the faster you can re-invest into growth.</p>
+    </details>
+    <details class="faq">
+      <summary>What's the difference between ROAS and ROI?</summary>
+      <p>ROAS (Return on Ad Spend) is revenue divided by ad spend. It ignores margins and retention. ROI factors in cost of goods, retention, and lifetime value. A "4× ROAS" sounds great, but if your margin is 25%, you're break-even. Always pair ROAS with LTV : CAC to get the full picture.</p>
+    </details>
+    <details class="faq">
+      <summary>How is LTV calculated here?</summary>
+      <p>LTV = Avg Order Value × Avg Purchases per Customer × Gross Margin. This gives you the gross profit per customer over their lifetime. Some companies use a discounted cash flow LTV; the formula above is the most common quick estimate.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. This calculator runs entirely in your browser. None of your inputs leave your device. You can use it for sensitive financial planning with confidence.</p>
+    </details>
+  </section>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>Tools</h4>
+      <a href="invoice-generator.html">Invoice generator</a>
+      <a href="roi-calculator.html">ROI calculator</a>
+    </div>
+    <div class="col">
+      <h4>About</h4>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#tools">All tools</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const t=localStorage.getItem("lekkal-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+document.documentElement.dataset.theme=t;
+$("themeToggle").addEventListener("click",()=>{const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("lekkal-theme",next);});
+
+const CURRENCIES = { USD:"$", EUR:"€", GBP:"£", INR:"₹", AUD:"A$", CAD:"C$" };
+function symbol(){ return CURRENCIES[$("currency").value] || "$"; }
+function fmtCurrency(n){if(!isFinite(n))return"—";const s=symbol();if(Math.abs(n)>=1000)return s+(n/1000).toFixed(1)+"k";return s+n.toFixed(0);}
+function fmtNumber(n,d=2){if(!isFinite(n))return"—";return n.toFixed(d);}
+function pct(n,d=1){if(!isFinite(n))return"—";return(n*100).toFixed(d)+"%";}
+
+function update(){
+  const spend = +$("spend").value;
+  const visitors = +$("visitors").value;
+  const conversions = +$("conversions").value;
+  const aov = +$("aov").value;
+  const margin = +$("margin").value / 100;
+  const purchases = +$("purchases").value;
+  const lifespan = +$("lifespan").value;
+
+  $("marginHint").textContent = (margin*100).toFixed(0)+"%";
+
+  const cvr = visitors > 0 ? conversions / visitors : 0;
+  const cac = conversions > 0 ? spend / conversions : Infinity;
+  const ltvRevenue = aov * purchases;
+  const ltv = ltvRevenue * margin;
+  const ratio = cac > 0 && isFinite(cac) ? ltv / cac : 0;
+  const totalRevenue = conversions * aov;
+  const totalProfit = totalRevenue * margin - spend;
+  const roas = spend > 0 ? totalRevenue / spend : 0;
+  const monthlyGrossProfit = lifespan > 0 ? (aov * margin * purchases) / lifespan : 0;
+  const payback = monthlyGrossProfit > 0 ? cac / monthlyGrossProfit : Infinity;
+
+  $("cvr").textContent = pct(cvr, 2);
+  $("cvrSub").textContent = visitors > 0 ? `${conversions} of ${visitors.toLocaleString()}` : "visitors → customers";
+  $("cac").textContent = fmtCurrency(cac);
+  $("ltv").textContent = fmtCurrency(ltv);
+  $("ratio").textContent = fmtNumber(ratio, 1) + "×";
+  $("roas").textContent = fmtNumber(roas, 2) + "×";
+  $("payback").textContent = isFinite(payback) ? payback.toFixed(1)+" mo" : "—";
+  $("paybackSub").textContent = isFinite(payback) && payback > 24 ? "longer than typical" : "months to recoup CAC";
+
+  $("ltvRev").textContent = fmtCurrency(ltvRevenue);
+  $("totalRev").textContent = fmtCurrency(totalRevenue);
+  $("totalProfit").textContent = fmtCurrency(totalProfit) + (totalProfit < 0 ? " (loss)" : "");
+
+  const v = $("verdict"), vT = $("verdictTitle"), vB = $("verdictBody"), rs = $("ratioSub");
+  v.classList.remove("success","warning","danger","neutral");
+  if (!isFinite(ratio) || ratio === 0) {
+    v.classList.add("neutral");
+    vT.textContent = "Fill in the inputs to see your verdict";
+    vB.textContent = "—"; rs.textContent = "—";
+  } else if (ratio >= 3) {
+    v.classList.add("success");
+    vT.textContent = `Healthy unit economics (${ratio.toFixed(1)}× LTV:CAC)`;
+    vB.textContent = `You'd recoup CAC in ~${payback.toFixed(0)} months. ${ratio >= 5 ? 'Consider investing more — your ratio suggests you can spend more aggressively.' : 'This is the textbook healthy zone.'}`;
+    rs.textContent = "healthy (≥3×)";
+  } else if (ratio >= 1) {
+    v.classList.add("warning");
+    vT.textContent = `Marginal economics (${ratio.toFixed(1)}× LTV:CAC)`;
+    vB.textContent = `Customers are profitable but only just. Push on margin, retention, or lower CAC.`;
+    rs.textContent = "marginal (1–3×)";
+  } else {
+    v.classList.add("danger");
+    vT.textContent = `Losing money on every customer (${ratio.toFixed(2)}× LTV:CAC)`;
+    vB.textContent = `Each customer costs more than they earn. The channel isn't viable at current margins.`;
+    rs.textContent = "unhealthy (<1×)";
+  }
+}
+
+["spend","visitors","conversions","aov","margin","purchases","lifespan","currency"].forEach(id=>$(id).addEventListener("input",update));
+update();
+</script>
+</body>
+</html>

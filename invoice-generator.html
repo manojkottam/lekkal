@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary SEO -->
+<title>Free Invoice Generator — Create & Download PDF Invoices | Lekkal</title>
+<meta name="description" content="Generate professional PDF invoices in seconds. Free, no signup, no watermark. Multi-currency, tax, discounts, line items, and your logo — runs entirely in your browser." />
+<meta name="keywords" content="free invoice generator, invoice generator online, free invoice maker, create invoice online, PDF invoice, invoice template, freelance invoice, small business invoice" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<link rel="canonical" href="https://lekkal.com/invoice-generator.html" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/invoice-generator.html" />
+<meta property="og:title" content="Free Invoice Generator — PDF, no signup, no watermark" />
+<meta property="og:description" content="Create professional PDF invoices in seconds. Multi-currency, tax, discounts. Free, browser-based, no signup." />
+<meta property="og:image" content="https://lekkal.com/og-invoice.png" />
+<meta property="og:site_name" content="Lekkal" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Invoice Generator — PDF in seconds" />
+<meta name="twitter:description" content="Professional PDF invoices in seconds. Multi-currency, tax, discounts. Free, no signup, no watermark." />
+<meta name="twitter:image" content="https://lekkal.com/og-invoice.png" />
+
+<!-- WebApplication schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lekkal Invoice Generator",
+  "url": "https://lekkal.com/invoice-generator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free invoice generator. Create and download professional PDF invoices with multi-currency, tax, discounts, and line items.",
+  "featureList": [
+    "PDF download",
+    "Multi-currency",
+    "Tax and discount support",
+    "Logo upload",
+    "Saved drafts",
+    "No signup required",
+    "No watermark on output"
+  ]
+}
+</script>
+
+<!-- Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Invoice Generator", "item": "https://lekkal.com/invoice-generator.html" }
+  ]
+}
+</script>
+
+<!-- FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this invoice generator really free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, the Lekkal invoice generator is completely free. No signup, no payment, no usage limits, and no watermark on your generated invoices. The PDFs you create are commercially valid and contain no Lekkal branding." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add my company logo to the invoice?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Upload any PNG, JPG, or SVG file in the sender section. The logo is embedded directly into the PDF and never uploaded to any server." }
+    },
+    {
+      "@type": "Question",
+      "name": "What currencies are supported?",
+      "acceptedAnswer": { "@type": "Answer", "text": "USD, EUR, GBP, INR, AUD, CAD, JPY, SGD, AED, and ZAR — with proper symbols and formatting for each. You can also enter a custom currency code if yours isn't listed." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save drafts?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your invoice draft is automatically saved to your browser's local storage as you work, and you can save named drafts to load later. Nothing is sent to a server." }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="invoice-generator.html" class="active">Invoice</a>
+      <a href="roi-calculator.html">ROI</a>
+      <a href="index.html#tools">All tools</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>Free invoice generator</h1>
+  <p>Create professional PDF invoices in seconds. Multi-currency, taxes, discounts, line items, and your logo — no signup, no watermark, no data leaves your browser.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <!-- LEFT: form -->
+    <div>
+      <div class="card mb-4">
+        <h2>From</h2>
+        <div class="field">
+          <label>Business / your name</label>
+          <input type="text" id="fromName" value="Acme Studio" />
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="fromEmail" value="hello@acmestudio.com" />
+        </div>
+        <div class="field">
+          <label>Address</label>
+          <textarea id="fromAddress" rows="2">221B Baker Street&#10;London NW1 6XE</textarea>
+        </div>
+        <div class="field">
+          <label>Logo <span class="hint">PNG, JPG, or SVG — optional</span></label>
+          <input type="file" id="logoFile" accept="image/*" style="height:auto;padding:8px;" />
+          <div id="logoPreview" style="margin-top:8px;display:none;"><img id="logoImg" style="max-height:48px;max-width:160px;" alt="Logo preview"/><button class="btn secondary" id="logoRemove" style="margin-left:8px;padding:4px 10px;font-size:12px;">Remove</button></div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <h2>Bill to</h2>
+        <div class="field">
+          <label>Client name</label>
+          <input type="text" id="toName" value="Globex Corp" />
+        </div>
+        <div class="field">
+          <label>Client email</label>
+          <input type="email" id="toEmail" value="billing@globex.com" />
+        </div>
+        <div class="field">
+          <label>Client address</label>
+          <textarea id="toAddress" rows="2">500 Industrial Way&#10;New York, NY 10001</textarea>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <h2>Invoice</h2>
+        <div class="row3">
+          <div class="field">
+            <label>Number</label>
+            <input type="text" id="invNumber" value="INV-001" />
+          </div>
+          <div class="field">
+            <label>Issue date</label>
+            <input type="date" id="invDate" />
+          </div>
+          <div class="field">
+            <label>Due date</label>
+            <input type="date" id="invDue" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Currency</label>
+          <select id="currency">
+            <option value="USD">$ USD — US Dollar</option>
+            <option value="EUR">€ EUR — Euro</option>
+            <option value="GBP">£ GBP — British Pound</option>
+            <option value="INR">₹ INR — Indian Rupee</option>
+            <option value="AUD">A$ AUD — Australian Dollar</option>
+            <option value="CAD">C$ CAD — Canadian Dollar</option>
+            <option value="JPY">¥ JPY — Japanese Yen</option>
+            <option value="SGD">S$ SGD — Singapore Dollar</option>
+            <option value="AED">د.إ AED — UAE Dirham</option>
+            <option value="ZAR">R ZAR — South African Rand</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <h2>Line items</h2>
+        <div id="linesHead" style="display:grid;grid-template-columns:1fr 80px 90px 28px;gap:8px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:8px;">
+          <span>Description</span>
+          <span style="text-align:right;">Qty</span>
+          <span style="text-align:right;">Rate</span>
+          <span></span>
+        </div>
+        <div id="lines"></div>
+        <button class="btn secondary" id="addLine" style="margin-top:6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add line
+        </button>
+
+        <h2 style="margin-top:22px;">Adjustments</h2>
+        <div class="row2">
+          <div class="field">
+            <label>Tax % <span class="hint" id="taxHint"></span></label>
+            <input type="number" id="taxRate" value="0" min="0" max="100" step="0.1" />
+          </div>
+          <div class="field">
+            <label>Discount</label>
+            <div style="display:flex;gap:6px;">
+              <input type="number" id="discount" value="0" min="0" step="1" style="flex:1;" />
+              <select id="discountType" style="width:90px;">
+                <option value="flat">Flat</option>
+                <option value="pct">% of subtotal</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Notes / terms</label>
+          <textarea id="notes" rows="2" placeholder="Payment due within 30 days. Bank transfer details on request.">Payment due within 30 days. Bank transfer details on request.</textarea>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+        <button class="btn btn-large" id="downloadPdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </button>
+        <button class="btn secondary btn-large" id="saveDraft">Save draft</button>
+        <button class="btn secondary btn-large" id="resetForm">Reset</button>
+      </div>
+
+      <div class="card-flat">
+        <h2 style="margin-bottom:10px;">Saved drafts</h2>
+        <div id="draftList" class="muted" style="font-size:13px;">No drafts saved.</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: live preview -->
+    <div>
+      <div style="position:sticky;top:80px;">
+        <p class="section-title" style="margin-bottom:8px;">Live preview</p>
+        <div class="invoice-preview" id="preview">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div>
+              <h1>INVOICE</h1>
+              <div id="pInvNumber" style="margin-top:6px;font-size:12px;color:#666;letter-spacing:0.04em;">INV-001</div>
+            </div>
+            <div id="pLogo" style="text-align:right;"></div>
+          </div>
+
+          <div class="meta-grid">
+            <div class="meta-block">
+              <div class="label">From</div>
+              <div style="font-weight:600;" id="pFromName">—</div>
+              <div id="pFromEmail" style="color:#555;font-size:12px;">—</div>
+              <div id="pFromAddress" style="color:#555;font-size:12px;white-space:pre-line;">—</div>
+            </div>
+            <div class="meta-block">
+              <div class="label">Bill to</div>
+              <div style="font-weight:600;" id="pToName">—</div>
+              <div id="pToEmail" style="color:#555;font-size:12px;">—</div>
+              <div id="pToAddress" style="color:#555;font-size:12px;white-space:pre-line;">—</div>
+            </div>
+            <div class="meta-block">
+              <div class="label">Issue date</div>
+              <div id="pInvDate">—</div>
+            </div>
+            <div class="meta-block">
+              <div class="label">Due date</div>
+              <div id="pInvDue">—</div>
+            </div>
+          </div>
+
+          <table>
+            <thead>
+              <tr><th>Description</th><th>Qty</th><th>Rate</th><th>Amount</th></tr>
+            </thead>
+            <tbody id="pLines"></tbody>
+          </table>
+
+          <div class="totals">
+            <div class="row"><span>Subtotal</span><span id="pSubtotal">—</span></div>
+            <div class="row" id="pDiscountRow" style="display:none;"><span>Discount</span><span id="pDiscount">—</span></div>
+            <div class="row" id="pTaxRow" style="display:none;"><span id="pTaxLabel">Tax</span><span id="pTax">—</span></div>
+            <div class="row grand"><span>Total</span><span id="pTotal">—</span></div>
+          </div>
+
+          <div class="footer-note" id="pNotes">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="faq-section" id="faq">
+    <h2>How to use the invoice generator</h2>
+    <details class="faq" open>
+      <summary>Is this invoice generator really free?</summary>
+      <p>Yes — the Lekkal invoice generator is completely free. No signup, no payment, no usage limits, and no watermark on your generated invoices. The PDFs you create contain no Lekkal branding and are commercially valid for sending to clients.</p>
+    </details>
+    <details class="faq">
+      <summary>Can I add my company logo to the invoice?</summary>
+      <p>Yes. Upload any PNG, JPG, or SVG file in the "From" section. The logo is embedded directly into the PDF and never uploaded to any server — it stays in your browser.</p>
+    </details>
+    <details class="faq">
+      <summary>What currencies are supported?</summary>
+      <p>USD, EUR, GBP, INR, AUD, CAD, JPY, SGD, AED, and ZAR — with proper symbols and formatting for each.</p>
+    </details>
+    <details class="faq">
+      <summary>Can I save drafts?</summary>
+      <p>Yes. Your in-progress invoice auto-saves to your browser's local storage as you work, and you can save named drafts to load later. Nothing is sent to a server.</p>
+    </details>
+    <details class="faq">
+      <summary>Is the invoice legally valid?</summary>
+      <p>Generated PDFs include all the standard fields required for a commercial invoice (sender, recipient, invoice number, date, line items, totals). Whether they meet specific tax authority requirements depends on your jurisdiction — for example, some countries require GST/VAT numbers, e-signature, or specific labels. Check local rules if you're invoicing internationally.</p>
+    </details>
+  </section>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>Tools</h4>
+      <a href="invoice-generator.html">Invoice generator</a>
+      <a href="roi-calculator.html">ROI calculator</a>
+    </div>
+    <div class="col">
+      <h4>About</h4>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#tools">All tools</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const t=localStorage.getItem("lekkal-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+document.documentElement.dataset.theme=t;
+$("themeToggle").addEventListener("click",()=>{const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("lekkal-theme",next);});
+
+const CURRENCIES = { USD:"$", EUR:"€", GBP:"£", INR:"₹", AUD:"A$", CAD:"C$", JPY:"¥", SGD:"S$", AED:"AED ", ZAR:"R " };
+function symbol(){ return CURRENCIES[$("currency").value] || "$"; }
+function fmt(n){ const s = symbol(); return s + (Number(n)||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+
+// Line items state
+let lines = [];
+
+function renderLines(){
+  const container = $("lines");
+  container.innerHTML = "";
+  lines.forEach((line, i) => {
+    const row = document.createElement("div");
+    row.className = "line-row";
+    row.innerHTML = `
+      <input type="text" placeholder="Description" value="${escapeHtml(line.desc)}" data-i="${i}" data-f="desc" />
+      <input type="number" placeholder="1" value="${line.qty}" min="0" step="0.01" data-i="${i}" data-f="qty" style="text-align:right;" />
+      <input type="number" placeholder="0.00" value="${line.rate}" min="0" step="0.01" data-i="${i}" data-f="rate" style="text-align:right;" />
+      <button class="x" data-rm="${i}" title="Remove line">×</button>
+    `;
+    container.appendChild(row);
+  });
+}
+function addLine(desc="", qty=1, rate=0){ lines.push({desc,qty,rate}); renderLines(); update(); }
+$("addLine").addEventListener("click", () => addLine("New item", 1, 0));
+$("lines").addEventListener("input", e => {
+  const t = e.target;
+  if (t.dataset.i != null) {
+    const i = +t.dataset.i; const f = t.dataset.f;
+    lines[i][f] = f === "desc" ? t.value : +t.value;
+    update();
+  }
+});
+$("lines").addEventListener("click", e => {
+  const b = e.target.closest("button[data-rm]");
+  if (b) { lines.splice(+b.dataset.rm, 1); renderLines(); update(); }
+});
+
+// Logo upload
+let logoData = "";
+$("logoFile").addEventListener("change", e => {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    logoData = r.result;
+    $("logoImg").src = logoData;
+    $("logoPreview").style.display = "flex";
+    update();
+  };
+  r.readAsDataURL(f);
+});
+$("logoRemove").addEventListener("click", () => {
+  logoData = ""; $("logoFile").value = ""; $("logoPreview").style.display = "none"; update();
+});
+
+// Date defaults
+const today = new Date();
+const due = new Date(today); due.setDate(due.getDate() + 30);
+$("invDate").value = today.toISOString().slice(0,10);
+$("invDue").value = due.toISOString().slice(0,10);
+
+// Compute totals
+function totals(){
+  const subtotal = lines.reduce((s, l) => s + (Number(l.qty)||0) * (Number(l.rate)||0), 0);
+  const discountVal = $("discountType").value === "pct" ? subtotal * (+$("discount").value/100) : +$("discount").value;
+  const afterDiscount = subtotal - discountVal;
+  const tax = afterDiscount * (+$("taxRate").value/100);
+  const total = afterDiscount + tax;
+  return { subtotal, discountVal, tax, total };
+}
+
+function update(){
+  const sym = symbol();
+  $("taxHint").textContent = sym;
+
+  // Preview header
+  $("pInvNumber").textContent = $("invNumber").value || "—";
+  $("pFromName").textContent = $("fromName").value || "—";
+  $("pFromEmail").textContent = $("fromEmail").value || "";
+  $("pFromAddress").textContent = $("fromAddress").value || "";
+  $("pToName").textContent = $("toName").value || "—";
+  $("pToEmail").textContent = $("toEmail").value || "";
+  $("pToAddress").textContent = $("toAddress").value || "";
+  $("pInvDate").textContent = $("invDate").value ? new Date($("invDate").value).toLocaleDateString("en-GB", {day:"numeric",month:"short",year:"numeric"}) : "—";
+  $("pInvDue").textContent = $("invDue").value ? new Date($("invDue").value).toLocaleDateString("en-GB", {day:"numeric",month:"short",year:"numeric"}) : "—";
+  $("pNotes").textContent = $("notes").value || "";
+  if (!$("notes").value) $("pNotes").style.display = "none"; else $("pNotes").style.display = "block";
+
+  // Logo
+  $("pLogo").innerHTML = logoData ? `<img src="${logoData}" style="max-height:50px;max-width:160px;object-fit:contain;" alt="logo"/>` : "";
+
+  // Lines
+  const linesBody = $("pLines");
+  linesBody.innerHTML = "";
+  lines.forEach(l => {
+    const amt = (Number(l.qty)||0) * (Number(l.rate)||0);
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${escapeHtml(l.desc || "—")}</td><td>${l.qty || "—"}</td><td>${fmt(l.rate)}</td><td>${fmt(amt)}</td>`;
+    linesBody.appendChild(tr);
+  });
+
+  // Totals
+  const { subtotal, discountVal, tax, total } = totals();
+  $("pSubtotal").textContent = fmt(subtotal);
+  if (discountVal > 0) {
+    $("pDiscountRow").style.display = "flex";
+    $("pDiscount").textContent = "-" + fmt(discountVal);
+  } else $("pDiscountRow").style.display = "none";
+  if (tax > 0) {
+    $("pTaxRow").style.display = "flex";
+    $("pTax").textContent = fmt(tax);
+    $("pTaxLabel").textContent = "Tax (" + (+$("taxRate").value).toFixed(2).replace(/\.00$/,"") + "%)";
+  } else $("pTaxRow").style.display = "none";
+  $("pTotal").textContent = fmt(total);
+
+  // Auto-save
+  saveCurrentState();
+}
+
+// Auto-save (current state, not named draft)
+function captureState(){
+  return {
+    from: { name: $("fromName").value, email: $("fromEmail").value, address: $("fromAddress").value },
+    to: { name: $("toName").value, email: $("toEmail").value, address: $("toAddress").value },
+    inv: { number: $("invNumber").value, date: $("invDate").value, due: $("invDue").value },
+    currency: $("currency").value,
+    lines: lines,
+    taxRate: $("taxRate").value,
+    discount: $("discount").value, discountType: $("discountType").value,
+    notes: $("notes").value,
+    logo: logoData
+  };
+}
+function applyState(s){
+  if (!s) return;
+  $("fromName").value = s.from?.name || ""; $("fromEmail").value = s.from?.email || ""; $("fromAddress").value = s.from?.address || "";
+  $("toName").value = s.to?.name || ""; $("toEmail").value = s.to?.email || ""; $("toAddress").value = s.to?.address || "";
+  $("invNumber").value = s.inv?.number || ""; $("invDate").value = s.inv?.date || ""; $("invDue").value = s.inv?.due || "";
+  $("currency").value = s.currency || "USD";
+  lines = s.lines && s.lines.length ? s.lines : [{desc:"Item",qty:1,rate:0}];
+  $("taxRate").value = s.taxRate || 0;
+  $("discount").value = s.discount || 0; $("discountType").value = s.discountType || "flat";
+  $("notes").value = s.notes || "";
+  logoData = s.logo || "";
+  if (logoData) { $("logoImg").src = logoData; $("logoPreview").style.display = "flex"; } else { $("logoPreview").style.display = "none"; }
+  renderLines();
+}
+function saveCurrentState(){ localStorage.setItem("lekkal-invoice-current", JSON.stringify(captureState())); }
+
+// Saved drafts (named)
+const DRAFTS_KEY = "lekkal-invoice-drafts";
+function renderDrafts(){
+  let list = [];
+  try { list = JSON.parse(localStorage.getItem(DRAFTS_KEY) || "[]"); } catch {}
+  const box = $("draftList");
+  if (!list.length) { box.innerHTML = "No drafts saved."; return; }
+  box.innerHTML = list.map((d, i) => `<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="flex:1;font-size:13px;">${escapeHtml(d.name)}</span><button class="btn secondary" data-i="${i}" data-act="load" style="padding:4px 10px;font-size:12px;">Load</button><button class="btn secondary" data-i="${i}" data-act="del" style="padding:4px 10px;font-size:12px;">Delete</button></div>`).join("");
+}
+$("draftList").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  let list = JSON.parse(localStorage.getItem(DRAFTS_KEY) || "[]");
+  if (b.dataset.act === "load") { applyState(list[+b.dataset.i].state); update(); }
+  else { list.splice(+b.dataset.i, 1); localStorage.setItem(DRAFTS_KEY, JSON.stringify(list)); renderDrafts(); }
+});
+$("saveDraft").addEventListener("click", () => {
+  const name = prompt("Name this draft (e.g. 'Globex Q2'):", $("invNumber").value);
+  if (!name) return;
+  let list = JSON.parse(localStorage.getItem(DRAFTS_KEY) || "[]");
+  list.push({ name, state: captureState() });
+  localStorage.setItem(DRAFTS_KEY, JSON.stringify(list));
+  renderDrafts();
+  const b = $("saveDraft"); b.textContent = "Saved ✓"; b.classList.add("copied");
+  setTimeout(() => { b.textContent = "Save draft"; b.classList.remove("copied"); }, 1500);
+});
+
+$("resetForm").addEventListener("click", () => {
+  if (!confirm("Reset the current invoice? Your saved drafts will be kept.")) return;
+  localStorage.removeItem("lekkal-invoice-current");
+  location.reload();
+});
+
+// PDF generation
+$("downloadPdf").addEventListener("click", () => {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: "pt", format: "a4" });
+  const W = doc.internal.pageSize.getWidth();
+  const M = 48;
+  let y = 60;
+  const sym = symbol();
+  const fmtPdf = n => sym + (Number(n)||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+
+  // Title
+  doc.setFont("helvetica","bold"); doc.setFontSize(28); doc.setTextColor("#0f766e");
+  doc.text("INVOICE", M, y);
+  doc.setFont("helvetica","normal"); doc.setFontSize(10); doc.setTextColor("#666");
+  doc.text($("invNumber").value || "", M, y + 16);
+
+  // Logo
+  if (logoData) {
+    try { doc.addImage(logoData, "PNG", W - M - 100, y - 24, 100, 40, undefined, "FAST"); } catch (e) {}
+  }
+
+  y += 60;
+
+  // From / To
+  doc.setFontSize(8); doc.setTextColor("#888"); doc.setFont("helvetica","bold");
+  doc.text("FROM", M, y);
+  doc.text("BILL TO", W/2, y);
+  y += 14;
+  doc.setFont("helvetica","bold"); doc.setFontSize(11); doc.setTextColor("#111");
+  doc.text($("fromName").value || "—", M, y);
+  doc.text($("toName").value || "—", W/2, y);
+  y += 14;
+  doc.setFont("helvetica","normal"); doc.setFontSize(9); doc.setTextColor("#555");
+  doc.text($("fromEmail").value || "", M, y);
+  doc.text($("toEmail").value || "", W/2, y);
+  y += 12;
+  const fromAddrLines = ($("fromAddress").value || "").split("\n");
+  const toAddrLines = ($("toAddress").value || "").split("\n");
+  const maxLines = Math.max(fromAddrLines.length, toAddrLines.length);
+  for (let i = 0; i < maxLines; i++) {
+    if (fromAddrLines[i]) doc.text(fromAddrLines[i], M, y);
+    if (toAddrLines[i]) doc.text(toAddrLines[i], W/2, y);
+    y += 12;
+  }
+
+  y += 12;
+  doc.setFontSize(8); doc.setTextColor("#888"); doc.setFont("helvetica","bold");
+  doc.text("ISSUE DATE", M, y);
+  doc.text("DUE DATE", W/2, y);
+  y += 14;
+  doc.setFontSize(10); doc.setTextColor("#111"); doc.setFont("helvetica","normal");
+  doc.text($("invDate").value ? new Date($("invDate").value).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}) : "—", M, y);
+  doc.text($("invDue").value ? new Date($("invDue").value).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}) : "—", W/2, y);
+
+  y += 36;
+
+  // Table header
+  doc.setDrawColor("#111"); doc.setLineWidth(1.5);
+  doc.line(M, y, W - M, y);
+  doc.setFontSize(8); doc.setFont("helvetica","bold"); doc.setTextColor("#666");
+  doc.text("DESCRIPTION", M, y - 6);
+  doc.text("QTY", W - M - 220, y - 6, { align: "right" });
+  doc.text("RATE", W - M - 110, y - 6, { align: "right" });
+  doc.text("AMOUNT", W - M, y - 6, { align: "right" });
+  y += 14;
+
+  // Lines
+  doc.setFont("helvetica","normal"); doc.setFontSize(10); doc.setTextColor("#111");
+  doc.setDrawColor("#eee"); doc.setLineWidth(0.5);
+  lines.forEach(l => {
+    const amt = (Number(l.qty)||0) * (Number(l.rate)||0);
+    doc.text(l.desc || "—", M, y);
+    doc.text(String(l.qty || ""), W - M - 220, y, { align: "right" });
+    doc.text(fmtPdf(l.rate), W - M - 110, y, { align: "right" });
+    doc.text(fmtPdf(amt), W - M, y, { align: "right" });
+    y += 14;
+    doc.line(M, y - 4, W - M, y - 4);
+  });
+
+  y += 12;
+
+  // Totals
+  const t = totals();
+  const totalX = W - M; const labelX = W - M - 110;
+  doc.setTextColor("#555");
+  doc.text("Subtotal", labelX, y); doc.text(fmtPdf(t.subtotal), totalX, y, { align: "right" }); y += 14;
+  if (t.discountVal > 0) {
+    doc.text("Discount", labelX, y); doc.text("-" + fmtPdf(t.discountVal), totalX, y, { align: "right" }); y += 14;
+  }
+  if (t.tax > 0) {
+    doc.text("Tax (" + (+$("taxRate").value).toFixed(2).replace(/\.00$/,"") + "%)", labelX, y); doc.text(fmtPdf(t.tax), totalX, y, { align: "right" }); y += 14;
+  }
+  doc.setLineWidth(1.5); doc.setDrawColor("#111");
+  doc.line(labelX, y, totalX, y); y += 16;
+  doc.setFont("helvetica","bold"); doc.setFontSize(13); doc.setTextColor("#111");
+  doc.text("TOTAL", labelX, y); doc.text(fmtPdf(t.total), totalX, y, { align: "right" });
+
+  // Notes
+  if ($("notes").value) {
+    y += 36;
+    doc.setLineWidth(0.5); doc.setDrawColor("#eee");
+    doc.line(M, y - 10, W - M, y - 10);
+    doc.setFont("helvetica","normal"); doc.setFontSize(9); doc.setTextColor("#555");
+    const noteLines = doc.splitTextToSize($("notes").value, W - M*2);
+    doc.text(noteLines, M, y);
+  }
+
+  doc.save("invoice-" + ($("invNumber").value || "draft") + ".pdf");
+});
+
+// Lower-case discount-type listener etc.
+["fromName","fromEmail","fromAddress","toName","toEmail","toAddress","invNumber","invDate","invDue","currency","taxRate","discount","discountType","notes"].forEach(id => $(id).addEventListener("input", update));
+
+// Init
+const saved = localStorage.getItem("lekkal-invoice-current");
+if (saved) {
+  try { applyState(JSON.parse(saved)); } catch { lines = [{desc:"Website design", qty:1, rate:2500},{desc:"Brand guidelines", qty:1, rate:800}]; renderLines(); }
+} else {
+  lines = [{desc:"Website design", qty:1, rate:2500},{desc:"Brand guidelines", qty:1, rate:800},{desc:"Logo concepts (3 rounds)", qty:1, rate:450}];
+  renderLines();
+}
+renderDrafts();
+update();
+</script>
+</body>
+</html>
