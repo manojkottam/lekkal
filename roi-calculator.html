@@ -264,10 +264,41 @@ document.documentElement.dataset.theme=t;
 $("themeToggle").addEventListener("click",()=>{const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("lekkal-theme",next);});
 
 const CURRENCIES = { USD:"$", EUR:"€", GBP:"£", INR:"₹", AUD:"A$", CAD:"C$" };
-function symbol(){ return CURRENCIES[$("currency").value] || "$"; }
-function fmtCurrency(n){if(!isFinite(n))return"—";const s=symbol();if(Math.abs(n)>=1000)return s+(n/1000).toFixed(1)+"k";return s+n.toFixed(0);}
+const LOCALES = { USD:"en-US", EUR:"de-DE", GBP:"en-GB", INR:"en-IN", AUD:"en-AU", CAD:"en-CA" };
+function ccy(){ return $("currency").value || "USD"; }
+function symbol(){ return CURRENCIES[ccy()] || "$"; }
+function locale(){ return LOCALES[ccy()] || "en-US"; }
+// Currency-aware abbreviation: Indian (Lakh/Crore) for INR, Western (K/M/B) for everything else.
+function fmtCurrency(n){
+  if(!isFinite(n)) return "—";
+  const s = symbol(), abs = Math.abs(n);
+  if (ccy() === "INR") {
+    if (abs >= 1e7) return s + (n/1e7).toFixed(2) + " Cr";
+    if (abs >= 1e5) return s + (n/1e5).toFixed(2) + " L";
+    if (abs >= 1000) return s + Math.round(n).toLocaleString("en-IN");
+    return s + Math.round(n);
+  } else {
+    if (abs >= 1e9) return s + (n/1e9).toFixed(2) + "B";
+    if (abs >= 1e6) return s + (n/1e6).toFixed(2) + "M";
+    if (abs >= 1000) return s + (n/1000).toFixed(1) + "K";
+    return s + Math.round(n).toLocaleString(locale());
+  }
+}
 function fmtNumber(n,d=2){if(!isFinite(n))return"—";return n.toFixed(d);}
 function pct(n,d=1){if(!isFinite(n))return"—";return(n*100).toFixed(d)+"%";}
+
+// Detect a sensible default currency from the user's browser locale.
+function detectDefaultCurrency(){
+  try {
+    const lang = (navigator.language || "").toLowerCase();
+    if (lang.endsWith("-in") || lang === "hi" || lang === "te" || lang === "ta") return "INR";
+    if (lang.endsWith("-gb") || lang === "en-uk") return "GBP";
+    if (lang.endsWith("-au")) return "AUD";
+    if (lang.endsWith("-ca")) return "CAD";
+    if (lang.startsWith("de") || lang.startsWith("fr") || lang.startsWith("es") || lang.startsWith("it") || lang.startsWith("nl") || lang.startsWith("pt")) return "EUR";
+    return "USD";
+  } catch { return "USD"; }
+}
 
 function update(){
   const spend = +$("spend").value;
@@ -329,6 +360,7 @@ function update(){
 }
 
 ["spend","visitors","conversions","aov","margin","purchases","lifespan","currency"].forEach(id=>$(id).addEventListener("input",update));
+$("currency").value = detectDefaultCurrency();
 update();
 </script>
 </body>

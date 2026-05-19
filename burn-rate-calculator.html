@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary SEO -->
+<title>Free Burn Rate & Runway Calculator for Startups | Lekkal</title>
+<meta name="description" content="Free startup burn rate and runway calculator. Enter cash, monthly revenue, expenses, and optional growth — see your runway in months, net burn, and a cash projection chart. Multi-currency, no signup, runs in your browser." />
+<meta name="keywords" content="burn rate calculator, runway calculator, startup runway, cash runway calculator, monthly burn rate, net burn calculator, founder calculator, fundraising calculator, runway tracker, free burn rate calculator" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<link rel="canonical" href="https://lekkal.com/burn-rate-calculator.html" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/burn-rate-calculator.html" />
+<meta property="og:title" content="Free Burn Rate & Runway Calculator for Startups" />
+<meta property="og:description" content="Compute your runway, net burn, and cash trajectory. Free, no signup, multi-currency." />
+<meta property="og:image" content="https://lekkal.com/og-burn.png" />
+<meta property="og:site_name" content="Lekkal" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Burn Rate & Runway Calculator" />
+<meta name="twitter:description" content="Runway, net burn, cash projection. Free, runs in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-burn.png" />
+
+<!-- WebApplication schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lekkal Burn Rate & Runway Calculator",
+  "url": "https://lekkal.com/burn-rate-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free startup burn rate and runway calculator. Plug in cash, monthly revenue and expenses, and optional revenue growth to see runway in months, net burn, profitability month, and a cash trajectory chart.",
+  "featureList": [
+    "Runway in months and days",
+    "Net burn (revenue − expenses)",
+    "Optional monthly revenue growth model",
+    "Cash trajectory chart (60-month projection)",
+    "Health verdict by runway threshold",
+    "Six currencies with regional formatting",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<!-- Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Burn Rate & Runway Calculator", "item": "https://lekkal.com/burn-rate-calculator.html" }
+  ]
+}
+</script>
+
+<!-- FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is burn rate?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Burn rate is the rate at which a company spends its cash reserves. Gross burn is your total monthly expenses. Net burn is monthly expenses minus monthly revenue — it's what you actually lose each month. Most founders track net burn because it determines runway." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is runway calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Runway = cash on hand ÷ net monthly burn. For example, $500,000 cash with $50,000 net burn gives 10 months of runway. If you have revenue growing month-over-month, runway extends because each month's burn shrinks; this calculator simulates that month by month." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's a healthy runway?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Common benchmarks: under 6 months is critical and demands immediate action; 6 to 12 months means start fundraising now; 12 to 18 months is the textbook healthy zone (you have leverage in fundraising); 18 to 24 months is strong and lets you invest in growth; over 24 months may indicate you're under-investing." }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I start fundraising?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Rule of thumb: start the next raise when you have 9 to 12 months of runway left. Fundraising typically takes 3 to 6 months from first conversation to wire, and you want a buffer in case the round takes longer than expected or the first attempt fails." }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="invoice-generator.html">Invoice</a>
+      <a href="gst-calculator.html">GST</a>
+      <a href="emi-calculator.html">EMI</a>
+      <a href="burn-rate-calculator.html" class="active">Burn</a>
+      <a href="roi-calculator.html">ROI</a>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>Burn rate & runway calculator</h1>
+  <p>Plug in your cash, monthly revenue, and monthly expenses. See your net burn, runway in months, and a cash trajectory chart. Optionally factor in revenue growth to see when you'd hit profitability.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>Your numbers</h2>
+
+      <div class="field">
+        <label>Cash on hand <span class="hint" id="cashHint">—</span></label>
+        <input type="range" id="cashRange" min="10000" max="10000000" step="10000" value="1000000" />
+        <input type="number" id="cash" value="1000000" min="0" step="1000" style="margin-top:8px;" />
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label>Monthly revenue <span class="hint" id="revHint">—</span></label>
+          <input type="number" id="revenue" value="50000" min="0" step="1000" />
+        </div>
+        <div class="field">
+          <label>Monthly expenses <span class="hint" id="expHint">—</span></label>
+          <input type="number" id="expenses" value="150000" min="0" step="1000" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Revenue growth (monthly) <span class="hint" id="growthHint">0%</span></label>
+        <input type="range" id="growthRange" min="0" max="30" step="0.5" value="0" />
+        <p class="soft" style="font-size:12px;margin:6px 0 0;">0% = flat revenue. 5–10% is typical SaaS month-over-month growth.</p>
+      </div>
+
+      <div class="field">
+        <label>Currency</label>
+        <select id="currency">
+          <option value="USD">$ USD — US Dollar</option>
+          <option value="EUR">€ EUR — Euro</option>
+          <option value="GBP">£ GBP — British Pound</option>
+          <option value="INR">₹ INR — Indian Rupee</option>
+          <option value="AUD">A$ AUD — Australian Dollar</option>
+          <option value="CAD">C$ CAD — Canadian Dollar</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Your runway</h2>
+
+      <div class="verdict" id="verdict">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="text"><strong id="verdictTitle">—</strong><span id="verdictBody">—</span></div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Runway</div>
+          <div class="value tabular" id="rRunway">—</div>
+          <div class="sub" id="rRunwaySub">months until cash zero</div>
+        </div>
+        <div class="stat">
+          <div class="label">Net burn</div>
+          <div class="value tabular" id="rNetBurn">—</div>
+          <div class="sub" id="rNetBurnSub">per month, today</div>
+        </div>
+        <div class="stat">
+          <div class="label">Gross burn</div>
+          <div class="value tabular" id="rGrossBurn">—</div>
+          <div class="sub">expenses per month</div>
+        </div>
+        <div class="stat">
+          <div class="label">Profitable month</div>
+          <div class="value tabular" id="rProfitMonth">—</div>
+          <div class="sub" id="rProfitSub">with current growth</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:22px;">Cash trajectory</h2>
+      <div class="chart-wrap"><canvas id="chart"></canvas></div>
+      <div style="display:flex;gap:14px;font-size:12px;color:var(--text-muted);margin-top:8px;justify-content:center;">
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:#0f766e;"></span>Cash balance</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:#f59e0b;"></span>Monthly burn</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="grid-3 mt-6">
+    <div class="card-flat">
+      <p class="section-title">Runway health</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        <strong style="color:var(--danger);">&lt; 6 mo:</strong> Critical — raise now or cut.<br>
+        <strong style="color:var(--warning);">6–12 mo:</strong> Start fundraising this month.<br>
+        <strong style="color:var(--success);">12–18 mo:</strong> Healthy — you have leverage.<br>
+        <strong style="color:var(--text-muted);">18+ mo:</strong> Strong — invest in growth.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Net vs gross burn</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        Gross burn = total monthly expenses. Net burn = expenses minus revenue. Investors care about net burn because that's what actually consumes runway. If you have meaningful revenue, your net burn (and runway) will look better than gross.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">When to raise</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        Fundraising takes 3–6 months end to end, sometimes longer. Start your next round when you have 9–12 months of runway remaining — that gives you a buffer if the process slows or you need to walk away from bad terms.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About burn rate and runway</h2>
+    <details class="faq" open>
+      <summary>What is burn rate?</summary>
+      <p><strong>Burn rate</strong> is the rate at which a company spends its cash reserves. <strong>Gross burn</strong> is your total monthly expenses. <strong>Net burn</strong> is monthly expenses minus monthly revenue — it's what you actually lose each month. Most founders track net burn because it determines runway.</p>
+    </details>
+    <details class="faq">
+      <summary>How is runway calculated?</summary>
+      <p>Runway = cash on hand ÷ net monthly burn. For example, $500,000 cash with $50,000 net burn gives 10 months of runway. If you have revenue growing month-over-month, runway extends because each month's burn shrinks — this calculator simulates that month by month and shows when you'd reach profitability.</p>
+    </details>
+    <details class="faq">
+      <summary>What's a healthy runway?</summary>
+      <p>Common benchmarks: <strong>&lt; 6 months</strong> is critical (raise now or cut hard). <strong>6 to 12 months</strong> means start fundraising this month. <strong>12 to 18 months</strong> is the textbook healthy zone where you have leverage in fundraising. <strong>18 to 24 months</strong> is strong. <strong>&gt; 24 months</strong> may indicate you're under-investing in growth.</p>
+    </details>
+    <details class="faq">
+      <summary>When should I start fundraising?</summary>
+      <p>Rule of thumb: start the next raise when you have <strong>9 to 12 months</strong> of runway left. Fundraising typically takes 3 to 6 months from first conversation to wire, and you want a buffer in case the round takes longer than expected or the first attempt fails. Bridges and convertibles are quicker but more expensive.</p>
+    </details>
+    <details class="faq">
+      <summary>Should I model revenue growth here?</summary>
+      <p>If you have predictable monthly recurring revenue with a stable growth rate, yes — flip the growth slider to your typical month-over-month growth. The model will show your runway extending and when you'd hit profitability. If your revenue is lumpy (project-based, enterprise contracts), the no-growth scenario is more honest.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. This calculator runs entirely in your browser. None of your inputs are sent to any server. You can use it for sensitive financial planning with confidence.</p>
+    </details>
+  </section>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>Tools</h4>
+      <a href="invoice-generator.html">Invoice generator</a>
+      <a href="gst-calculator.html">GST calculator</a>
+      <a href="emi-calculator.html">EMI calculator</a>
+      <a href="burn-rate-calculator.html">Burn rate</a>
+      <a href="roi-calculator.html">ROI calculator</a>
+    </div>
+    <div class="col">
+      <h4>About</h4>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#tools">All tools</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+  refreshChartColors();
+});
+
+const CURRENCIES = { INR:"₹", USD:"$", EUR:"€", GBP:"£", AUD:"A$", CAD:"C$" };
+const LOCALES = { INR:"en-IN", USD:"en-US", EUR:"de-DE", GBP:"en-GB", AUD:"en-AU", CAD:"en-CA" };
+const CASH_MAX = { INR: 100_000_000, USD: 50_000_000, EUR: 50_000_000, GBP: 30_000_000, AUD: 50_000_000, CAD: 50_000_000 };
+
+function ccy(){ return $("currency").value; }
+function symbol(){ return CURRENCIES[ccy()]; }
+function locale(){ return LOCALES[ccy()]; }
+function fmt(n, decimals = 0){
+  if (!isFinite(n) || isNaN(n)) return "—";
+  return symbol() + n.toLocaleString(locale(), { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+}
+function fmtShort(n){
+  if (!isFinite(n) || isNaN(n)) return "—";
+  const s = symbol(), abs = Math.abs(n);
+  if (ccy() === "INR") {
+    if (abs >= 1e7) return s + (n/1e7).toFixed(2) + " Cr";
+    if (abs >= 1e5) return s + (n/1e5).toFixed(2) + " L";
+    if (abs >= 1000) return s + Math.round(n).toLocaleString("en-IN");
+    return s + Math.round(n);
+  } else {
+    if (abs >= 1e9) return s + (n/1e9).toFixed(2) + "B";
+    if (abs >= 1e6) return s + (n/1e6).toFixed(2) + "M";
+    if (abs >= 1000) return s + (n/1000).toFixed(1) + "K";
+    return s + Math.round(n).toLocaleString(locale());
+  }
+}
+function detectDefaultCurrency(){
+  try {
+    const lang = (navigator.language || "").toLowerCase();
+    if (lang.endsWith("-in") || lang === "hi" || lang === "te" || lang === "ta") return "INR";
+    if (lang.endsWith("-gb") || lang === "en-uk") return "GBP";
+    if (lang.endsWith("-au")) return "AUD";
+    if (lang.endsWith("-ca")) return "CAD";
+    if (lang.startsWith("de") || lang.startsWith("fr") || lang.startsWith("es") || lang.startsWith("it") || lang.startsWith("nl") || lang.startsWith("pt")) return "EUR";
+    return "USD";
+  } catch { return "USD"; }
+}
+
+// Default cash values per currency (rough order-of-magnitude for a seed-stage startup)
+const DEFAULT_CASH = { INR: 75_000_000, USD: 1_000_000, EUR: 900_000, GBP: 800_000, AUD: 1_500_000, CAD: 1_300_000 };
+const DEFAULT_REV  = { INR: 4_000_000,  USD: 50_000,    EUR: 45_000,  GBP: 40_000,  AUD: 70_000,    CAD: 60_000 };
+const DEFAULT_EXP  = { INR: 12_000_000, USD: 150_000,   EUR: 140_000, GBP: 120_000, AUD: 200_000,   CAD: 180_000 };
+
+function applyCurrencyDefaults(){
+  $("cash").value = $("cashRange").value = DEFAULT_CASH[ccy()];
+  $("revenue").value = DEFAULT_REV[ccy()];
+  $("expenses").value = DEFAULT_EXP[ccy()];
+  $("cashRange").max = CASH_MAX[ccy()];
+}
+
+// Compute runway with optional monthly revenue growth
+function computeRunway({ cash, revenue, expenses, growthRate = 0, maxMonths = 60 }) {
+  const series = [];
+  let bal = cash, rev = revenue, prevBal = cash;
+  let profitMonth = null;
+  for (let m = 1; m <= maxMonths; m++) {
+    const burn = expenses - rev;
+    if (profitMonth === null && burn <= 0) profitMonth = m;
+    prevBal = bal;
+    bal = bal - burn;
+    series.push({ month: m, revenue: rev, expenses, burn, cash: bal });
+    if (bal <= 0 && burn > 0) {
+      const frac = prevBal / burn;
+      return { series, runwayMonths: (m - 1) + frac, profitable: false, exhausted: true, profitMonth };
+    }
+    rev = rev * (1 + growthRate);
+  }
+  const lastBurn = series[series.length-1].burn;
+  return { series, runwayMonths: lastBurn <= 0 ? Infinity : maxMonths, profitable: lastBurn <= 0, exhausted: false, profitMonth };
+}
+
+let chart;
+function update(){
+  const cash = +$("cash").value;
+  const revenue = +$("revenue").value;
+  const expenses = +$("expenses").value;
+  const growthRate = +$("growthRange").value / 100;
+
+  $("cashHint").textContent = fmtShort(cash);
+  $("revHint").textContent = fmtShort(revenue) + "/mo";
+  $("expHint").textContent = fmtShort(expenses) + "/mo";
+  $("growthHint").textContent = (+$("growthRange").value).toFixed(1) + "% m/m";
+
+  const netBurn = expenses - revenue;
+  const grossBurn = expenses;
+
+  const result = computeRunway({ cash, revenue, expenses, growthRate });
+  const { runwayMonths, profitable, exhausted, profitMonth, series } = result;
+
+  // Display runway
+  if (profitable && netBurn <= 0) {
+    $("rRunway").textContent = "∞";
+    $("rRunwaySub").textContent = "you're profitable";
+  } else if (runwayMonths === Infinity) {
+    $("rRunway").textContent = "60+ mo";
+    $("rRunwaySub").textContent = "profitable within 5yr";
+  } else {
+    if (runwayMonths < 12) $("rRunway").textContent = runwayMonths.toFixed(1) + " mo";
+    else if (runwayMonths < 36) $("rRunway").textContent = (runwayMonths/12).toFixed(1) + " yr";
+    else $("rRunway").textContent = (runwayMonths/12).toFixed(1) + " yr";
+    $("rRunwaySub").textContent = "until cash zero";
+  }
+
+  $("rNetBurn").textContent = netBurn <= 0 ? "Profitable" : fmt(netBurn, 0);
+  $("rNetBurnSub").textContent = netBurn <= 0 ? "revenue > expenses" : "per month, today";
+  $("rGrossBurn").textContent = fmt(grossBurn, 0);
+
+  if (profitMonth && profitMonth > 1) {
+    $("rProfitMonth").textContent = "Mo " + profitMonth;
+    $("rProfitSub").textContent = "first profitable month";
+  } else if (netBurn <= 0) {
+    $("rProfitMonth").textContent = "Now";
+    $("rProfitSub").textContent = "already profitable";
+  } else {
+    $("rProfitMonth").textContent = "—";
+    $("rProfitSub").textContent = growthRate > 0 ? "not within 5yr" : "no revenue growth set";
+  }
+
+  // Verdict
+  const v = $("verdict"), vT = $("verdictTitle"), vB = $("verdictBody");
+  v.classList.remove("success","warning","danger","neutral");
+  if (netBurn <= 0) {
+    v.classList.add("success");
+    vT.textContent = "You're profitable";
+    vB.textContent = `Revenue exceeds expenses by ${fmt(-netBurn, 0)}/mo. You don't need to fundraise — invest in growth.`;
+  } else if (runwayMonths === Infinity) {
+    v.classList.add("success");
+    vT.textContent = "On track to profitability";
+    vB.textContent = `At your growth rate you'll be profitable by month ${profitMonth}. No raise needed if the trajectory holds.`;
+  } else if (runwayMonths < 6) {
+    v.classList.add("danger");
+    vT.textContent = `Critical: ${runwayMonths.toFixed(1)} months runway`;
+    vB.textContent = "Raise now, or cut hard. At this pace, cash hits zero too soon to run a normal fundraise.";
+  } else if (runwayMonths < 12) {
+    v.classList.add("warning");
+    vT.textContent = `${runwayMonths.toFixed(1)} months runway — start raising`;
+    vB.textContent = "Fundraising takes 3–6 months. With under a year left, the next round needs to be in motion.";
+  } else if (runwayMonths < 18) {
+    v.classList.add("success");
+    vT.textContent = `Healthy: ${(runwayMonths/12).toFixed(1)} years runway`;
+    vB.textContent = "You're in the textbook healthy zone. You have leverage in your next raise.";
+  } else {
+    v.classList.add("success");
+    vT.textContent = `Strong: ${(runwayMonths/12).toFixed(1)} years runway`;
+    vB.textContent = "Plenty of runway. Consider whether you're under-investing in growth.";
+  }
+
+  // Chart — cash trajectory + monthly burn
+  const labels = series.map(s => "Mo " + s.month);
+  const cashData = series.map(s => s.cash);
+  const burnData = series.map(s => Math.max(0, s.burn));
+
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  if (chart) {
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = cashData;
+    chart.data.datasets[1].data = burnData;
+    chart.update("none");
+  } else {
+    chart = new Chart($("chart"), {
+      data: {
+        labels,
+        datasets: [
+          { type: "line", data: cashData, yAxisID: "y", label: "Cash", borderColor: "#0f766e", backgroundColor: "rgba(15,118,110,0.18)", fill: true, tension: 0.2, pointRadius: 0, borderWidth: 2 },
+          { type: "line", data: burnData, yAxisID: "y1", label: "Burn", borderColor: "#f59e0b", backgroundColor: "transparent", fill: false, tension: 0.2, pointRadius: 0, borderWidth: 2, borderDash: [4,4] }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { mode: "index", intersect: false, callbacks: { label: c => c.dataset.label + ": " + fmt(c.parsed.y, 0) }}},
+        scales: {
+          y: { position: "left", ticks: { callback: v => fmtShort(v), color: muted }, grid: { color: "rgba(125,125,125,0.10)" }},
+          y1: { position: "right", ticks: { callback: v => fmtShort(v), color: muted }, grid: { display: false }},
+          x: { ticks: { maxTicksLimit: 8, color: muted, autoSkip: true }, grid: { display: false }}
+        }
+      }
+    });
+  }
+}
+function refreshChartColors(){
+  if (!chart) return;
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  chart.options.scales.x.ticks.color = muted;
+  chart.options.scales.y.ticks.color = muted;
+  chart.options.scales.y1.ticks.color = muted;
+  chart.update("none");
+}
+
+// Wire ranges <-> numbers
+$("cashRange").addEventListener("input", () => { $("cash").value = $("cashRange").value; update(); });
+$("cash").addEventListener("input", () => { $("cashRange").value = $("cash").value; update(); });
+$("growthRange").addEventListener("input", update);
+["revenue","expenses"].forEach(id => $(id).addEventListener("input", update));
+$("currency").addEventListener("change", () => { applyCurrencyDefaults(); update(); });
+
+// Init
+$("currency").value = detectDefaultCurrency();
+applyCurrencyDefaults();
+update();
+</script>
+</body>
+</html>
