@@ -187,7 +187,7 @@ nav.top .right { display: flex; align-items: center; gap: 8px; }
 }
 
 /* ====== Hero ====== */
-.tool-hero { padding: 36px 0 24px; }
+.tool-hero { padding: 36px 22px 24px; }
 .tool-hero h1 {
   margin: 0 0 8px;
   font-size: 30px; font-weight: 600;
@@ -351,6 +351,42 @@ nav.top .right { display: flex; align-items: center; gap: 8px; }
 @media (max-width: 600px) { .row3 { grid-template-columns: 1fr 1fr; } .row2 { grid-template-columns: 1fr; } }
 
 .field input[type="range"] { width: 100%; accent-color: var(--accent); }
+
+/* Number inputs — custom +/- spin buttons (replaces native browser spinners) */
+.num-wrap { position: relative; display: block; }
+.num-wrap input[type="number"] {
+  -moz-appearance: textfield;
+  padding-right: 30px;
+}
+.num-wrap input[type="number"]::-webkit-outer-spin-button,
+.num-wrap input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.num-btn {
+  position: absolute;
+  right: 6px;
+  width: 18px; height: 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 11px; font-weight: 600;
+  display: grid; place-items: center;
+  padding: 0; line-height: 1;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  user-select: none;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.num-btn:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.num-btn:active { transform: translateY(1px); }
+.num-plus { top: 4px; }
+.num-minus { bottom: 4px; }
 
 .seg {
   display: inline-flex;
