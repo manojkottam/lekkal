@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary SEO -->
+<title>Free GST Calculator (India) — CGST, SGST, IGST | Lekkal</title>
+<meta name="description" content="Free India GST calculator. Add or extract GST with CGST/SGST split for intra-state and IGST for inter-state. Standard slabs 0%, 5%, 12%, 18%, 28%. No signup, runs in your browser." />
+<meta name="keywords" content="GST calculator, GST calculator India, CGST SGST IGST, GST calculator online, calculate GST, GST inclusive exclusive, GST rate 18%, India tax calculator, free GST calculator" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<link rel="canonical" href="https://lekkal.com/gst-calculator.html" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/gst-calculator.html" />
+<meta property="og:title" content="Free GST Calculator — CGST, SGST, IGST for India" />
+<meta property="og:description" content="Add or extract GST in seconds with proper CGST/SGST split for intra-state and IGST for inter-state. Free, no signup." />
+<meta property="og:image" content="https://lekkal.com/og-gst.png" />
+<meta property="og:site_name" content="Lekkal" />
+<meta property="og:locale" content="en_IN" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free GST Calculator (India) — CGST, SGST, IGST" />
+<meta name="twitter:description" content="Add or extract GST with CGST/SGST split. Free, runs in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-gst.png" />
+
+<!-- WebApplication schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lekkal GST Calculator",
+  "url": "https://lekkal.com/gst-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free India GST calculator. Add or extract GST with CGST/SGST split for intra-state and IGST for inter-state. Standard slabs 0%, 5%, 12%, 18%, 28%.",
+  "featureList": [
+    "Add GST (exclusive to total)",
+    "Extract GST (total to base)",
+    "CGST + SGST split for intra-state",
+    "IGST for inter-state",
+    "Standard slab quick-select",
+    "Copyable summary",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<!-- Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "GST Calculator", "item": "https://lekkal.com/gst-calculator.html" }
+  ]
+}
+</script>
+
+<!-- FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the standard GST slabs in India?",
+      "acceptedAnswer": { "@type": "Answer", "text": "India has five standard GST slabs: 0% (essential items like unbranded food grains), 5% (household items like sugar, tea, edible oil), 12% (processed food, clothing under ₹1000), 18% (most services, electronics, AC), and 28% (luxury items like cars, tobacco, AC restaurants). Some items also carry an additional Compensation Cess on top." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between CGST, SGST, and IGST?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For intra-state supply (buyer and seller in the same state), GST is split 50:50 between CGST (Central GST, goes to the central government) and SGST (State GST, goes to the state government). For inter-state supply (buyer and seller in different states), the full GST is charged as IGST (Integrated GST). For Union Territories, UTGST replaces SGST." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate GST on an invoice?",
+      "acceptedAnswer": { "@type": "Answer", "text": "If your amount is exclusive of GST (the base price), multiply by the GST rate to get the GST amount, then add to the base for the total. If your amount is inclusive of GST (the total price), divide by (1 + GST rate) to get the base, and subtract from the total to get the GST amount. The Lekkal GST calculator handles both directions automatically." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is GST charged on a discount?",
+      "acceptedAnswer": { "@type": "Answer", "text": "If the discount is given before or at the time of sale and shown on the invoice, GST is charged on the post-discount amount. If the discount is given after the sale (e.g., as a cash discount or rebate), GST is charged on the original amount and not reduced. The Lekkal invoice generator applies the discount before tax by default." }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="invoice-generator.html">Invoice</a>
+      <a href="gst-calculator.html" class="active">GST</a>
+      <a href="roi-calculator.html">ROI</a>
+      <a href="index.html#tools">All tools</a>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>GST calculator (India)</h1>
+  <p>Add GST to a base amount, or extract it from a tax-inclusive total. Get a clean CGST/SGST or IGST breakdown ready to drop on an invoice. Free, no signup, runs in your browser.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>Inputs</h2>
+
+      <div class="field">
+        <label>Direction</label>
+        <div class="seg" id="dir-seg" style="width:100%;display:flex;">
+          <button data-val="add" class="active" style="flex:1;">Add GST <span class="muted" style="font-weight:400;font-size:11px;">(exclusive)</span></button>
+          <button data-val="extract" style="flex:1;">Extract GST <span class="muted" style="font-weight:400;font-size:11px;">(inclusive)</span></button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label><span id="amtLabel">Base amount (before GST)</span> <span class="hint">₹</span></label>
+        <input type="number" id="amount" value="10000" min="0" step="1" />
+      </div>
+
+      <div class="field">
+        <label>GST rate</label>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;" id="slab-pills">
+          <button class="slab-pill" data-rate="0">0%</button>
+          <button class="slab-pill" data-rate="5">5%</button>
+          <button class="slab-pill" data-rate="12">12%</button>
+          <button class="slab-pill active" data-rate="18">18%</button>
+          <button class="slab-pill" data-rate="28">28%</button>
+        </div>
+        <input type="number" id="rate" value="18" min="0" max="100" step="0.1" />
+      </div>
+
+      <div class="field">
+        <label>Type of supply</label>
+        <div class="seg" id="supply-seg" style="width:100%;display:flex;">
+          <button data-val="intra" class="active" style="flex:1;">Intra-state <span class="muted" style="font-weight:400;font-size:11px;">CGST + SGST</span></button>
+          <button data-val="inter" style="flex:1;">Inter-state <span class="muted" style="font-weight:400;font-size:11px;">IGST</span></button>
+        </div>
+      </div>
+
+      <details style="margin-top:18px;">
+        <summary style="font-size:13px;color:var(--text-muted);cursor:pointer;">Standard slabs reference</summary>
+        <div style="margin-top:10px;font-size:13px;">
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span class="muted">0%</span><span class="muted">Essential items (unbranded grains, fresh produce)</span></div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span class="muted">5%</span><span class="muted">Household items (sugar, tea, edible oil)</span></div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span class="muted">12%</span><span class="muted">Processed food, clothing under ₹1000</span></div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span class="muted">18%</span><span class="muted">Most services, electronics, AC</span></div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;"><span class="muted">28%</span><span class="muted">Luxury items (cars, tobacco, AC restaurants)</span></div>
+        </div>
+      </details>
+    </div>
+
+    <div class="card">
+      <h2>Breakdown</h2>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Base amount</div>
+          <div class="value tabular" id="rBase">—</div>
+          <div class="sub">before GST</div>
+        </div>
+        <div class="stat">
+          <div class="label">Total GST</div>
+          <div class="value tabular" id="rGst">—</div>
+          <div class="sub" id="rGstSub">at 0%</div>
+        </div>
+      </div>
+
+      <div class="stat-grid" id="splitCards" style="margin-top:12px;">
+        <div class="stat">
+          <div class="label" id="splitLabelA">CGST</div>
+          <div class="value tabular" id="rSplitA">—</div>
+          <div class="sub" id="splitSubA">central</div>
+        </div>
+        <div class="stat">
+          <div class="label" id="splitLabelB">SGST</div>
+          <div class="value tabular" id="rSplitB">—</div>
+          <div class="sub" id="splitSubB">state</div>
+        </div>
+      </div>
+
+      <div class="verdict success" style="margin-top:14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <div class="text"><strong>Final total (incl. GST)</strong><span id="rTotal" class="tabular" style="font-size: 18px; font-weight:600;">—</span></div>
+      </div>
+
+      <h2 style="margin-top:22px;">Copy summary</h2>
+      <div id="summary" class="url-output" style="white-space:pre-wrap;">—</div>
+      <button class="btn" id="copyBtn" style="margin-top:10px;">Copy</button>
+    </div>
+  </div>
+
+  <section class="faq-section" id="faq">
+    <h2>About GST in India</h2>
+    <details class="faq" open>
+      <summary>What are the standard GST slabs in India?</summary>
+      <p>India has five standard GST slabs: <strong>0%</strong> (essential items like unbranded food grains and fresh produce), <strong>5%</strong> (household items like sugar, tea, edible oil), <strong>12%</strong> (processed food, clothing under ₹1000), <strong>18%</strong> (most services, electronics, AC), and <strong>28%</strong> (luxury items like cars, tobacco, AC restaurants). Some items also carry an additional Compensation Cess on top of the GST.</p>
+    </details>
+    <details class="faq">
+      <summary>What's the difference between CGST, SGST, and IGST?</summary>
+      <p>For <strong>intra-state supply</strong> (buyer and seller in the same state), GST is split 50:50 between <strong>CGST</strong> (Central GST, goes to the central government) and <strong>SGST</strong> (State GST, goes to the state government). For <strong>inter-state supply</strong> (buyer and seller in different states), the full GST is charged as <strong>IGST</strong> (Integrated GST). For Union Territories, <strong>UTGST</strong> replaces SGST.</p>
+    </details>
+    <details class="faq">
+      <summary>How do I calculate GST on an invoice?</summary>
+      <p>If your amount is <strong>exclusive of GST</strong> (the base price): multiply by the GST rate to get the GST amount, then add to the base for the total. If your amount is <strong>inclusive of GST</strong> (the total price): divide by (1 + GST rate) to get the base, and subtract from the total to get the GST amount. This calculator handles both directions automatically.</p>
+    </details>
+    <details class="faq">
+      <summary>Is GST charged on a discount?</summary>
+      <p>If the discount is given <strong>before or at the time of sale</strong> and shown on the invoice, GST is charged on the post-discount amount. If the discount is given <strong>after the sale</strong> (e.g., as a cash discount or rebate), GST is charged on the original amount. For invoice-time discounts, use the <a href="invoice-generator.html">Lekkal invoice generator</a> — it applies the discount before tax by default.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. This calculator runs entirely in your browser. None of your inputs are sent to any server, and nothing is logged. You can use it for sensitive client data with confidence.</p>
+    </details>
+  </section>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>Tools</h4>
+      <a href="invoice-generator.html">Invoice generator</a>
+      <a href="gst-calculator.html">GST calculator</a>
+      <a href="roi-calculator.html">ROI calculator</a>
+    </div>
+    <div class="col">
+      <h4>About</h4>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#tools">All tools</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* GST-specific: slab pills */
+  .slab-pill {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    font-variant-numeric: tabular-nums;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .slab-pill:hover { background: var(--surface-3); color: var(--text); }
+  .slab-pill.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+</style>
+
+<script>
+const $ = id => document.getElementById(id);
+
+// Theme
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+});
+
+// State
+let direction = "add"; // "add" or "extract"
+let supply = "intra";  // "intra" or "inter"
+
+// Toggles
+$("dir-seg").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  direction = b.dataset.val;
+  document.querySelectorAll("#dir-seg button").forEach(x => x.classList.toggle("active", x === b));
+  $("amtLabel").textContent = direction === "add" ? "Base amount (before GST)" : "Total amount (incl. GST)";
+  update();
+});
+$("supply-seg").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  supply = b.dataset.val;
+  document.querySelectorAll("#supply-seg button").forEach(x => x.classList.toggle("active", x === b));
+  update();
+});
+
+// Slab pills
+$("slab-pills").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  $("rate").value = b.dataset.rate;
+  document.querySelectorAll(".slab-pill").forEach(x => x.classList.toggle("active", x === b));
+  update();
+});
+
+// Update slab pill active state when rate input changes manually
+$("rate").addEventListener("input", () => {
+  const r = +$("rate").value;
+  document.querySelectorAll(".slab-pill").forEach(x => x.classList.toggle("active", +x.dataset.rate === r));
+  update();
+});
+
+function fmt(n){
+  if (!isFinite(n) || isNaN(n)) return "—";
+  return "₹" + n.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function update(){
+  const amount = Math.max(0, +$("amount").value);
+  const rate = Math.max(0, +$("rate").value);
+
+  let base, gst, total;
+  if (direction === "add") {
+    base = amount;
+    gst = base * rate / 100;
+    total = base + gst;
+  } else {
+    total = amount;
+    base = rate === -100 ? 0 : total / (1 + rate / 100);
+    gst = total - base;
+  }
+
+  $("rBase").textContent = fmt(base);
+  $("rGst").textContent = fmt(gst);
+  $("rGstSub").textContent = "at " + rate + "%";
+  $("rTotal").textContent = fmt(total);
+
+  if (supply === "intra") {
+    $("splitLabelA").textContent = "CGST";
+    $("splitSubA").textContent = "central · " + (rate/2).toFixed(1) + "%";
+    $("splitLabelB").textContent = "SGST";
+    $("splitSubB").textContent = "state · " + (rate/2).toFixed(1) + "%";
+    $("rSplitA").textContent = fmt(gst / 2);
+    $("rSplitB").textContent = fmt(gst / 2);
+    $("splitCards").style.gridTemplateColumns = "repeat(2, 1fr)";
+    document.querySelector("#splitCards .stat:nth-child(2)").style.display = "";
+  } else {
+    $("splitLabelA").textContent = "IGST";
+    $("splitSubA").textContent = "integrated · " + rate + "%";
+    $("rSplitA").textContent = fmt(gst);
+    document.querySelector("#splitCards .stat:nth-child(2)").style.display = "none";
+    $("splitCards").style.gridTemplateColumns = "1fr";
+  }
+
+  // Summary text
+  const summary = supply === "intra"
+    ? `Base amount: ${fmt(base)}\nCGST (${(rate/2).toFixed(2)}%): ${fmt(gst/2)}\nSGST (${(rate/2).toFixed(2)}%): ${fmt(gst/2)}\nTotal GST: ${fmt(gst)}\nFinal total: ${fmt(total)}`
+    : `Base amount: ${fmt(base)}\nIGST (${rate}%): ${fmt(gst)}\nFinal total: ${fmt(total)}`;
+  $("summary").textContent = summary;
+}
+
+$("amount").addEventListener("input", update);
+
+$("copyBtn").addEventListener("click", () => {
+  navigator.clipboard.writeText($("summary").textContent).then(() => {
+    const b = $("copyBtn"); b.textContent = "Copied ✓"; b.classList.add("copied");
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("copied"); }, 1500);
+  });
+});
+
+update();
+</script>
+</body>
+</html>
