@@ -17,18 +17,14 @@
 })();
 
 // 2) Replace native number-input spin buttons with custom +/- controls.
-//    Applied to inputs inside `.field` containers (the standard form pattern across calculators).
-//    Skips inputs in custom grid rows (.line-row, .holder-row, .round-row) and any input with data-noinc.
 (function () {
   function init() {
-    var inputs = document.querySelectorAll(".field input[type=number]:not([data-noinc])");
+    var inputs = document.querySelectorAll("input[type=number]:not([data-noinc])");
     inputs.forEach(function (input) {
       if (input.parentNode && input.parentNode.classList.contains("num-wrap")) return;
-      // Build wrapper preserving any inline width/margin on the input
+      var tight = !!input.closest(".holder-row, .round-row, .line-row");
       var wrap = document.createElement("div");
-      wrap.className = "num-wrap";
-      // Transfer top/bottom margin from input → wrap so absolutely-positioned
-      // buttons stay anchored to the input visually.
+      wrap.className = "num-wrap" + (tight ? " num-wrap--tight" : "");
       if (input.style.marginTop)    { wrap.style.marginTop    = input.style.marginTop;    input.style.marginTop = ""; }
       if (input.style.marginBottom) { wrap.style.marginBottom = input.style.marginBottom; input.style.marginBottom = ""; }
       input.parentNode.insertBefore(wrap, input);
@@ -39,7 +35,7 @@
       minus.className = "num-btn num-minus";
       minus.setAttribute("aria-label", "Decrease");
       minus.tabIndex = -1;
-      minus.textContent = "−"; // minus sign
+      minus.textContent = "−";
 
       var plus = document.createElement("button");
       plus.type = "button";
@@ -57,6 +53,59 @@
 
       wrap.appendChild(plus);
       wrap.appendChild(minus);
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+
+// 3) Wire up lead-capture forms — POST to /api/subscribe, show success state, handle errors gracefully.
+(function () {
+  function init() {
+    document.querySelectorAll(".lc-form").forEach(function (form) {
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        var card  = form.closest(".lc-card");
+        var btn   = form.querySelector("button[type=submit]");
+        var input = form.querySelector("input[type=email]");
+        var origLabel = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+
+        try {
+          var res = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "Accept": "application/json" },
+          });
+          var body = {};
+          try { body = await res.json(); } catch (_) {}
+
+          if (res.ok && body.ok !== false) {
+            // Success — show the thank-you state
+            card.classList.add("sent");
+          } else {
+            btn.disabled = false;
+            btn.textContent = "Try again";
+            var msg = (body && body.error) || "Something went wrong. Please try again.";
+            // Inline error message under the form
+            var existing = card.querySelector(".lc-error");
+            if (existing) existing.remove();
+            var p = document.createElement("p");
+            p.className = "lc-error";
+            p.style.cssText = "color:var(--danger);font-size:12px;margin:8px 0 0;grid-column:1 / -1;";
+            p.textContent = msg;
+            card.appendChild(p);
+            input.focus();
+          }
+        } catch (err) {
+          btn.disabled = false;
+          btn.textContent = origLabel;
+        }
+      });
     });
   }
   if (document.readyState === "loading") {

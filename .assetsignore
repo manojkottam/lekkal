@@ -1,0 +1,23 @@
+# Files that should NOT be uploaded to Cloudflare's edge.
+# Same syntax as .gitignore.
+
+# Source control & meta
+.git/
+.github/
+.gitignore
+
+# Project meta — don't ship to production
+README.md
+LICENSE
+setup-git.sh
+
+# Cloudflare config itself
+wrangler.toml
+.assetsignore
+
+# Worker source — bundled by wrangler, not served as static asset
+src/
+schema.sql
+
+# OS noise
+.DS_Store

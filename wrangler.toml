@@ -1,0 +1,37 @@
+# Cloudflare Worker — Static Assets + email-capture API for Lekkal
+# https://developers.cloudflare.com/workers/static-assets/
+
+name = "lekkal"
+main = "src/worker.js"
+compatibility_date = "2026-05-18"
+
+[assets]
+directory = "./"
+binding = "ASSETS"
+# Path doesn't match a file → fall through to Worker. Worker then handles /api/*
+# routes itself, or calls env.ASSETS.fetch(request) which serves /404.html.
+not_found_handling = "404-page"
+
+# D1 database for subscriber storage.
+# Create with: wrangler d1 create lekkal-db   (then paste the database_id below)
+[[d1_databases]]
+binding = "DB"
+database_name = "lekkal-db"
+database_id = "1e23b907-e75e-442e-969a-10aab2a7492f"
+
+# Custom domain routing — Cloudflare must already manage DNS for lekkal.com.
+# After the first deploy, attach the domain via either of these methods:
+#   1. Dashboard: Workers & Pages → lekkal → Settings → Domains → Add Custom Domain
+#   2. Uncomment the routes block below and re-deploy
+#
+# [[routes]]
+# pattern = "lekkal.com"
+# custom_domain = true
+#
+# [[routes]]
+# pattern = "www.lekkal.com"
+# custom_domain = true
+
+# Observability: send Worker logs to Cloudflare's Logs tab (1% sample is free)
+[observability]
+enabled = true
