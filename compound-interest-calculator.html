@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Free Compound Interest & FIRE Calculator | Lekkal</title>
+<meta name="description" content="Free compound interest calculator with monthly contributions and inflation adjustment. Project savings or retirement (FIRE) corpus across any time horizon. Multi-currency, no signup, runs in your browser." />
+<meta name="keywords" content="compound interest calculator, FIRE calculator, retirement calculator, savings calculator, investment growth calculator, compound interest with monthly contributions, future value calculator, inflation adjusted calculator" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<link rel="canonical" href="https://lekkal.com/compound-interest-calculator.html" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/compound-interest-calculator.html" />
+<meta property="og:title" content="Free Compound Interest & FIRE Calculator" />
+<meta property="og:description" content="Project savings growth with monthly contributions. Inflation-adjusted real value. FIRE planning mode. Free, no signup." />
+<meta property="og:image" content="https://lekkal.com/og-compound.png" />
+<meta property="og:site_name" content="Lekkal" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Compound Interest & FIRE Calculator" />
+<meta name="twitter:description" content="Project corpus growth across any time horizon. Real value adjustment included. Free, runs in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-compound.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lekkal Compound Interest & FIRE Calculator",
+  "url": "https://lekkal.com/compound-interest-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free compound interest calculator with monthly contributions, inflation adjustment, and FIRE retirement planning. Projects savings or retirement corpus across any time horizon with year-by-year growth chart.",
+  "featureList": [
+    "Lump sum + monthly contributions",
+    "Configurable compounding frequency",
+    "Inflation-adjusted real value",
+    "Year-by-year growth chart",
+    "FIRE (Financial Independence) target check",
+    "Multi-currency",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Compound Interest Calculator", "item": "https://lekkal.com/compound-interest-calculator.html" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does compound interest work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Compound interest means your returns themselves earn returns. If you have $10,000 at 7% annual interest, year one gives $700. Year two earns 7% on $10,700, not just $10,000 — $749. Over 30 years, compounding adds ~$70,000 on top of the simple-interest result. The formula is FV = P × (1 + r/n)^(n×t), where n is the compounding frequency per year." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is FIRE?",
+      "acceptedAnswer": { "@type": "Answer", "text": "FIRE stands for Financial Independence, Retire Early. The traditional rule of thumb: you reach FIRE when your invested assets equal 25× your annual expenses (the '4% rule'). At that point, you can withdraw 4% per year indefinitely without depleting principal. So if you spend $50,000/year, your FIRE number is $1.25M. This calculator helps you see when you'd hit any target corpus." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I adjust for inflation?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — especially for long-horizon planning. Inflation averages 2–3% in developed economies, 5–7% in emerging markets. A nominal $1M in 30 years at 3% inflation is worth only about $412K in today's purchasing power. The real-value display on this calculator shows what your corpus can actually buy in present-day terms — the number that matters for planning." }
+    },
+    {
+      "@type": "Question",
+      "name": "What return rate should I assume?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Historical long-term returns: US S&P 500 ~7–10% real (after inflation), global equity ~5–7% real, bonds ~2–4%, cash ~0–1%. For long-term retirement planning, 6–8% nominal is a reasonable mid-range assumption. Be conservative — projecting 12% and getting 6% means hitting your goal a decade late." }
+    },
+    {
+      "@type": "Question",
+      "name": "Lump sum or monthly contributions — which is better?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Mathematically, lump sum almost always wins if the market trends upward — more capital compounding for longer. But most people don't have a lump sum, and monthly contributions (dollar-cost averaging) work better psychologically through downturns. The best portfolio is the one you actually keep contributing to. This calculator handles both — use the mix that matches your reality." }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="styles.css" />
+<script src="nav.js" defer></script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="invoice-generator.html">Invoice</a>
+      <a href="emi-calculator.html">EMI</a>
+      <a href="burn-rate-calculator.html">Burn</a>
+      <a href="cap-table-calculator.html">Cap table</a>
+      <a href="mrr-calculator.html">MRR</a>
+      <a href="roi-calculator.html">ROI</a>
+      <details class="nav-dropdown">
+        <summary>
+          India
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="gst-calculator.html"><span>GST calculator<span class="meta">CGST · SGST · IGST</span></span><span class="pill">Live</span></a>
+          <a href="income-tax-calculator.html"><span>Income tax<span class="meta">Old vs new regime · FY 2025-26</span></span><span class="pill">Live</span></a>
+          <a href="sip-calculator.html"><span>SIP calculator<span class="meta">Regular · step-up · lump sum</span></span><span class="pill">Live</span></a>
+          <a href="salary-breakup-calculator.html"><span>Salary breakup<span class="meta">CTC to in-hand</span></span><span class="pill">Live</span></a>
+          <div class="divider"></div>
+          <div class="footer">Coming soon</div>
+          <a class="disabled"><span>TDS calculator<span class="meta">Sec 192 / 194C / 194J</span></span><span class="pill soon">Soon</span></a>
+        </div>
+      </details>
+      <a href="index.html#tools">All tools</a>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>Compound interest & FIRE calculator</h1>
+  <p>Project savings growth with monthly contributions, inflation adjustment, and a year-by-year chart. Plus a FIRE target check so you can see exactly when you'd hit financial independence.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>Your plan</h2>
+
+      <div class="field">
+        <label>Initial investment <span class="hint" id="initHint">$10,000</span></label>
+        <input type="range" id="initRange" min="0" max="1000000" step="1000" value="10000" />
+        <input type="number" id="init" value="10000" min="0" step="100" style="margin-top:8px;" />
+      </div>
+
+      <div class="field">
+        <label>Monthly contribution <span class="hint" id="monthlyHint">$500</span></label>
+        <input type="range" id="monthlyRange" min="0" max="20000" step="100" value="500" />
+        <input type="number" id="monthly" value="500" min="0" step="50" style="margin-top:8px;" />
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label>Expected return <span class="hint" id="rateHint">7%</span></label>
+          <input type="range" id="rateRange" min="0" max="20" step="0.25" value="7" />
+        </div>
+        <div class="field">
+          <label>Years <span class="hint" id="yearsHint">30</span></label>
+          <input type="range" id="yearsRange" min="1" max="50" step="1" value="30" />
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label>Compounding</label>
+          <select id="compFreq">
+            <option value="1">Annually</option>
+            <option value="2">Semi-annually</option>
+            <option value="4">Quarterly</option>
+            <option value="12" selected>Monthly</option>
+            <option value="365">Daily</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Currency</label>
+          <select id="currency">
+            <option value="USD">$ USD</option>
+            <option value="EUR">€ EUR</option>
+            <option value="GBP">£ GBP</option>
+            <option value="INR">₹ INR</option>
+            <option value="AUD">A$ AUD</option>
+            <option value="CAD">C$ CAD</option>
+          </select>
+        </div>
+      </div>
+
+      <h2 style="margin-top:18px;">Inflation & FIRE target</h2>
+
+      <div class="field">
+        <label>
+          Adjust for inflation
+          <span style="display:inline-block;margin-left:8px;">
+            <input type="checkbox" id="inflToggle" checked style="vertical-align:middle;width:auto;height:auto;" />
+          </span>
+        </label>
+      </div>
+      <div class="field" id="inflField">
+        <label>Inflation rate <span class="hint" id="inflHint">3%</span></label>
+        <input type="range" id="inflRange" min="0" max="10" step="0.25" value="3" />
+      </div>
+
+      <div class="field">
+        <label>FIRE target <span class="hint" id="fireHint">$1,250,000</span></label>
+        <input type="number" id="fire" value="1250000" min="0" step="10000" />
+        <p class="soft" style="font-size:11px;margin:4px 0 0;">Rule of thumb: 25× your annual expenses</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Future corpus</h2>
+
+      <div class="verdict success" style="margin-bottom: 14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 5-10"/></svg>
+        <div class="text">
+          <strong>Projected corpus</strong>
+          <span id="corpus" class="tabular" style="font-size:22px;font-weight:600;">—</span>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Total contributed</div>
+          <div class="value tabular" id="contributed">—</div>
+          <div class="sub" id="contributedSub">your money in</div>
+        </div>
+        <div class="stat">
+          <div class="label">Interest earned</div>
+          <div class="value tabular" id="interest">—</div>
+          <div class="sub" id="interestSub">compounding growth</div>
+        </div>
+        <div class="stat">
+          <div class="label">Real value</div>
+          <div class="value tabular" id="real">—</div>
+          <div class="sub" id="realSub">today's purchasing power</div>
+        </div>
+        <div class="stat">
+          <div class="label">Multiplier</div>
+          <div class="value tabular" id="mult">—</div>
+          <div class="sub">× of contributions</div>
+        </div>
+      </div>
+
+      <div class="verdict" id="fireVerdict" style="margin-top: 14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+        <div class="text"><strong id="fireTitle">—</strong><span id="fireBody">—</span></div>
+      </div>
+
+      <h2 style="margin-top: 22px;">Growth over time</h2>
+      <div class="chart-wrap"><canvas id="chart"></canvas></div>
+      <div style="display:flex;gap:14px;font-size:12px;color:var(--text-muted);margin-top:8px;justify-content:center;">
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:#94a3b8;"></span>Contributed</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:#0f766e;"></span>Total corpus</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:#f59e0b;"></span>FIRE target</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="grid-3 mt-6">
+    <div class="card-flat">
+      <p class="section-title">Time is the lever</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        Starting at 25 vs 35 with the same monthly contribution and rate can double your final corpus. The first 10 years of compounding does most of the work in the back end. Start early, even small.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">The 4% rule (FIRE)</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        Once your portfolio equals 25× annual expenses, you can typically withdraw 4% per year indefinitely. So if you spend $50K/year, FIRE = $1.25M. This calculator's default target.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Nominal vs real returns</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        A 7% nominal return at 3% inflation = ~4% real return. Always check the real-value display — that's what your corpus actually buys. Long-term planners use 5–7% real for diversified equity.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About compound interest & FIRE</h2>
+    <details class="faq" open>
+      <summary>How does compound interest work?</summary>
+      <p>Compound interest means your returns themselves earn returns. If you have $10,000 at 7% annual interest, year one gives $700. Year two earns 7% on $10,700, not just $10,000 — $749. Over 30 years, compounding adds ~$70,000 on top of the simple-interest result. The formula: <strong>FV = P × (1 + r/n)<sup>n×t</sup></strong>, where n is the compounding frequency per year.</p>
+    </details>
+    <details class="faq">
+      <summary>What is FIRE?</summary>
+      <p>FIRE stands for <strong>Financial Independence, Retire Early</strong>. The traditional rule of thumb: you reach FIRE when your invested assets equal <strong>25× your annual expenses</strong> (the "4% rule"). At that point, you can withdraw 4% per year indefinitely without depleting principal. So if you spend $50,000/year, your FIRE number is $1.25M.</p>
+    </details>
+    <details class="faq">
+      <summary>Should I adjust for inflation?</summary>
+      <p>Yes — especially for long-horizon planning. Inflation averages <strong>2–3%</strong> in developed economies, 5–7% in emerging markets. A nominal $1M in 30 years at 3% inflation is worth only about <strong>$412K</strong> in today's purchasing power. The real-value display shows what your corpus can actually buy in present-day terms — that's the number that matters.</p>
+    </details>
+    <details class="faq">
+      <summary>What return rate should I assume?</summary>
+      <p>Historical long-term returns: US S&P 500 <strong>~7–10% real</strong>, global equity ~5–7% real, bonds ~2–4%, cash ~0–1%. For long-term retirement planning, 6–8% nominal is a reasonable mid-range assumption. Be conservative — projecting 12% and getting 6% means hitting your goal a decade late.</p>
+    </details>
+    <details class="faq">
+      <summary>Lump sum or monthly contributions?</summary>
+      <p>Mathematically, lump sum almost always wins if the market trends upward — more capital compounding for longer. But most people don't have a lump sum, and monthly contributions (dollar-cost averaging) work better psychologically through downturns. The best portfolio is the one you actually keep contributing to.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. This calculator runs entirely in your browser. None of your financial data is sent to any server.</p>
+    </details>
+  </section>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>Personal finance</h4>
+      <a href="compound-interest-calculator.html">Compound interest</a>
+      <a href="emi-calculator.html">EMI / loan</a>
+      <a href="sip-calculator.html">SIP (India)</a>
+    </div>
+    <div class="col">
+      <h4>All tools</h4>
+      <a href="index.html#tools">Browse →</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+  refreshChartColors();
+});
+
+const CURRENCIES = { USD:"$", EUR:"€", GBP:"£", INR:"₹", AUD:"A$", CAD:"C$" };
+const LOCALES = { USD:"en-US", EUR:"de-DE", GBP:"en-GB", INR:"en-IN", AUD:"en-AU", CAD:"en-CA" };
+function ccy() { return $("currency").value; }
+function symbol() { return CURRENCIES[ccy()]; }
+function locale() { return LOCALES[ccy()]; }
+function fmt(n) { if (!isFinite(n) || isNaN(n)) return "—"; return symbol() + Math.round(n).toLocaleString(locale()); }
+function fmtShort(n) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  const s = symbol(), abs = Math.abs(n);
+  if (ccy() === "INR") {
+    if (abs >= 1e7) return s + (n/1e7).toFixed(2) + " Cr";
+    if (abs >= 1e5) return s + (n/1e5).toFixed(2) + " L";
+    return s + Math.round(n).toLocaleString("en-IN");
+  } else {
+    if (abs >= 1e6) return s + (n/1e6).toFixed(2) + "M";
+    if (abs >= 1000) return s + (n/1000).toFixed(1) + "K";
+    return s + Math.round(n).toLocaleString(locale());
+  }
+}
+function detectDefaultCurrency() {
+  try {
+    const lang = (navigator.language || "").toLowerCase();
+    if (lang.endsWith("-in") || lang === "hi" || lang === "te" || lang === "ta") return "INR";
+    if (lang.endsWith("-gb")) return "GBP";
+    if (lang.endsWith("-au")) return "AUD";
+    if (lang.endsWith("-ca")) return "CAD";
+    if (lang.startsWith("de") || lang.startsWith("fr") || lang.startsWith("es") || lang.startsWith("it") || lang.startsWith("nl") || lang.startsWith("pt")) return "EUR";
+    return "USD";
+  } catch { return "USD"; }
+}
+
+function syncPair(rangeId, inputId) {
+  $(rangeId).addEventListener("input", () => { $(inputId).value = $(rangeId).value; update(); });
+  $(inputId).addEventListener("input", () => { $(rangeId).value = $(inputId).value; update(); });
+}
+syncPair("initRange", "init");
+syncPair("monthlyRange", "monthly");
+["rateRange","yearsRange","compFreq","inflRange","fire","currency"].forEach(id => $(id).addEventListener("input", update));
+$("inflToggle").addEventListener("change", () => {
+  $("inflField").style.display = $("inflToggle").checked ? "" : "none";
+  update();
+});
+
+function simulate() {
+  const principal = +$("init").value || 0;
+  const monthly = +$("monthly").value || 0;
+  const rate = (+$("rateRange").value || 0) / 100;
+  const years = +$("yearsRange").value || 1;
+  const n = +$("compFreq").value || 12;
+  const inflation = (+$("inflRange").value || 0) / 100;
+  const useInfl = $("inflToggle").checked;
+  const fire = +$("fire").value || 0;
+
+  // Year-by-year using monthly compounding internally for accuracy with monthly contribs
+  // We'll convert n to months for proper handling
+  // Simpler: simulate month by month, applying interest at compounding intervals
+  const periods = n * years;
+  const ratePerPeriod = rate / n;
+  const series = [{ year: 0, balance: principal, contributed: principal, real: principal }];
+  let balance = principal;
+  let contributed = principal;
+  // Monthly contributions added monthly, interest applied per compounding period
+  for (let y = 1; y <= years; y++) {
+    for (let m = 1; m <= 12; m++) {
+      balance += monthly;
+      contributed += monthly;
+      // Apply interest n times per year, distributed equally
+      // If n=12, apply per month; if n=4, apply every 3 months; if n=1, apply once per year (Dec)
+      const monthsBetweenComp = 12 / n;
+      if (n === 12) {
+        balance *= 1 + ratePerPeriod;
+      } else if (n === 4 && m % 3 === 0) {
+        balance *= 1 + ratePerPeriod;
+      } else if (n === 2 && m % 6 === 0) {
+        balance *= 1 + ratePerPeriod;
+      } else if (n === 1 && m === 12) {
+        balance *= 1 + ratePerPeriod;
+      } else if (n === 365) {
+        // Daily ≈ monthly with daily rate compounded
+        balance *= Math.pow(1 + ratePerPeriod, 30);
+      }
+    }
+    const real = useInfl ? balance / Math.pow(1 + inflation, y) : balance;
+    series.push({ year: y, balance, contributed, real });
+  }
+  return { series, principal, monthly, rate, years, n, inflation, useInfl, fire };
+}
+
+let chart;
+function update() {
+  const r = simulate();
+  const last = r.series[r.series.length - 1];
+
+  $("initHint").textContent = fmtShort(+$("init").value || 0);
+  $("monthlyHint").textContent = fmtShort(+$("monthly").value || 0);
+  $("rateHint").textContent = (+$("rateRange").value).toFixed(2) + "%";
+  $("yearsHint").textContent = (+$("yearsRange").value) + " yr";
+  $("inflHint").textContent = (+$("inflRange").value).toFixed(2) + "%";
+  $("fireHint").textContent = fmtShort(+$("fire").value || 0);
+
+  const fv = last.balance;
+  const contributed = last.contributed;
+  const interest = fv - contributed;
+  const real = last.real;
+  const multiplier = contributed > 0 ? fv / contributed : 0;
+
+  $("corpus").textContent = fmt(fv);
+  $("contributed").textContent = fmt(contributed);
+  $("contributedSub").textContent = fmt(r.principal) + " + " + fmt(r.monthly * 12 * r.years);
+  $("interest").textContent = fmt(interest);
+  $("interestSub").textContent = contributed > 0 ? ((interest/contributed)*100).toFixed(0) + "% of contributions" : "—";
+  $("real").textContent = r.useInfl ? fmt(real) : "—";
+  $("realSub").textContent = r.useInfl ? "at " + (r.inflation*100).toFixed(1) + "% inflation" : "toggle inflation on";
+  $("mult").textContent = multiplier.toFixed(2) + "×";
+
+  // FIRE verdict
+  const v = $("fireVerdict"), vT = $("fireTitle"), vB = $("fireBody");
+  v.classList.remove("success","warning","danger","neutral");
+  const fireTarget = r.fire;
+  if (fireTarget === 0) {
+    v.classList.add("neutral");
+    vT.textContent = "Set a FIRE target to see when you'd hit it";
+    vB.textContent = "—";
+  } else if (fv >= fireTarget) {
+    // Find the first year corpus exceeds target
+    const hitYear = r.series.findIndex(s => s.balance >= fireTarget);
+    v.classList.add("success");
+    vT.textContent = `FIRE achieved in year ${hitYear}`;
+    vB.textContent = `At ${(r.rate*100).toFixed(1)}% return with ${fmt(r.monthly)}/mo, you hit ${fmt(fireTarget)} by year ${hitYear}. Final corpus: ${fmt(fv)} (${((fv/fireTarget)*100).toFixed(0)}% of target).`;
+  } else {
+    const shortfall = fireTarget - fv;
+    v.classList.add("warning");
+    vT.textContent = `Short of FIRE by ${fmt(shortfall)}`;
+    vB.textContent = `You'd reach ${fmt(fv)} (${((fv/fireTarget)*100).toFixed(0)}% of ${fmt(fireTarget)}). Try increasing the monthly contribution, the time horizon, or accepting a lower target.`;
+  }
+
+  // Chart
+  const labels = r.series.map(s => "Y" + s.year);
+  const balanceData = r.series.map(s => s.balance);
+  const contribData = r.series.map(s => s.contributed);
+  const fireLine = r.fire > 0 ? r.series.map(() => r.fire) : null;
+
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  if (chart) {
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = contribData;
+    chart.data.datasets[1].data = balanceData;
+    if (chart.data.datasets[2]) chart.data.datasets[2].data = fireLine || [];
+    chart.update("none");
+  } else {
+    const datasets = [
+      { data: contribData, label: "Contributed", borderColor: "#94a3b8", backgroundColor: "rgba(148,163,184,0.18)", fill: true, tension: 0.2, pointRadius: 0, borderWidth: 2 },
+      { data: balanceData, label: "Corpus", borderColor: "#0f766e", backgroundColor: "rgba(15,118,110,0.20)", fill: true, tension: 0.2, pointRadius: 0, borderWidth: 2 }
+    ];
+    if (fireLine) {
+      datasets.push({ data: fireLine, label: "FIRE target", borderColor: "#f59e0b", backgroundColor: "transparent", fill: false, tension: 0, pointRadius: 0, borderWidth: 2, borderDash: [6, 4] });
+    }
+    chart = new Chart($("chart"), {
+      type: "line",
+      data: { labels, datasets },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { mode: "index", intersect: false, callbacks: { label: c => c.dataset.label + ": " + fmt(c.parsed.y) }}},
+        interaction: { mode: 'index', intersect: false },
+        scales: {
+          y: { ticks: { callback: v => fmtShort(v), color: muted }, grid: { color: "rgba(125,125,125,0.10)" }},
+          x: { ticks: { maxTicksLimit: 11, color: muted, autoSkip: true }, grid: { display: false }}
+        }
+      }
+    });
+  }
+}
+function refreshChartColors() {
+  if (!chart) return;
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  chart.options.scales.x.ticks.color = muted;
+  chart.options.scales.y.ticks.color = muted;
+  chart.update("none");
+}
+
+$("currency").value = detectDefaultCurrency();
+update();
+</script>
+</body>
+</html>

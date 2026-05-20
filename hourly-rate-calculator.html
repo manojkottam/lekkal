@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Free Hourly Rate Calculator for Freelancers & Consultants | Lekkal</title>
+<meta name="description" content="Free freelance hourly rate calculator. Plug in your target salary, business overhead, profit margin, and billable utilization — get the hourly, daily, and project rate you need to charge. Multi-currency, no signup, runs in your browser." />
+<meta name="keywords" content="hourly rate calculator, freelance rate calculator, consulting rate calculator, freelancer hourly rate, contractor rate calculator, project pricing calculator, billable rate calculator, freelance salary calculator" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<link rel="canonical" href="https://lekkal.com/hourly-rate-calculator.html" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/hourly-rate-calculator.html" />
+<meta property="og:title" content="Free Hourly Rate Calculator for Freelancers" />
+<meta property="og:description" content="Compute the hourly, daily, and project rate you need based on target salary + overhead + profit margin + billable utilization." />
+<meta property="og:image" content="https://lekkal.com/og-hourly-rate.png" />
+<meta property="og:site_name" content="Lekkal" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Hourly Rate Calculator" />
+<meta name="twitter:description" content="Target salary + overhead + utilization → required billing rate. Free, runs in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-hourly-rate.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lekkal Hourly Rate Calculator",
+  "url": "https://lekkal.com/hourly-rate-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free freelance and consulting hourly rate calculator. Computes required billing rate from target salary, business overhead, profit margin, and billable utilization.",
+  "featureList": [
+    "Target salary + overhead + profit margin model",
+    "Billable utilization (weeks worked × billable hours)",
+    "Hourly, daily, weekly, and project rates",
+    "Multi-currency",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Hourly Rate Calculator", "item": "https://lekkal.com/hourly-rate-calculator.html" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate my freelance hourly rate?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The right hourly rate covers your target salary + business overhead + profit margin, divided by your billable hours per year. Annual revenue needed = (salary + overhead) ÷ (1 − profit margin). Then divide by billable hours = weeks worked × billable hours per week. Most freelancers only bill 50–70% of their working hours — the rest is admin, sales, learning, and breaks." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's a reasonable profit margin for freelancers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For freelancers and small consultancies, 15–25% profit margin is a healthy benchmark. This isn't your salary — it's the extra cushion above all costs that funds growth, retirement, downturns, and reinvestment. Agencies typically aim for 20–30%. If you're just covering salary + costs with no margin, you're operating at break-even, which is risky long-term." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many hours per week can I actually bill?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Even at full-time hours (40/week), most freelancers only bill 25–30 hours. The remaining 10–15 hours go to sales calls, proposals, invoicing, professional development, and unbilled internal work. New freelancers often bill less (20–25) because they spend more time prospecting. Senior consultants with retained clients can sometimes hit 30–35 billable." }
+    },
+    {
+      "@type": "Question",
+      "name": "What overhead should I include?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Common freelancer overhead: business taxes (often 15–25% of revenue in US), self-employment retirement contributions, health insurance, professional liability insurance, software subscriptions, accounting/legal fees, equipment depreciation, co-working space, and continuing education. A solo freelancer typically has $10K–$30K of annual overhead; agencies have much more." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I quote project rates or hourly rates?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hourly rates are simpler but cap your earnings at your time. Project (fixed) rates let you charge for value, not hours — a skilled freelancer who finishes faster makes more, not less. Use this calculator to find your true hourly cost, then price projects at 1.3–2× that cost depending on perceived value, risk, and your negotiating position." }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="styles.css" />
+<script src="nav.js" defer></script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="invoice-generator.html">Invoice</a>
+      <a href="emi-calculator.html">EMI</a>
+      <a href="burn-rate-calculator.html">Burn</a>
+      <a href="cap-table-calculator.html">Cap table</a>
+      <a href="mrr-calculator.html">MRR</a>
+      <a href="roi-calculator.html">ROI</a>
+      <details class="nav-dropdown">
+        <summary>
+          India
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="gst-calculator.html"><span>GST calculator<span class="meta">CGST · SGST · IGST</span></span><span class="pill">Live</span></a>
+          <a href="income-tax-calculator.html"><span>Income tax<span class="meta">Old vs new regime · FY 2025-26</span></span><span class="pill">Live</span></a>
+          <a href="sip-calculator.html"><span>SIP calculator<span class="meta">Regular · step-up · lump sum</span></span><span class="pill">Live</span></a>
+          <a href="salary-breakup-calculator.html"><span>Salary breakup<span class="meta">CTC to in-hand</span></span><span class="pill">Live</span></a>
+          <div class="divider"></div>
+          <div class="footer">Coming soon</div>
+          <a class="disabled"><span>TDS calculator<span class="meta">Sec 192 / 194C / 194J</span></span><span class="pill soon">Soon</span></a>
+        </div>
+      </details>
+      <a href="index.html#tools">All tools</a>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>Hourly rate calculator</h1>
+  <p>Plug in your target salary, business overhead, and how much of your working week you actually bill. Get the hourly, daily, and project rate you need to charge to hit your number.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>Your numbers</h2>
+
+      <div class="field">
+        <label>Target annual salary <span class="hint" id="salaryHint">$80,000</span></label>
+        <input type="range" id="salaryRange" min="20000" max="500000" step="5000" value="80000" />
+        <input type="number" id="salary" value="80000" min="0" step="1000" style="margin-top:8px;" />
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label>Business overhead <span class="hint">per year</span></label>
+          <input type="number" id="overhead" value="15000" min="0" step="1000" />
+          <p class="soft" style="font-size:11px;margin:4px 0 0;">Taxes, insurance, software, office, etc.</p>
+        </div>
+        <div class="field">
+          <label>Profit margin <span class="hint" id="profitHint">15%</span></label>
+          <input type="range" id="profitRange" min="0" max="50" step="1" value="15" />
+        </div>
+      </div>
+
+      <h2 style="margin-top:18px;">Billable time</h2>
+
+      <div class="row2">
+        <div class="field">
+          <label>Weeks worked per year <span class="hint" id="weeksHint">48</span></label>
+          <input type="range" id="weeksRange" min="30" max="52" step="1" value="48" />
+          <p class="soft" style="font-size:11px;margin:4px 0 0;">52 − vacation − sick days</p>
+        </div>
+        <div class="field">
+          <label>Billable hours/week <span class="hint" id="hoursHint">25</span></label>
+          <input type="range" id="hoursRange" min="10" max="40" step="1" value="25" />
+          <p class="soft" style="font-size:11px;margin:4px 0 0;">Of 40 working hours, 25–30 is typical</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Currency</label>
+        <select id="currency">
+          <option value="USD">$ USD — US Dollar</option>
+          <option value="EUR">€ EUR — Euro</option>
+          <option value="GBP">£ GBP — British Pound</option>
+          <option value="INR">₹ INR — Indian Rupee</option>
+          <option value="AUD">A$ AUD — Australian Dollar</option>
+          <option value="CAD">C$ CAD — Canadian Dollar</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Your rate</h2>
+
+      <div class="verdict success" style="margin-bottom: 14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="text">
+          <strong>Hourly rate to charge</strong>
+          <span id="hourly" class="tabular" style="font-size:22px;font-weight:600;">—</span>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Daily (8 hours)</div>
+          <div class="value tabular" id="daily">—</div>
+          <div class="sub">full-day project</div>
+        </div>
+        <div class="stat">
+          <div class="label">Weekly</div>
+          <div class="value tabular" id="weekly">—</div>
+          <div class="sub" id="weeklySub">billable hours per week</div>
+        </div>
+        <div class="stat">
+          <div class="label">Annual revenue</div>
+          <div class="value tabular" id="annualRev">—</div>
+          <div class="sub">your target</div>
+        </div>
+        <div class="stat">
+          <div class="label">Billable hours/yr</div>
+          <div class="value tabular" id="billHours">—</div>
+          <div class="sub">utilization</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:22px;">Project pricing</h2>
+      <div class="stat-grid">
+        <div class="stat"><div class="label">10-hour</div><div class="value tabular" id="proj10">—</div></div>
+        <div class="stat"><div class="label">20-hour</div><div class="value tabular" id="proj20">—</div></div>
+        <div class="stat"><div class="label">40-hour</div><div class="value tabular" id="proj40">—</div></div>
+        <div class="stat"><div class="label">80-hour</div><div class="value tabular" id="proj80">—</div></div>
+      </div>
+      <p class="soft" style="font-size:12px;margin:8px 0 0;">For fixed-fee projects, consider charging 1.3–2× the time-based rate to capture value vs effort.</p>
+    </div>
+  </div>
+
+  <section class="card mt-6">
+    <h2>How this breaks down</h2>
+    <div id="breakdown" style="font-size:13px;"></div>
+  </section>
+
+  <section class="grid-3 mt-6">
+    <div class="card-flat">
+      <p class="section-title">Why most freelancers undercharge</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        They divide their old salary by 40 hours × 52 weeks. That ignores overhead, taxes, unbilled time, and profit. The real hourly rate is typically <strong>2–3×</strong> the naive number.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Utilization is the lever</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        Bumping billable hours from 25 to 30/week (with the same salary target) drops your required rate by 17%. If you can fill the calendar, you can charge less and earn more. If you can't, you need to charge more.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Hourly vs project</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        Hourly caps your earnings at time. Project rates let you charge for value. Use this hourly rate as your floor, then mark up 1.3–2× for fixed-fee work to reward your speed and absorb scope risk.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About freelance pricing</h2>
+    <details class="faq" open>
+      <summary>How do I calculate my freelance hourly rate?</summary>
+      <p>The right hourly rate covers your <strong>target salary + business overhead + profit margin</strong>, divided by your billable hours per year. Annual revenue needed = (salary + overhead) ÷ (1 − profit margin). Then divide by billable hours = weeks worked × billable hours per week. Most freelancers only bill 50–70% of their working hours — the rest is admin, sales, learning, and breaks.</p>
+    </details>
+    <details class="faq">
+      <summary>What's a reasonable profit margin for freelancers?</summary>
+      <p>For freelancers and small consultancies, <strong>15–25%</strong> profit margin is healthy. This isn't your salary — it's the extra cushion above all costs that funds growth, retirement, downturns, and reinvestment. Agencies typically aim for 20–30%. Operating at break-even with no margin is risky long-term.</p>
+    </details>
+    <details class="faq">
+      <summary>How many hours per week can I actually bill?</summary>
+      <p>Even at full-time (40h/week), most freelancers only bill <strong>25–30 hours</strong>. The remaining 10–15 hours go to sales calls, proposals, invoicing, professional development, and unbilled internal work. New freelancers often bill less (20–25); senior consultants with retained clients can sometimes hit 30–35.</p>
+    </details>
+    <details class="faq">
+      <summary>What overhead should I include?</summary>
+      <p>Common freelancer overhead: business taxes (often 15–25% of revenue in US), self-employment retirement contributions, health insurance, professional liability insurance, software subscriptions, accounting/legal fees, equipment depreciation, co-working space, continuing education. A solo freelancer typically has <strong>$10K–$30K</strong> of annual overhead; agencies have much more.</p>
+    </details>
+    <details class="faq">
+      <summary>Should I quote project rates or hourly rates?</summary>
+      <p><strong>Hourly</strong> is simpler but caps earnings at time. <strong>Project (fixed)</strong> rates let you charge for value — a skilled freelancer who finishes faster makes more, not less. Use this calculator to find your true hourly cost, then price projects at 1.3–2× that cost based on value, risk, and your negotiating position.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. This calculator runs entirely in your browser. None of your salary or business data is sent to any server.</p>
+    </details>
+  </section>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>Freelancer tools</h4>
+      <a href="invoice-generator.html">Invoice generator</a>
+      <a href="hourly-rate-calculator.html">Hourly rate</a>
+    </div>
+    <div class="col">
+      <h4>All tools</h4>
+      <a href="index.html#tools">Browse →</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+});
+
+const CURRENCIES = { USD:"$", EUR:"€", GBP:"£", INR:"₹", AUD:"A$", CAD:"C$" };
+const LOCALES = { USD:"en-US", EUR:"de-DE", GBP:"en-GB", INR:"en-IN", AUD:"en-AU", CAD:"en-CA" };
+function ccy() { return $("currency").value; }
+function symbol() { return CURRENCIES[ccy()]; }
+function locale() { return LOCALES[ccy()]; }
+function fmt(n, d = 0) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  return symbol() + n.toLocaleString(locale(), { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+function fmtShort(n) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  const s = symbol(), abs = Math.abs(n);
+  if (ccy() === "INR") {
+    if (abs >= 1e7) return s + (n/1e7).toFixed(2) + " Cr";
+    if (abs >= 1e5) return s + (n/1e5).toFixed(2) + " L";
+    return s + Math.round(n).toLocaleString("en-IN");
+  } else {
+    if (abs >= 1e6) return s + (n/1e6).toFixed(2) + "M";
+    if (abs >= 1000) return s + (n/1000).toFixed(1) + "K";
+    return s + Math.round(n).toLocaleString(locale());
+  }
+}
+function detectDefaultCurrency() {
+  try {
+    const lang = (navigator.language || "").toLowerCase();
+    if (lang.endsWith("-in") || lang === "hi" || lang === "te" || lang === "ta") return "INR";
+    if (lang.endsWith("-gb")) return "GBP";
+    if (lang.endsWith("-au")) return "AUD";
+    if (lang.endsWith("-ca")) return "CAD";
+    if (lang.startsWith("de") || lang.startsWith("fr") || lang.startsWith("es") || lang.startsWith("it") || lang.startsWith("nl") || lang.startsWith("pt")) return "EUR";
+    return "USD";
+  } catch { return "USD"; }
+}
+
+function syncPair(rangeId, inputId, hintId, fn) {
+  $(rangeId).addEventListener("input", () => { $(inputId).value = $(rangeId).value; if (hintId) $(hintId).textContent = fn(+$(rangeId).value); update(); });
+  $(inputId).addEventListener("input", () => { $(rangeId).value = $(inputId).value; if (hintId) $(hintId).textContent = fn(+$(inputId).value); update(); });
+}
+$("profitRange").addEventListener("input", () => { $("profitHint").textContent = $("profitRange").value + "%"; update(); });
+$("weeksRange").addEventListener("input", () => { $("weeksHint").textContent = $("weeksRange").value; update(); });
+$("hoursRange").addEventListener("input", () => { $("hoursHint").textContent = $("hoursRange").value; update(); });
+syncPair("salaryRange", "salary", "salaryHint", v => fmtShort(v));
+$("overhead").addEventListener("input", update);
+$("currency").addEventListener("change", update);
+
+function update() {
+  const salary = +$("salary").value || 0;
+  const overhead = +$("overhead").value || 0;
+  const profitPct = +$("profitRange").value || 0;
+  const weeks = +$("weeksRange").value || 0;
+  const hoursPerWeek = +$("hoursRange").value || 0;
+
+  $("salaryHint").textContent = fmtShort(salary);
+
+  const annualRevenue = profitPct < 100 ? (salary + overhead) / (1 - profitPct/100) : Infinity;
+  const billableHours = weeks * hoursPerWeek;
+  const hourly = billableHours > 0 && isFinite(annualRevenue) ? annualRevenue / billableHours : 0;
+  const profit = annualRevenue - salary - overhead;
+
+  $("hourly").textContent = fmt(hourly, 0) + "/hr";
+  $("daily").textContent = fmt(hourly * 8, 0);
+  $("weekly").textContent = fmt(hourly * hoursPerWeek, 0);
+  $("weeklySub").textContent = hoursPerWeek + " billable hours";
+  $("annualRev").textContent = fmt(annualRevenue, 0);
+  $("billHours").textContent = billableHours.toLocaleString();
+  $("proj10").textContent = fmt(hourly * 10, 0);
+  $("proj20").textContent = fmt(hourly * 20, 0);
+  $("proj40").textContent = fmt(hourly * 40, 0);
+  $("proj80").textContent = fmt(hourly * 80, 0);
+
+  // Breakdown
+  const row = (label, v, color) => `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span class="muted">${label}</span><span class="tabular" ${color ? 'style="color:'+color+'"' : ''}>${fmt(v, 0)}</span></div>`;
+  let html = '<div style="font-size:13px;">';
+  html += row("Target take-home (salary)", salary);
+  html += row("+ Business overhead", overhead);
+  html += row("+ Profit margin (" + profitPct + "%)", profit, "var(--success)");
+  html += '<div style="display:flex;justify-content:space-between;padding:8px 0;font-weight:600;border-top:1px solid var(--border-2);margin-top:4px;"><span>= Annual revenue target</span><span class="tabular">' + fmt(annualRevenue, 0) + '</span></div>';
+  html += '<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span class="muted">÷ Billable hours/year (' + weeks + ' × ' + hoursPerWeek + ')</span><span class="tabular">' + billableHours.toLocaleString() + '</span></div>';
+  html += '<div style="display:flex;justify-content:space-between;padding:10px 0;font-weight:600;color:var(--accent);"><span>Hourly rate</span><span class="tabular">' + fmt(hourly, 0) + '/hr</span></div>';
+  html += '</div>';
+  $("breakdown").innerHTML = html;
+}
+
+$("currency").value = detectDefaultCurrency();
+update();
+</script>
+</body>
+</html>
