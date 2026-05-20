@@ -19,7 +19,10 @@
 
 <link rel="canonical" href="https://lekkal.com/" />
 
+<link rel="alternate" hreflang="en" href="https://lekkal.com/" />
+<link rel="alternate" hreflang="x-default" href="https://lekkal.com/" />
 <!-- Favicon (inline SVG) -->
+<link rel="manifest" href="/manifest.json" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
 
 <!-- Open Graph -->
@@ -48,9 +51,33 @@
       "@type": "Organization",
       "@id": "https://lekkal.com/#org",
       "name": "Lekkal",
+      "alternateName": "లెక్క",
       "url": "https://lekkal.com/",
-      "logo": "https://lekkal.com/logo.png",
-      "description": "Free, no-signup finance and bookkeeping tools that run entirely in your browser."
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lekkal.com/og-cover.png",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Free, no-signup finance and bookkeeping tools that run entirely in your browser.",
+      "foundingDate": "2026",
+      "knowsAbout": [
+        "Personal finance",
+        "Small business accounting",
+        "Invoice generation",
+        "SaaS metrics",
+        "Indian tax compliance",
+        "GST calculation",
+        "Income tax (India)",
+        "Startup financial planning",
+        "Equity dilution"
+      ],
+      "knowsLanguage": ["English"],
+      "areaServed": ["Worldwide", "India"],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Founders, freelancers, small business owners, investors, salaried individuals"
+      }
     },
     {
       "@type": "WebSite",

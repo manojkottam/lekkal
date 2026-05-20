@@ -1,0 +1,30 @@
+{
+  "name": "Lekkal \u2014 Free Finance Tools",
+  "short_name": "Lekkal",
+  "description": "Free finance & bookkeeping tools that run entirely in your browser.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "minimal-ui",
+  "background_color": "#fafaf6",
+  "theme_color": "#0f766e",
+  "orientation": "any",
+  "categories": [
+    "finance",
+    "productivity",
+    "business"
+  ],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}
