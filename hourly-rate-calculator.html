@@ -10,6 +10,12 @@
 <meta name="author" content="Lekkal" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#0f766e" />
+<meta name="application-name" content="Lekkal" />
+<meta name="apple-mobile-web-app-title" content="Lekkal" />
+<meta name="distribution" content="global" />
+<meta name="rating" content="general" />
+<meta name="format-detection" content="telephone=no" />
+
 <link rel="canonical" href="https://lekkal.com/hourly-rate-calculator.html" />
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
@@ -30,6 +36,8 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
+  "datePublished": "2026-05-18",
+  "dateModified": "2026-05-19",
   "name": "Lekkal Hourly Rate Calculator",
   "url": "https://lekkal.com/hourly-rate-calculator.html",
   "applicationCategory": "FinanceApplication",
@@ -62,6 +70,7 @@
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq summary", ".faq p"]},
   "mainEntity": [
     {
       "@type": "Question",
@@ -92,8 +101,52 @@
 }
 </script>
 
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="stylesheet" href="styles.css" />
 <script src="nav.js" defer></script>
+
+<!-- HowTo schema for rich results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to calculate your freelance hourly rate",
+  "description": "Set the right billing rate based on target salary, business overhead, and billable utilization.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter target annual salary",
+      "text": "Type your desired take-home salary for the year."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Add business overhead",
+      "text": "Include taxes, insurance, software, equipment, and other annual costs."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Set profit margin",
+      "text": "Most freelancers target 15 to 25 percent profit margin above costs."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Set billable time",
+      "text": "Pick weeks worked per year and billable hours per week."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Read the required rate",
+      "text": "Get your hourly, daily, weekly, and project rates."
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

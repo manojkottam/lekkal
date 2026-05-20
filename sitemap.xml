@@ -1,81 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://lekkal.com/</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-cover.png</image:loc>
+      <image:title>Lekkal — Free finance & bookkeeping tools</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://lekkal.com/invoice-generator.html</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-invoice.png</image:loc>
+      <image:title>Free Invoice Generator</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://lekkal.com/gst-calculator.html</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-gst.png</image:loc>
+      <image:title>Free GST Calculator (India)</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://lekkal.com/income-tax-calculator.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-income-tax.png</image:loc>
+      <image:title>Free Income Tax Calculator (India)</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://lekkal.com/sip-calculator.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-sip.png</image:loc>
+      <image:title>Free SIP Calculator (India)</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://lekkal.com/salary-breakup-calculator.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-salary.png</image:loc>
+      <image:title>Free Salary Breakup Calculator (India)</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://lekkal.com/emi-calculator.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-emi.png</image:loc>
+      <image:title>Free Loan & EMI Calculator</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://lekkal.com/burn-rate-calculator.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-burn.png</image:loc>
+      <image:title>Free Burn Rate & Runway Calculator</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://lekkal.com/cap-table-calculator.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-cap-table.png</image:loc>
+      <image:title>Free Cap Table & Dilution Calculator</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://lekkal.com/mrr-calculator.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-mrr.png</image:loc>
+      <image:title>Free MRR / ARR / NRR Calculator</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://lekkal.com/hourly-rate-calculator.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-hourly-rate.png</image:loc>
+      <image:title>Free Freelance Hourly Rate Calculator</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://lekkal.com/compound-interest-calculator.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-compound.png</image:loc>
+      <image:title>Free Compound Interest & FIRE Calculator</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://lekkal.com/roi-calculator.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-roi.png</image:loc>
+      <image:title>Free Marketing ROI Calculator</image:title>
+    </image:image>
   </url>
 </urlset>

@@ -11,6 +11,12 @@
 <meta name="author" content="Lekkal" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#0f766e" />
+<meta name="application-name" content="Lekkal" />
+<meta name="apple-mobile-web-app-title" content="Lekkal" />
+<meta name="distribution" content="global" />
+<meta name="rating" content="general" />
+<meta name="format-detection" content="telephone=no" />
+
 <link rel="canonical" href="https://lekkal.com/income-tax-calculator.html" />
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
@@ -35,6 +41,8 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
+  "datePublished": "2026-05-18",
+  "dateModified": "2026-05-19",
   "name": "Lekkal Income Tax Calculator (India)",
   "url": "https://lekkal.com/income-tax-calculator.html",
   "applicationCategory": "FinanceApplication",
@@ -73,6 +81,7 @@
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq summary", ".faq p"]},
   "mainEntity": [
     {
       "@type": "Question",
@@ -108,8 +117,52 @@
 }
 </script>
 
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="stylesheet" href="styles.css" />
 <script src="nav.js" defer></script>
+
+<!-- HowTo schema for rich results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to calculate income tax in India",
+  "description": "Compare new and old tax regimes for FY 2025-26 with 87A rebate, surcharge, and cess.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter gross annual income",
+      "text": "Slide or type your total annual income in rupees."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Set your profile",
+      "text": "Choose salaried status, age group, and financial year."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Add deductions for old regime",
+      "text": "Enter Section 80C, 80D, HRA, home loan interest, and NPS amounts."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Compare both regimes",
+      "text": "The tool computes tax under both regimes side-by-side and highlights the winner."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Review the breakdown",
+      "text": "Switch the breakdown view to see slab-by-slab tax calculation under each regime."
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

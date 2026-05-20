@@ -11,6 +11,12 @@
 <meta name="author" content="Lekkal" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#0f766e" />
+<meta name="application-name" content="Lekkal" />
+<meta name="apple-mobile-web-app-title" content="Lekkal" />
+<meta name="distribution" content="global" />
+<meta name="rating" content="general" />
+<meta name="format-detection" content="telephone=no" />
+
 <link rel="canonical" href="https://lekkal.com/" />
 
 <!-- Favicon (inline SVG) -->
@@ -81,6 +87,7 @@
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq summary", ".faq p"]},
   "mainEntity": [
     {
       "@type": "Question",
@@ -106,6 +113,8 @@
 }
 </script>
 
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="stylesheet" href="styles.css" />
 <script src="nav.js" defer></script>
 </head>
