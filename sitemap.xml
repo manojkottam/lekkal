@@ -8,7 +8,7 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://lekkal.com/og-cover.png</image:loc>
-      <image:title>Lekkal — Free finance & bookkeeping tools</image:title>
+      <image:title>Lekkal — Free finance &amp; bookkeeping tools</image:title>
     </image:image>
   </url>
   <url>
@@ -68,7 +68,7 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://lekkal.com/og-emi.png</image:loc>
-      <image:title>Free Loan & EMI Calculator</image:title>
+      <image:title>Free Loan &amp; EMI Calculator</image:title>
     </image:image>
   </url>
   <url>
@@ -78,7 +78,7 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://lekkal.com/og-burn.png</image:loc>
-      <image:title>Free Burn Rate & Runway Calculator</image:title>
+      <image:title>Free Burn Rate &amp; Runway Calculator</image:title>
     </image:image>
   </url>
   <url>
@@ -88,7 +88,7 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://lekkal.com/og-cap-table.png</image:loc>
-      <image:title>Free Cap Table & Dilution Calculator</image:title>
+      <image:title>Free Cap Table &amp; Dilution Calculator</image:title>
     </image:image>
   </url>
   <url>
@@ -118,7 +118,7 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://lekkal.com/og-compound.png</image:loc>
-      <image:title>Free Compound Interest & FIRE Calculator</image:title>
+      <image:title>Free Compound Interest &amp; FIRE Calculator</image:title>
     </image:image>
   </url>
   <url>
@@ -138,7 +138,7 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://lekkal.com/og-profit-margin.png</image:loc>
-      <image:title>Free Profit Margin & Markup Calculator</image:title>
+      <image:title>Free Profit Margin &amp; Markup Calculator</image:title>
     </image:image>
   </url>
   <url>
@@ -149,6 +149,56 @@
     <image:image>
       <image:loc>https://lekkal.com/og-roi.png</image:loc>
       <image:title>Free Marketing ROI Calculator</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lekkal.com/blog/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-blog.png</image:loc>
+      <image:title>The Lekkal Blog</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lekkal.com/blog/margin-vs-markup.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-blog-margin.png</image:loc>
+      <image:title>Margin vs Markup: The Difference That Quietly Kills Profit</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lekkal.com/blog/break-even-explained.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-blog-breakeven.png</image:loc>
+      <image:title>How to Calculate Your Break-Even Point</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lekkal.com/blog/burn-rate-and-runway.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-blog-burn.png</image:loc>
+      <image:title>Burn Rate and Runway: How Long Will Your Cash Last?</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lekkal.com/blog/freelance-hourly-rate-formula.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-blog-rate.png</image:loc>
+      <image:title>How Much Should I Charge? A Freelance Hourly-Rate Formula</image:title>
     </image:image>
   </url>
 </urlset>
