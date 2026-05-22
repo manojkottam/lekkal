@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Free Profit Margin & Markup Calculator | Lekkal</title>
+<meta name="description" content="Free profit margin and markup calculator. Enter cost and price to get gross profit, profit margin %, and markup %. Or set a target margin and find the price to charge. Margin vs markup, explained. Multi-currency, no signup." />
+<meta name="keywords" content="profit margin calculator, markup calculator, margin calculator, gross margin calculator, margin vs markup, selling price calculator, markup percentage, profit calculator, pricing calculator" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<meta name="application-name" content="Lekkal" />
+<meta name="apple-mobile-web-app-title" content="Lekkal" />
+<meta name="distribution" content="global" />
+<meta name="rating" content="general" />
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="canonical" href="https://lekkal.com/profit-margin-calculator.html" />
+
+<link rel="alternate" hreflang="en" href="https://lekkal.com/profit-margin-calculator.html" />
+<link rel="alternate" hreflang="x-default" href="https://lekkal.com/profit-margin-calculator.html" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='20' font-weight='600' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/profit-margin-calculator.html" />
+<meta property="og:title" content="Free Profit Margin & Markup Calculator" />
+<meta property="og:description" content="Cost + price → gross profit, profit margin %, and markup %. Or set a target margin to find the price. Margin vs markup, explained." />
+<meta property="og:image" content="https://lekkal.com/og-profit-margin.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Lekkal" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Profit Margin & Markup Calculator" />
+<meta name="twitter:description" content="Cost + price → margin %, markup %, and gross profit. Or set a target margin to find your price. Free, in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-profit-margin.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "audience": {"@type": "BusinessAudience", "audienceType": "Founders, freelancers, retailers, and small businesses pricing products"},
+  "inLanguage": "en",
+  "datePublished": "2026-05-22",
+  "dateModified": "2026-05-22",
+  "name": "Lekkal Profit Margin & Markup Calculator",
+  "url": "https://lekkal.com/profit-margin-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free profit margin and markup calculator. Converts between cost, price, gross profit, margin percentage, and markup percentage in both directions.",
+  "featureList": [
+    "Profit margin % from cost and price",
+    "Markup % and markup multiple",
+    "Find the price for a target margin",
+    "Find the price for a target markup",
+    "Margin vs markup comparison",
+    "Multi-currency",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Profit Margin & Markup Calculator", "item": "https://lekkal.com/profit-margin-calculator.html" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq summary", ".faq p"]},
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you calculate profit margin?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Profit margin (gross margin) = (selling price − cost) ÷ selling price × 100. It expresses profit as a percentage of the price you charge. If a product costs 60 and sells for 100, the gross profit is 40 and the profit margin is 40 ÷ 100 = 40%. Margin can never reach 100% unless your cost is zero." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between margin and markup?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Both measure the same gross profit, but against different bases. Margin = profit ÷ selling price. Markup = profit ÷ cost. A product costing 60 sold for 100 has a 40% margin but a 67% markup. Markup is always the larger number. Confusing the two is a common pricing mistake: marking up cost by 40% only gives a 28.6% margin, not 40%." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find the selling price for a target margin?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Selling price = cost ÷ (1 − target margin). For a 40% target margin on a 60 cost: 60 ÷ (1 − 0.40) = 60 ÷ 0.60 = 100. Do not just add 40% to the cost — that's a markup, and it produces a lower margin than you intended." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert markup to margin?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Margin = markup ÷ (1 + markup). A 50% markup equals a 33.3% margin. To go the other way, markup = margin ÷ (1 − margin), so a 50% margin equals a 100% markup. This calculator shows both at once so you never have to convert by hand." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good profit margin?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It depends heavily on the industry. Grocery and retail often run on thin 5–15% net margins on high volume; software and digital products can exceed 70–80% gross margin; restaurants and agencies typically land in between. Gross margin (price minus direct cost) is always higher than net margin, which also subtracts overhead, taxes, and fixed costs. Compare against peers in your sector rather than a universal benchmark." }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="stylesheet" href="styles.css" />
+<script src="nav.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to calculate profit margin and markup",
+  "description": "Turn cost and price into margin and markup, or set a target margin to find the price.",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Enter your cost", "text": "The amount it costs you to make or buy one unit." },
+    { "@type": "HowToStep", "position": 2, "name": "Enter your selling price", "text": "The price you charge the customer for that unit." },
+    { "@type": "HowToStep", "position": 3, "name": "Read margin and markup", "text": "See gross profit, profit margin percent, and markup percent." },
+    { "@type": "HowToStep", "position": 4, "name": "Or set a target margin", "text": "Enter a target margin or markup to find the price you need to charge." }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://lekkal.com/profit-margin-calculator.html#webpage",
+  "url": "https://lekkal.com/profit-margin-calculator.html",
+  "name": "Free Profit Margin & Markup Calculator",
+  "description": "Cost + price → gross profit, profit margin %, and markup %. Or set a target margin to find the price.",
+  "isPartOf": { "@id": "https://lekkal.com/#site" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://lekkal.com/og-profit-margin.png",
+    "width": 1200,
+    "height": 630
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-05-22",
+  "dateModified": "2026-05-22"
+}
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="invoice-generator.html">Invoice</a>
+      <a href="emi-calculator.html">EMI</a>
+      <a href="burn-rate-calculator.html">Burn</a>
+      <a href="cap-table-calculator.html">Cap table</a>
+      <a href="mrr-calculator.html">MRR</a>
+      <a href="roi-calculator.html">ROI</a>
+      <details class="nav-dropdown">
+        <summary>
+          India
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="gst-calculator.html"><span>GST calculator<span class="meta">CGST · SGST · IGST</span></span><span class="pill">Live</span></a>
+          <a href="income-tax-calculator.html"><span>Income tax<span class="meta">Old vs new regime · FY 2025-26</span></span><span class="pill">Live</span></a>
+          <a href="sip-calculator.html"><span>SIP calculator<span class="meta">Regular · step-up · lump sum</span></span><span class="pill">Live</span></a>
+          <a href="salary-breakup-calculator.html"><span>Salary breakup<span class="meta">CTC to in-hand</span></span><span class="pill">Live</span></a>
+          <div class="divider"></div>
+          <div class="footer">Coming soon</div>
+          <a class="disabled"><span>TDS calculator<span class="meta">Sec 192 / 194C / 194J</span></span><span class="pill soon">Soon</span></a>
+        </div>
+      </details>
+      <a href="index.html#tools">All tools</a>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>Profit margin &amp; markup calculator</h1>
+  <p>Enter what something costs and what you sell it for to get gross profit, profit margin, and markup instantly. Or work backward: set a target margin and find the price you need to charge. Stop confusing margin with markup.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>From cost &amp; price</h2>
+
+      <div class="row2">
+        <div class="field">
+          <label>Cost</label>
+          <input type="number" id="cost" value="60" min="0" step="1" />
+          <p class="soft" style="font-size:11px;margin:4px 0 0;">What it costs you per unit.</p>
+        </div>
+        <div class="field">
+          <label>Selling price</label>
+          <input type="number" id="price" value="100" min="0" step="1" />
+          <p class="soft" style="font-size:11px;margin:4px 0 0;">What you charge per unit.</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Currency</label>
+        <select id="currency">
+          <option value="USD">$ USD — US Dollar</option>
+          <option value="EUR">€ EUR — Euro</option>
+          <option value="GBP">£ GBP — British Pound</option>
+          <option value="INR">₹ INR — Indian Rupee</option>
+          <option value="AUD">A$ AUD — Australian Dollar</option>
+          <option value="CAD">C$ CAD — Canadian Dollar</option>
+        </select>
+      </div>
+
+      <h2 style="margin-top:22px;">Find your price</h2>
+      <p class="soft" style="font-size:12px;margin:0 0 10px;">Keep the cost above, then aim for a target.</p>
+      <div class="row2">
+        <div class="field">
+          <label>Target margin <span class="hint" id="tMarginHint">40%</span></label>
+          <input type="range" id="tMargin" min="0" max="95" step="1" value="40" />
+        </div>
+        <div class="field">
+          <label>Target markup <span class="hint" id="tMarkupHint">50%</span></label>
+          <input type="range" id="tMarkup" min="0" max="400" step="5" value="50" />
+        </div>
+      </div>
+      <div class="soft" style="font-size:12px;line-height:1.7;margin-top:4px;">
+        For a <strong id="tmShow">40%</strong> margin, sell at <strong class="tabular" id="priceForMargin" style="color:var(--accent)">—</strong>.<br/>
+        For a <strong id="tkShow">50%</strong> markup, sell at <strong class="tabular" id="priceForMarkup" style="color:var(--accent)">—</strong>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Results</h2>
+
+      <div class="verdict success" id="verdict" style="margin-bottom: 14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <div class="text">
+          <strong>Profit margin</strong>
+          <span id="margin" class="tabular" style="font-size:22px;font-weight:600;">—</span>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Gross profit</div>
+          <div class="value tabular" id="profit">—</div>
+          <div class="sub">price − cost</div>
+        </div>
+        <div class="stat">
+          <div class="label">Markup</div>
+          <div class="value tabular" id="markup">—</div>
+          <div class="sub">profit ÷ cost</div>
+        </div>
+        <div class="stat">
+          <div class="label">Markup multiple</div>
+          <div class="value tabular" id="multiple">—</div>
+          <div class="sub">price ÷ cost</div>
+        </div>
+        <div class="stat">
+          <div class="label">Cost as % of price</div>
+          <div class="value tabular" id="costPct">—</div>
+          <div class="sub">cost ratio</div>
+        </div>
+      </div>
+
+      <div class="bar-wrap" style="margin-top:18px;">
+        <div class="bar-label" style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;">
+          <span class="muted">Where each <span id="ofWhat">$1</span> of price goes</span>
+        </div>
+        <div style="display:flex;height:30px;border-radius:8px;overflow:hidden;border:1px solid var(--border);">
+          <div id="barCost" style="background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-muted);white-space:nowrap;">Cost</div>
+          <div id="barProfit" style="background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;white-space:nowrap;">Profit</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="card mt-6">
+    <h2>Margin vs markup at a glance</h2>
+    <p class="muted" style="font-size:13px;margin:0 0 12px;">Same gross profit, two different bases. Markup is always the bigger number.</p>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="text-align:left;border-bottom:2px solid var(--border-2);">
+            <th style="padding:8px 10px;">Markup</th>
+            <th style="padding:8px 10px;">Equivalent margin</th>
+            <th style="padding:8px 10px;">Margin</th>
+            <th style="padding:8px 10px;">Equivalent markup</th>
+          </tr>
+        </thead>
+        <tbody id="conversionRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="grid-3 mt-6">
+    <div class="card-flat">
+      <p class="section-title">Margin ≠ markup</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        Markup is profit over <em>cost</em>; margin is profit over <em>price</em>. Add 40% to your cost and you get a 28.6% margin, not 40%. To actually hit a 40% margin, divide cost by 0.60. Getting this wrong quietly erodes profit on every sale.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Gross vs net</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        This is your <strong>gross</strong> margin — price minus the direct cost of the unit. Net margin also subtracts overhead, salaries, marketing, and tax. Healthy gross margin is the room you have to cover everything else and still profit.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Price is the strongest lever</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        A 1% price increase usually beats a 1% cost cut, because it drops straight to the bottom line with no extra effort. Use the target-margin tool to see exactly what price a given margin requires before you discount.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About margin &amp; markup</h2>
+    <details class="faq" open>
+      <summary>How do you calculate profit margin?</summary>
+      <p>Profit margin = <strong>(price − cost) ÷ price × 100</strong>. It's profit as a percentage of the price you charge. A product costing 60 sold for 100 has 40 gross profit and a 40% margin. Margin can't reach 100% unless cost is zero.</p>
+    </details>
+    <details class="faq">
+      <summary>What's the difference between margin and markup?</summary>
+      <p>Both measure the same gross profit against different bases. <strong>Margin = profit ÷ price</strong>; <strong>markup = profit ÷ cost</strong>. A 60-cost item sold for 100 has a 40% margin but a 67% markup. Markup is always larger — marking cost up 40% only yields a 28.6% margin.</p>
+    </details>
+    <details class="faq">
+      <summary>How do I find the price for a target margin?</summary>
+      <p>Selling price = <strong>cost ÷ (1 − target margin)</strong>. For a 40% margin on a 60 cost: 60 ÷ 0.60 = 100. Don't just add 40% to cost — that's a markup and gives a lower margin than intended.</p>
+    </details>
+    <details class="faq">
+      <summary>How do I convert markup to margin?</summary>
+      <p><strong>Margin = markup ÷ (1 + markup)</strong>, so a 50% markup is a 33.3% margin. The reverse: <strong>markup = margin ÷ (1 − margin)</strong>, so a 50% margin is a 100% markup. The table above shows both directions.</p>
+    </details>
+    <details class="faq">
+      <summary>What is a good profit margin?</summary>
+      <p>It's industry-dependent. Grocery and retail run thin 5–15% net margins on volume; software can top 70–80% gross margin; restaurants and agencies sit in between. Gross margin is always higher than net margin, which also absorbs overhead and tax. Compare against peers in your sector, not a universal number.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. This calculator runs entirely in your browser. None of your cost or price numbers are sent to any server.</p>
+    </details>
+  </section>
+</section>
+
+<section class="lead-capture">
+  <div class="lc-card" id="lc-card">
+    <div class="lc-text">
+      <span class="lc-eyebrow">More tools for pricing</span>
+      <h3>Get new tools as they ship</h3>
+      <p>Get an email when we ship the next pricing, costing, or invoicing tool.</p>
+      <span class="lc-fine">No spam, no signup needed to use any tool. Unsubscribe any time.</span>
+    </div>
+    <form class="lc-form" action="/api/subscribe" method="POST">
+      <input type="hidden" name="source" value="profit-margin" />
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="lc-thanks">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Thanks — you're on the list. We'll only email when we ship.
+    </div>
+  </div>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>Pricing tools</h4>
+      <a href="profit-margin-calculator.html">Profit margin</a>
+      <a href="break-even-calculator.html">Break-even</a>
+      <a href="hourly-rate-calculator.html">Hourly rate</a>
+    </div>
+    <div class="col">
+      <h4>All tools</h4>
+      <a href="index.html#tools">Browse →</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+});
+
+const CURRENCIES = { USD:"$", EUR:"€", GBP:"£", INR:"₹", AUD:"A$", CAD:"C$" };
+const LOCALES = { USD:"en-US", EUR:"de-DE", GBP:"en-GB", INR:"en-IN", AUD:"en-AU", CAD:"en-CA" };
+function ccy() { return $("currency").value; }
+function symbol() { return CURRENCIES[ccy()]; }
+function locale() { return LOCALES[ccy()]; }
+function fmt(n, d = 2) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  return symbol() + n.toLocaleString(locale(), { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+function detectDefaultCurrency() {
+  try {
+    const lang = (navigator.language || "").toLowerCase();
+    if (lang.endsWith("-in") || lang === "hi" || lang === "te" || lang === "ta") return "INR";
+    if (lang.endsWith("-gb")) return "GBP";
+    if (lang.endsWith("-au")) return "AUD";
+    if (lang.endsWith("-ca")) return "CAD";
+    if (lang.startsWith("de") || lang.startsWith("fr") || lang.startsWith("es") || lang.startsWith("it") || lang.startsWith("nl") || lang.startsWith("pt")) return "EUR";
+    return "USD";
+  } catch { return "USD"; }
+}
+
+function update() {
+  const cost = +$("cost").value || 0;
+  const price = +$("price").value || 0;
+
+  const profit = price - cost;
+  const margin = price > 0 ? profit / price : NaN;       // profit / price
+  const markup = cost > 0 ? profit / cost : NaN;          // profit / cost
+  const multiple = cost > 0 ? price / cost : NaN;
+  const costPct = price > 0 ? cost / price : NaN;
+
+  $("margin").textContent = isFinite(margin) ? (margin * 100).toFixed(1) + "%" : "—";
+  $("profit").textContent = fmt(profit, 2);
+  $("markup").textContent = isFinite(markup) ? (markup * 100).toFixed(1) + "%" : "—";
+  $("multiple").textContent = isFinite(multiple) ? multiple.toFixed(2) + "×" : "—";
+  $("costPct").textContent = isFinite(costPct) ? (costPct * 100).toFixed(1) + "%" : "—";
+
+  // Verdict tone
+  const v = $("verdict");
+  if (!isFinite(margin)) { v.className = "verdict"; }
+  else if (profit < 0) { v.className = "verdict danger"; v.querySelector("strong").textContent = "Loss-making margin"; }
+  else { v.className = "verdict success"; v.querySelector("strong").textContent = "Profit margin"; }
+
+  // Bar (where each unit of price goes)
+  $("ofWhat").textContent = symbol() + "1";
+  const m = isFinite(margin) ? Math.max(0, Math.min(1, margin)) : 0;
+  const cp = isFinite(costPct) ? Math.max(0, Math.min(1, costPct)) : 1;
+  if (profit >= 0) {
+    $("barCost").style.width = (cp * 100) + "%";
+    $("barProfit").style.width = (m * 100) + "%";
+    $("barProfit").style.background = "var(--accent)";
+    $("barProfit").textContent = "Profit";
+  } else {
+    // cost exceeds price — show full cost bar, no profit
+    $("barCost").style.width = "100%";
+    $("barProfit").style.width = "0%";
+  }
+
+  // Price finder (uses cost above)
+  const tMargin = (+$("tMargin").value || 0) / 100;
+  const tMarkup = (+$("tMarkup").value || 0) / 100;
+  $("tMarginHint").textContent = (tMargin * 100).toFixed(0) + "%";
+  $("tMarkupHint").textContent = (tMarkup * 100).toFixed(0) + "%";
+  $("tmShow").textContent = (tMargin * 100).toFixed(0) + "%";
+  $("tkShow").textContent = (tMarkup * 100).toFixed(0) + "%";
+  const priceForMargin = tMargin < 1 ? cost / (1 - tMargin) : Infinity;
+  const priceForMarkup = cost * (1 + tMarkup);
+  $("priceForMargin").textContent = cost > 0 ? fmt(priceForMargin, 2) : "—";
+  $("priceForMarkup").textContent = cost > 0 ? fmt(priceForMarkup, 2) : "—";
+}
+
+// Margin/markup conversion reference table (static math)
+function buildTable() {
+  const markups = [0.10, 0.25, 0.50, 1.00, 2.00];   // 10%..200%
+  const margins = [0.10, 0.20, 0.33333, 0.50, 0.60];
+  const rows = markups.map((mk, i) => {
+    const mkToMargin = mk / (1 + mk);
+    const mg = margins[i];
+    const mgToMarkup = mg < 1 ? mg / (1 - mg) : Infinity;
+    return `<tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:8px 10px;" class="tabular">${(mk*100).toFixed(0)}%</td>
+      <td style="padding:8px 10px;" class="tabular muted">${(mkToMargin*100).toFixed(1)}%</td>
+      <td style="padding:8px 10px;" class="tabular">${(mg*100).toFixed(mg===0.33333?1:0)}%</td>
+      <td style="padding:8px 10px;" class="tabular muted">${(mgToMarkup*100).toFixed(0)}%</td>
+    </tr>`;
+  }).join("");
+  $("conversionRows").innerHTML = rows;
+}
+
+["cost","price","tMargin","tMarkup"].forEach(id => $(id).addEventListener("input", update));
+$("currency").addEventListener("change", update);
+
+$("currency").value = detectDefaultCurrency();
+buildTable();
+update();
+</script>
+</body>
+</html>

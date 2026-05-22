@@ -388,6 +388,12 @@ nav.top .right { display: flex; align-items: center; gap: 8px; }
 .num-plus { top: 4px; }
 .num-minus { bottom: 4px; }
 
+/* Compact variant for tight grid columns (cap table rows, invoice line items) */
+.num-wrap--tight input[type="number"] { padding-right: 22px; }
+.num-wrap--tight .num-btn { width: 14px; height: 11px; right: 4px; font-size: 10px; border-radius: 3px; }
+.num-wrap--tight .num-plus { top: 3px; }
+.num-wrap--tight .num-minus { bottom: 3px; }
+
 .seg {
   display: inline-flex;
   background: var(--surface-2);
@@ -460,6 +466,111 @@ nav.top .right { display: flex; align-items: center; gap: 8px; }
 .verdict .icon { width: 22px; height: 22px; flex-shrink: 0; }
 .verdict .text strong { font-weight: 600; display: block; }
 .verdict .text span { font-size: 13px; opacity: 0.85; }
+
+/* ====== Lead capture (above footer) ====== */
+.lead-capture {
+  margin: 56px auto 0;
+  max-width: var(--maxw);
+  padding: 0 24px;
+}
+.lead-capture .lc-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.lead-capture .lc-card::before {
+  content: "";
+  position: absolute; top: 0; left: 0; bottom: 0;
+  width: 4px;
+  background: var(--accent);
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+.lead-capture .lc-text { min-width: 0; }
+.lead-capture .lc-eyebrow {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.lead-capture h3 {
+  font-family: var(--serif);
+  font-size: 22px; font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+  line-height: 1.2;
+  color: var(--text);
+}
+.lead-capture p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.lead-capture .lc-form {
+  display: flex; gap: 8px;
+  min-width: 300px;
+}
+.lead-capture .lc-form input {
+  flex: 1;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.lead-capture .lc-form input:focus {
+  outline: 0;
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.lead-capture .lc-form button {
+  background: var(--accent);
+  color: white;
+  border: 0;
+  padding: 0 18px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 14px; font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+.lead-capture .lc-form button:hover { opacity: 0.92; }
+.lead-capture .lc-fine {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-soft);
+}
+.lead-capture .lc-thanks { display: none; }
+.lead-capture .lc-card.sent .lc-form { display: none; }
+.lead-capture .lc-card.sent .lc-thanks {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--success);
+  font-size: 14px; font-weight: 500;
+}
+@media (max-width: 720px) {
+  .lead-capture .lc-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 22px;
+  }
+  .lead-capture .lc-form { min-width: 0; width: 100%; }
+}
 
 /* ====== Footer ====== */
 footer.bottom {
