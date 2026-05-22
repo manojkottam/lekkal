@@ -168,6 +168,28 @@ nav.top .right { display: flex; align-items: center; gap: 8px; }
   .nav-dropdown summary { padding: 6px 8px; font-size: 13px; }
 }
 
+/* ====== Mega-menu (All tools) ====== */
+.nav-mega-menu {
+  left: auto; right: 0;
+  min-width: 560px; padding: 10px;
+}
+.nav-mega-menu .mega-cols { display: flex; gap: 8px; }
+.nav-mega-menu .mega-col { flex: 1; display: flex; flex-direction: column; }
+.nav-mega-menu .mega-section {
+  font-size: 11px; color: var(--text-soft);
+  padding: 4px 12px 8px; text-transform: uppercase;
+  letter-spacing: 0.08em; font-weight: 600;
+}
+.nav-mega-menu .mega-all {
+  justify-content: flex-start; color: var(--accent);
+  font-weight: 600; font-size: 13px; margin-top: 2px;
+}
+.nav-mega-menu .mega-all:hover { color: var(--accent); }
+@media (max-width: 720px) {
+  .nav-mega-menu { min-width: 240px; max-height: 70vh; overflow-y: auto; }
+  .nav-mega-menu .mega-cols { flex-direction: column; gap: 0; }
+}
+
 .iconbtn {
   height: 32px; width: 32px;
   border-radius: 8px;
@@ -796,6 +818,9 @@ a.post-card:hover {
 .post li { margin-bottom: 8px; }
 .post strong { font-weight: 650; }
 .post a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+/* Buttons inside articles keep their own styling, not the prose-link styling */
+.post a.btn, .post a.btn:hover { color: #fff; text-decoration: none; }
+.post a.btn.secondary { color: var(--text); }
 
 .post .formula {
   font-family: ui-monospace, "SF Mono", Menlo, monospace;
