@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>LLM Token Counter — Estimate Tokens & Cost | Lekkal</title>
+<meta name="description" content="Free LLM token counter. Paste any text to estimate how many tokens it is, then see what it would cost as a prompt across GPT, Claude, Gemini and more. Runs in your browser, nothing is uploaded." />
+<meta name="keywords" content="token counter, LLM token counter, estimate tokens, token cost calculator, GPT token counter, count tokens, prompt cost, tokens to cost, how many tokens" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<meta name="application-name" content="Lekkal" />
+<meta name="apple-mobile-web-app-title" content="Lekkal" />
+<meta name="distribution" content="global" />
+<meta name="rating" content="general" />
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="canonical" href="https://lekkal.com/llm-token-counter.html" />
+<link rel="alternate" hreflang="en" href="https://lekkal.com/llm-token-counter.html" />
+<link rel="alternate" hreflang="x-default" href="https://lekkal.com/llm-token-counter.html" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/icon-192.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/llm-token-counter.html" />
+<meta property="og:title" content="LLM Token Counter" />
+<meta property="og:description" content="Paste text to estimate tokens, then see the cost as a prompt across models. Free, runs in your browser." />
+<meta property="og:image" content="https://lekkal.com/og-token-counter.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Lekkal" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="LLM Token Counter" />
+<meta name="twitter:description" content="Estimate tokens for any text and price it across models. Free, in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-token-counter.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "audience": {"@type": "BusinessAudience", "audienceType": "Developers and founders working with LLM prompts"},
+  "inLanguage": "en",
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23",
+  "name": "Lekkal LLM Token Counter",
+  "url": "https://lekkal.com/llm-token-counter.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free LLM token counter that estimates tokens from pasted text and prices it as a prompt across models. Runs fully in the browser.",
+  "featureList": [
+    "Estimated tokens, words and characters",
+    "Per-model prompt cost",
+    "Optional expected output for full call cost",
+    "Covers OpenAI, Anthropic, Google and more",
+    "Nothing uploaded — runs in your browser"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "LLM Token Counter", "item": "https://lekkal.com/llm-token-counter.html" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq summary", ".faq p"]},
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is this token estimate?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It uses the standard rule of thumb that one token is roughly four characters of English text, which is typically within about 10–20% of a real tokenizer. Exact counts depend on the model's tokenizer and the content — code, non-English text, and lots of whitespace or symbols tokenize differently. For budgeting it's plenty close; for hard limits, count with the provider's official tokenizer." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do tokens matter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "LLMs are billed per token and have a maximum context window measured in tokens, so token count drives both your cost and whether a prompt even fits. Knowing the token size of your prompts and documents lets you estimate spend and avoid context-length errors before you call the API." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does input or output cost more?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Output tokens are usually priced higher than input — often several times more — because generation is more compute-intensive. This tool prices your pasted text as input and lets you add an expected output length to see the full cost of one call." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my text uploaded anywhere?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The counting and pricing happen entirely in your browser using JavaScript. Whatever you paste never leaves your device and is not sent to any server." }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="stylesheet" href="styles.css" />
+<script src="nav.js" defer></script>
+<script src="ai-prices.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to estimate tokens and cost for a prompt",
+  "description": "Estimate the token size of text and price it across models.",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Paste your text", "text": "Drop a prompt, document, or sample into the box." },
+    { "@type": "HowToStep", "position": 2, "name": "Read the estimate", "text": "See estimated tokens, words and characters." },
+    { "@type": "HowToStep", "position": 3, "name": "Set expected output", "text": "Optionally add output tokens for a full call cost." },
+    { "@type": "HowToStep", "position": 4, "name": "Compare model cost", "text": "See per-call cost across models." }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://lekkal.com/llm-token-counter.html#webpage",
+  "url": "https://lekkal.com/llm-token-counter.html",
+  "name": "LLM Token Counter",
+  "description": "Estimate tokens from text and price it as a prompt across models.",
+  "isPartOf": { "@id": "https://lekkal.com/#site" },
+  "primaryImageOfPage": { "@type": "ImageObject", "url": "https://lekkal.com/og-token-counter.png", "width": 1200, "height": 630 },
+  "inLanguage": "en",
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23"
+}
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="/blog/">Blog</a>
+      <details class="nav-dropdown nav-mega">
+        <summary>
+          All tools
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="nav-dropdown-menu nav-mega-menu" role="menu">
+          <div class="mega-cols">
+            <div class="mega-col">
+              <div class="mega-section">Invoicing &amp; pricing</div>
+              <a href="/invoice-generator.html"><span>Invoice generator<span class="meta">PDF invoices, multi-currency</span></span></a>
+              <a href="/profit-margin-calculator.html"><span>Profit margin &amp; markup<span class="meta">margin vs markup</span></span></a>
+              <a href="/break-even-calculator.html"><span>Break-even<span class="meta">units · margin of safety</span></span></a>
+              <a href="/hourly-rate-calculator.html"><span>Hourly rate<span class="meta">freelance pricing</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">Startup &amp; SaaS</div>
+              <a href="/roi-calculator.html"><span>Marketing ROI<span class="meta">CAC · LTV · ROAS</span></span></a>
+              <a href="/burn-rate-calculator.html"><span>Burn rate &amp; runway<span class="meta">cash trajectory</span></span></a>
+              <a href="/cap-table-calculator.html"><span>Cap table &amp; dilution<span class="meta">ESOP · rounds</span></span></a>
+              <a href="/mrr-calculator.html"><span>MRR / ARR / NRR<span class="meta">SaaS metrics</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">Money &amp; planning</div>
+              <a href="/emi-calculator.html"><span>Loan &amp; EMI<span class="meta">payment + amortization</span></span></a>
+              <a href="/npv-irr-calculator.html"><span>NPV &amp; IRR<span class="meta">discounted cash flow</span></span></a>
+              <a href="/compound-interest-calculator.html"><span>Compound interest &amp; FIRE<span class="meta">corpus projection</span></span></a>
+              <a href="/expense-splitter.html"><span>Expense splitter<span class="meta">split bills, settle up</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">AI &amp; LLM</div>
+              <a href="/llm-api-cost-calculator.html"><span>LLM API cost<span class="meta">per-token pricing</span></span></a>
+              <a href="/ai-feature-unit-economics.html"><span>AI unit economics<span class="meta">cost per user · margin</span></span></a>
+              <a href="/ai-roi-calculator.html"><span>AI automation ROI<span class="meta">savings · payback</span></span></a>
+              <a href="/self-host-vs-api-calculator.html"><span>Self-host vs API<span class="meta">break-even volume</span></span></a>
+              <a href="/llm-token-counter.html"><span>Token counter<span class="meta">count + cost</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">India</div>
+              <a href="/gst-calculator.html"><span>GST calculator<span class="meta">CGST · SGST · IGST</span></span></a>
+              <a href="/income-tax-calculator.html"><span>Income tax<span class="meta">old vs new · FY 2025-26</span></span></a>
+              <a href="/sip-calculator.html"><span>SIP calculator<span class="meta">regular · step-up · lump sum</span></span></a>
+              <a href="/salary-breakup-calculator.html"><span>Salary breakup<span class="meta">CTC to in-hand</span></span></a>
+              <a class="disabled"><span>TDS calculator<span class="meta">Sec 192 / 194C / 194J</span></span><span class="pill soon">Soon</span></a>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <a href="/#tools" class="mega-all">Browse all tools on one page →</a>
+        </div>
+      </details>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>LLM token counter</h1>
+  <p>Paste any text to estimate how many tokens it is, then see what it would cost to send as a prompt across the major models. Everything runs in your browser — nothing you paste is uploaded.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>Your text</h2>
+      <div class="field">
+        <textarea id="text" class="tool-input" style="height:auto;min-height:220px;padding:12px;line-height:1.6;" placeholder="Paste a prompt, document, or any text…"></textarea>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Expected output <span class="hint">tokens / call</span></label>
+          <input type="number" id="outTok" class="tool-input" value="500" min="0" step="50" />
+        </div>
+        <div class="field">
+          <label>Calls <span class="hint">to multiply</span></label>
+          <input type="number" id="calls" class="tool-input" value="1" min="1" step="1" />
+        </div>
+      </div>
+      <div class="card-flat" style="border-left:3px solid var(--accent);margin-top:4px;">
+        <p class="muted" style="margin:0;font-size:12px;line-height:1.6;">Token count is an estimate (~4 characters per token), usually within 10–20% of a model's real tokenizer. Prices in <strong>USD</strong>, reviewed <span id="priceDate">—</span>.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Estimate</h2>
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Tokens (est.)</div>
+          <div class="value tabular" id="tokens">0</div>
+          <div class="sub">~4 chars each</div>
+        </div>
+        <div class="stat">
+          <div class="label">Words</div>
+          <div class="value tabular" id="words">0</div>
+          <div class="sub">whitespace split</div>
+        </div>
+        <div class="stat">
+          <div class="label">Characters</div>
+          <div class="value tabular" id="chars">0</div>
+          <div class="sub">including spaces</div>
+        </div>
+        <div class="stat">
+          <div class="label">Output tokens</div>
+          <div class="value tabular" id="outShow">0</div>
+          <div class="sub">your estimate</div>
+        </div>
+      </div>
+
+      <h3 style="margin:18px 0 8px;font-size:14px;">Cost per call by model</h3>
+      <p class="soft" style="font-size:11px;margin:0 0 10px;">Your text as input + expected output. Cheapest first.</p>
+      <div id="compare" style="font-size:13px;overflow-x:auto;"></div>
+    </div>
+  </div>
+
+  <section class="grid-3 mt-6">
+    <div class="card-flat">
+      <p class="section-title">Roughly four characters a token</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">For English prose, one token ≈ 4 characters ≈ 0.75 words. Code, other languages, and symbol-heavy text break that ratio, so treat this as a close estimate, not a hard count.</p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Watch the context window</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">Every model caps total tokens (prompt + output). If your document is bigger than the window, you'll need to trim, chunk, or pick a longer-context model — better to know before the call fails.</p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">System prompts add up</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">A long system prompt is sent on every call. Paste it here to see its per-call cost — trimming a verbose system prompt is an easy, repeatable saving at scale.</p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About token counting</h2>
+    <details class="faq" open>
+      <summary>How accurate is this estimate?</summary>
+      <p>It uses the standard ~4-characters-per-token rule, usually within 10–20% of a real tokenizer. Code, non-English text, and heavy symbols tokenize differently. Fine for budgeting; for hard limits, use the provider's official tokenizer.</p>
+    </details>
+    <details class="faq">
+      <summary>Why do tokens matter?</summary>
+      <p>You're billed per token, and each model caps total tokens (prompt + output). Token count drives both your cost and whether a prompt fits the context window.</p>
+    </details>
+    <details class="faq">
+      <summary>Does input or output cost more?</summary>
+      <p>Output is usually priced higher — often several times — because generation is more compute-intensive. This tool prices your text as input and adds your expected output for the full call cost.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my text uploaded anywhere?</summary>
+      <p>No. Counting and pricing happen entirely in your browser. What you paste never leaves your device.</p>
+    </details>
+  </section>
+</section>
+
+<section class="lead-capture">
+  <div class="lc-card" id="lc-card">
+    <div class="lc-text">
+      <span class="lc-eyebrow">More tools for AI builders</span>
+      <h3>Get new tools as they ship</h3>
+      <p>Get an email when we ship the next AI cost or prompt tool.</p>
+      <span class="lc-fine">No spam, no signup needed to use any tool. Unsubscribe any time.</span>
+    </div>
+    <form class="lc-form" action="/api/subscribe" method="POST">
+      <input type="hidden" name="source" value="token-counter" />
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="lc-thanks">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Thanks — you're on the list. We'll only email when we ship.
+    </div>
+  </div>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>AI &amp; LLM</h4>
+      <a href="llm-token-counter.html">Token counter</a>
+      <a href="llm-api-cost-calculator.html">LLM API cost</a>
+      <a href="ai-feature-unit-economics.html">AI unit economics</a>
+    </div>
+    <div class="col">
+      <h4>All tools</h4>
+      <a href="index.html#tools">Browse →</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+});
+
+function usd(n, d) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  if (d == null) d = n < 1 ? (n < 0.01 ? 5 : 4) : 2;
+  return "$" + n.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+function num(n) { return isFinite(n) ? Math.round(n).toLocaleString("en-US") : "0"; }
+
+$("priceDate").textContent = window.AI_PRICES_UPDATED;
+
+function estimateTokens(s) {
+  if (!s) return 0;
+  // ~4 characters per token for English; blended slightly with word count.
+  const chars = s.length;
+  const words = (s.trim().match(/\S+/g) || []).length;
+  const byChars = chars / 4;
+  const byWords = words * 1.33;
+  return Math.round((byChars + byWords) / 2);
+}
+
+function update() {
+  const s = $("text").value;
+  const chars = s.length;
+  const words = (s.trim().match(/\S+/g) || []).length;
+  const inTok = estimateTokens(s);
+  const outTok = +$("outTok").value || 0;
+  const calls = Math.max(1, +$("calls").value || 1);
+
+  $("tokens").textContent = num(inTok);
+  $("words").textContent = num(words);
+  $("chars").textContent = num(chars);
+  $("outShow").textContent = num(outTok);
+
+  const rows = window.AI_PRICES.map(p => {
+    const inCost = inTok / 1e6 * p.in;
+    const outCost = outTok / 1e6 * p.out;
+    return { p, total: (inCost + outCost) * calls, inCost: inCost * calls, outCost: outCost * calls };
+  }).sort((a, b) => a.total - b.total);
+
+  let ch = '<table style="width:100%;border-collapse:collapse;min-width:420px;">';
+  ch += '<thead><tr style="text-align:right;color:var(--text-muted);font-size:11px;"><th style="text-align:left;padding:6px 4px;">Model</th><th style="padding:6px 4px;">Input</th><th style="padding:6px 4px;">Output</th><th style="padding:6px 4px;">Per call' + (calls > 1 ? " ×" + calls : "") + '</th></tr></thead><tbody>';
+  rows.forEach(r => {
+    ch += '<tr style="text-align:right;border-top:1px solid var(--border);">' +
+      '<td style="text-align:left;padding:7px 4px;">' + r.p.provider + ' · ' + r.p.model + '</td>' +
+      '<td class="tabular" style="padding:7px 4px;color:var(--text-muted);">' + usd(r.inCost) + '</td>' +
+      '<td class="tabular" style="padding:7px 4px;color:var(--text-muted);">' + usd(r.outCost) + '</td>' +
+      '<td class="tabular" style="padding:7px 4px;font-weight:600;">' + usd(r.total) + '</td></tr>';
+  });
+  ch += '</tbody></table>';
+  $("compare").innerHTML = ch;
+}
+
+["text","outTok","calls"].forEach(id => {
+  $(id).addEventListener("input", update);
+  $(id).addEventListener("change", update);
+});
+$("text").value = "You are a helpful assistant. Summarize the following customer email in two sentences and suggest a next action.";
+update();
+</script>
+</body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Free NPV & IRR Calculator — Discounted Cash Flow, Payback | Lekkal</title>
+<meta name="description" content="Free NPV and IRR calculator. Enter an initial investment, a discount rate, and a series of cash flows to get net present value, internal rate of return, payback period, discounted payback, and profitability index. Multi-currency, no signup." />
+<meta name="keywords" content="NPV calculator, IRR calculator, net present value calculator, internal rate of return, discounted cash flow calculator, DCF, payback period calculator, profitability index, investment appraisal" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<meta name="application-name" content="Lekkal" />
+<meta name="apple-mobile-web-app-title" content="Lekkal" />
+<meta name="distribution" content="global" />
+<meta name="rating" content="general" />
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="canonical" href="https://lekkal.com/npv-irr-calculator.html" />
+
+<link rel="alternate" hreflang="en" href="https://lekkal.com/npv-irr-calculator.html" />
+<link rel="alternate" hreflang="x-default" href="https://lekkal.com/npv-irr-calculator.html" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/icon-192.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/npv-irr-calculator.html" />
+<meta property="og:title" content="Free NPV & IRR Calculator" />
+<meta property="og:description" content="Initial investment + discount rate + cash flows → NPV, IRR, payback period, and profitability index. Free, runs in your browser." />
+<meta property="og:image" content="https://lekkal.com/og-npv-irr.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Lekkal" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free NPV & IRR Calculator" />
+<meta name="twitter:description" content="Discounted cash flow made simple — NPV, IRR, payback, and profitability index. Free, in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-npv-irr.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "audience": {"@type": "BusinessAudience", "audienceType": "Founders, finance teams, and investors appraising projects"},
+  "inLanguage": "en",
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23",
+  "name": "Lekkal NPV & IRR Calculator",
+  "url": "https://lekkal.com/npv-irr-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free discounted cash flow tool. Computes net present value, internal rate of return, simple and discounted payback period, and the profitability index from a stream of cash flows.",
+  "featureList": [
+    "Net present value (NPV)",
+    "Internal rate of return (IRR)",
+    "Simple and discounted payback period",
+    "Profitability index",
+    "Cumulative cash-flow chart",
+    "Multi-currency",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "NPV & IRR Calculator", "item": "https://lekkal.com/npv-irr-calculator.html" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq summary", ".faq p"]},
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is net present value (NPV)?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Net present value is the sum of every cash flow in a project, each discounted back to today's value at your chosen discount rate, including the initial investment as a negative flow at time zero. A positive NPV means the project is expected to create value above your required return; a negative NPV means it falls short." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the internal rate of return (IRR)?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The internal rate of return is the discount rate at which a project's NPV equals zero — effectively the annualized return the cash flows imply. If the IRR is higher than your discount rate (your cost of capital or required return), the project clears the bar. IRR is found by solving for the rate, so this calculator searches for it numerically." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the payback period different from discounted payback?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Simple payback is how long until cumulative cash flows recover the initial investment, ignoring the time value of money. Discounted payback applies the discount rate first, so each future inflow is worth less — it always takes at least as long as simple payback and is the more conservative measure." }
+    },
+    {
+      "@type": "Question",
+      "name": "What discount rate should I use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Use the return you'd require from a project of this risk — often your weighted average cost of capital, a hurdle rate, or the return on the next-best alternative. A higher discount rate penalizes distant cash flows more heavily and lowers NPV. There's no single correct number; it reflects your risk and opportunity cost." }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="stylesheet" href="styles.css" />
+<script src="nav.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to evaluate a project with NPV and IRR",
+  "description": "Discount a stream of cash flows to judge whether an investment is worth it.",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Enter the initial investment", "text": "The upfront cash outflow at the start, time zero." },
+    { "@type": "HowToStep", "position": 2, "name": "Set your discount rate", "text": "The required return or cost of capital for this project." },
+    { "@type": "HowToStep", "position": 3, "name": "Add each period's cash flow", "text": "Enter the net cash in or out for each future period." },
+    { "@type": "HowToStep", "position": 4, "name": "Read NPV, IRR and payback", "text": "Check whether NPV is positive and IRR beats your discount rate." }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://lekkal.com/npv-irr-calculator.html#webpage",
+  "url": "https://lekkal.com/npv-irr-calculator.html",
+  "name": "Free NPV & IRR Calculator",
+  "description": "Initial investment + discount rate + cash flows → NPV, IRR, payback period, and profitability index.",
+  "isPartOf": { "@id": "https://lekkal.com/#site" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://lekkal.com/og-npv-irr.png",
+    "width": 1200,
+    "height": 630
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23"
+}
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="/blog/">Blog</a>
+      <details class="nav-dropdown nav-mega">
+        <summary>
+          All tools
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="nav-dropdown-menu nav-mega-menu" role="menu">
+          <div class="mega-cols">
+            <div class="mega-col">
+              <div class="mega-section">Invoicing &amp; pricing</div>
+              <a href="/invoice-generator.html"><span>Invoice generator<span class="meta">PDF invoices, multi-currency</span></span></a>
+              <a href="/profit-margin-calculator.html"><span>Profit margin &amp; markup<span class="meta">margin vs markup</span></span></a>
+              <a href="/break-even-calculator.html"><span>Break-even<span class="meta">units · margin of safety</span></span></a>
+              <a href="/hourly-rate-calculator.html"><span>Hourly rate<span class="meta">freelance pricing</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">Startup &amp; SaaS</div>
+              <a href="/roi-calculator.html"><span>Marketing ROI<span class="meta">CAC · LTV · ROAS</span></span></a>
+              <a href="/burn-rate-calculator.html"><span>Burn rate &amp; runway<span class="meta">cash trajectory</span></span></a>
+              <a href="/cap-table-calculator.html"><span>Cap table &amp; dilution<span class="meta">ESOP · rounds</span></span></a>
+              <a href="/mrr-calculator.html"><span>MRR / ARR / NRR<span class="meta">SaaS metrics</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">Money &amp; planning</div>
+              <a href="/emi-calculator.html"><span>Loan &amp; EMI<span class="meta">payment + amortization</span></span></a>
+              <a href="/npv-irr-calculator.html"><span>NPV &amp; IRR<span class="meta">discounted cash flow</span></span></a>
+              <a href="/compound-interest-calculator.html"><span>Compound interest &amp; FIRE<span class="meta">corpus projection</span></span></a>
+              <a href="/expense-splitter.html"><span>Expense splitter<span class="meta">split bills, settle up</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">AI &amp; LLM</div>
+              <a href="/llm-api-cost-calculator.html"><span>LLM API cost<span class="meta">per-token pricing</span></span></a>
+              <a href="/ai-feature-unit-economics.html"><span>AI unit economics<span class="meta">cost per user · margin</span></span></a>
+              <a href="/ai-roi-calculator.html"><span>AI automation ROI<span class="meta">savings · payback</span></span></a>
+              <a href="/self-host-vs-api-calculator.html"><span>Self-host vs API<span class="meta">break-even volume</span></span></a>
+              <a href="/llm-token-counter.html"><span>Token counter<span class="meta">count + cost</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">India</div>
+              <a href="/gst-calculator.html"><span>GST calculator<span class="meta">CGST · SGST · IGST</span></span></a>
+              <a href="/income-tax-calculator.html"><span>Income tax<span class="meta">old vs new · FY 2025-26</span></span></a>
+              <a href="/sip-calculator.html"><span>SIP calculator<span class="meta">regular · step-up · lump sum</span></span></a>
+              <a href="/salary-breakup-calculator.html"><span>Salary breakup<span class="meta">CTC to in-hand</span></span></a>
+              <a class="disabled"><span>TDS calculator<span class="meta">Sec 192 / 194C / 194J</span></span><span class="pill soon">Soon</span></a>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <a href="/#tools" class="mega-all">Browse all tools on one page →</a>
+        </div>
+      </details>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>NPV &amp; IRR calculator</h1>
+  <p>Put a number on whether an investment is worth it. Enter the upfront cost, your required return, and the cash flows you expect — get net present value, internal rate of return, payback period, and a cumulative cash-flow chart.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>Your project</h2>
+
+      <div class="row2">
+        <div class="field">
+          <label>Initial investment <span class="hint">at time 0</span></label>
+          <input type="number" id="initial" value="100000" min="0" step="1000" />
+        </div>
+        <div class="field">
+          <label>Discount rate <span class="hint">% per period</span></label>
+          <input type="number" id="rate" value="10" min="0" step="0.5" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Currency</label>
+        <select id="currency">
+          <option value="USD">$ USD — US Dollar</option>
+          <option value="EUR">€ EUR — Euro</option>
+          <option value="GBP">£ GBP — British Pound</option>
+          <option value="INR">₹ INR — Indian Rupee</option>
+          <option value="AUD">A$ AUD — Australian Dollar</option>
+          <option value="CAD">C$ CAD — Canadian Dollar</option>
+        </select>
+      </div>
+
+      <h2 style="margin-top:18px;">Cash flows</h2>
+      <p class="soft" style="font-size:11px;margin:0 0 10px;">Net cash in (or out, as a negative) for each future period.</p>
+      <div id="flows"></div>
+      <button id="addFlow" class="btn secondary" style="margin-top:6px;">+ Add period</button>
+    </div>
+
+    <div class="card">
+      <h2>Verdict</h2>
+
+      <div class="verdict success" id="verdict" style="margin-bottom: 14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <div class="text">
+          <strong>Net present value</strong>
+          <span id="npv" class="tabular" style="font-size:22px;font-weight:600;">—</span>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">IRR</div>
+          <div class="value tabular" id="irr">—</div>
+          <div class="sub" id="irrSub">internal rate of return</div>
+        </div>
+        <div class="stat">
+          <div class="label">Profitability index</div>
+          <div class="value tabular" id="pi">—</div>
+          <div class="sub">PV of inflows ÷ cost</div>
+        </div>
+        <div class="stat">
+          <div class="label">Payback period</div>
+          <div class="value tabular" id="payback">—</div>
+          <div class="sub">simple, undiscounted</div>
+        </div>
+        <div class="stat">
+          <div class="label">Discounted payback</div>
+          <div class="value tabular" id="dpayback">—</div>
+          <div class="sub">time-value adjusted</div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;height:240px;position:relative;">
+        <canvas id="chart"></canvas>
+      </div>
+      <p class="soft" style="font-size:11px;margin:8px 0 0;text-align:center;">Cumulative cash flow. It crosses zero at the payback point.</p>
+    </div>
+  </div>
+
+  <section class="card mt-6">
+    <h2>Period-by-period</h2>
+    <div id="breakdown" style="font-size:13px;overflow-x:auto;"></div>
+  </section>
+
+  <section class="grid-3 mt-6">
+    <div class="card-flat">
+      <p class="section-title">NPV is the headline number</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        A positive NPV means the project is expected to earn more than your required return — it creates value. Between two options, the higher NPV usually wins, because NPV is measured in actual money, not a percentage.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">IRR is the intuitive one</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        IRR is the return the cash flows imply. Compare it to your discount rate: above it, the project clears the bar. Just be wary of IRR with unconventional cash flows (multiple sign changes), where more than one IRR can exist.
+      </p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Payback is the gut check</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">
+        Payback tells you how long your money is at risk. It ignores everything after recovery and (in the simple version) the time value of money — useful as a liquidity screen, not as the sole decision rule.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About discounted cash flow</h2>
+    <details class="faq" open>
+      <summary>What is net present value (NPV)?</summary>
+      <p>NPV is the sum of every cash flow discounted to today at your chosen rate, with the initial investment counted as a negative flow at time zero. <strong>Positive NPV</strong> means the project beats your required return and creates value; <strong>negative NPV</strong> means it falls short.</p>
+    </details>
+    <details class="faq">
+      <summary>What is the internal rate of return (IRR)?</summary>
+      <p>IRR is the discount rate that makes NPV exactly zero — the annualized return the cash flows imply. If IRR is above your discount rate, the project clears your bar. Because it can't be solved with a simple formula, this tool finds it numerically.</p>
+    </details>
+    <details class="faq">
+      <summary>How is payback different from discounted payback?</summary>
+      <p><strong>Simple payback</strong> is how long until cumulative cash recovers the initial cost, ignoring the time value of money. <strong>Discounted payback</strong> discounts each inflow first, so it's always at least as long — the more conservative figure.</p>
+    </details>
+    <details class="faq">
+      <summary>What discount rate should I use?</summary>
+      <p>Use the return you'd require for this risk — your cost of capital, a hurdle rate, or the next-best alternative's return. A higher rate penalizes distant cash flows and lowers NPV. There's no single right number; it reflects your risk and opportunity cost.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. This calculator runs entirely in your browser. None of your figures are sent to any server.</p>
+    </details>
+  </section>
+</section>
+
+<section class="lead-capture">
+  <div class="lc-card" id="lc-card">
+    <div class="lc-text">
+      <span class="lc-eyebrow">More tools for operators</span>
+      <h3>Get new tools as they ship</h3>
+      <p>Get an email when we ship the next planning, costing, or finance tool.</p>
+      <span class="lc-fine">No spam, no signup needed to use any tool. Unsubscribe any time.</span>
+    </div>
+    <form class="lc-form" action="/api/subscribe" method="POST">
+      <input type="hidden" name="source" value="npv-irr" />
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="lc-thanks">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Thanks — you're on the list. We'll only email when we ship.
+    </div>
+  </div>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>Planning tools</h4>
+      <a href="npv-irr-calculator.html">NPV & IRR</a>
+      <a href="break-even-calculator.html">Break-even</a>
+      <a href="burn-rate-calculator.html">Burn rate & runway</a>
+    </div>
+    <div class="col">
+      <h4>All tools</h4>
+      <a href="index.html#tools">Browse →</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+  refreshChartColors();
+});
+
+const CURRENCIES = { USD:"$", EUR:"€", GBP:"£", INR:"₹", AUD:"A$", CAD:"C$" };
+const LOCALES = { USD:"en-US", EUR:"de-DE", GBP:"en-GB", INR:"en-IN", AUD:"en-AU", CAD:"en-CA" };
+function ccy() { return $("currency").value; }
+function symbol() { return CURRENCIES[ccy()]; }
+function locale() { return LOCALES[ccy()]; }
+function fmt(n, d = 0) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  const neg = n < 0;
+  const s = symbol() + Math.abs(n).toLocaleString(locale(), { minimumFractionDigits: d, maximumFractionDigits: d });
+  return neg ? "−" + s : s;
+}
+function fmtShort(n) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  const s = symbol(), abs = Math.abs(n), sign = n < 0 ? "−" : "";
+  if (ccy() === "INR") {
+    if (abs >= 1e7) return sign + s + (abs/1e7).toFixed(2) + " Cr";
+    if (abs >= 1e5) return sign + s + (abs/1e5).toFixed(2) + " L";
+    return sign + s + Math.round(abs).toLocaleString("en-IN");
+  } else {
+    if (abs >= 1e6) return sign + s + (abs/1e6).toFixed(2) + "M";
+    if (abs >= 1000) return sign + s + (abs/1000).toFixed(1) + "K";
+    return sign + s + Math.round(abs).toLocaleString(locale());
+  }
+}
+function detectDefaultCurrency() {
+  try {
+    const lang = (navigator.language || "").toLowerCase();
+    if (lang.endsWith("-in") || lang === "hi" || lang === "te" || lang === "ta") return "INR";
+    if (lang.endsWith("-gb")) return "GBP";
+    if (lang.endsWith("-au")) return "AUD";
+    if (lang.endsWith("-ca")) return "CAD";
+    if (lang.startsWith("de") || lang.startsWith("fr") || lang.startsWith("es") || lang.startsWith("it") || lang.startsWith("nl") || lang.startsWith("pt")) return "EUR";
+    return "USD";
+  } catch { return "USD"; }
+}
+
+let flows = [30000, 40000, 50000, 40000];   // period 1..N cash flows
+let chart = null;
+
+function renderFlows() {
+  const box = $("flows");
+  box.innerHTML = "";
+  flows.forEach((v, i) => {
+    const row = document.createElement("div");
+    row.style.cssText = "display:grid;grid-template-columns:70px 1fr 28px;gap:8px;margin-bottom:8px;align-items:center;";
+    row.innerHTML =
+      '<span class="muted" style="font-size:13px;">Yr ' + (i + 1) + '</span>' +
+      '<div class="num-wrap">' +
+        '<input type="number" class="tool-input" value="' + v + '" step="1000" data-i="' + i + '" style="text-align:right;" />' +
+        '<button type="button" class="num-btn num-plus" tabindex="-1" aria-label="Increase">+</button>' +
+        '<button type="button" class="num-btn num-minus" tabindex="-1" aria-label="Decrease">−</button>' +
+      '</div>' +
+      '<button class="x" data-rm="' + i + '" title="Remove period" style="background:transparent;border:0;color:var(--text-soft);cursor:pointer;font-size:18px;">×</button>';
+    box.appendChild(row);
+  });
+}
+
+// NPV of a full cash-flow array (index 0 = t0)
+function npvOf(rate, cfs) {
+  return cfs.reduce((s, cf, k) => s + cf / Math.pow(1 + rate, k), 0);
+}
+// IRR via bracketing + bisection
+function irrOf(cfs) {
+  const f = r => npvOf(r, cfs);
+  let lo = -0.9999, hi = 1.0, fLo = f(lo), fHi = f(hi);
+  if (fLo * fHi > 0) {
+    let found = false, prev = lo, prevF = fLo;
+    for (let r = -0.99; r <= 100; r = r + 0.01) {
+      const fr = f(r);
+      if (prevF * fr <= 0) { lo = prev; hi = r; fLo = prevF; fHi = fr; found = true; break; }
+      prev = r; prevF = fr;
+    }
+    if (!found) return null;
+  }
+  for (let i = 0; i < 200; i++) {
+    const mid = (lo + hi) / 2, fm = f(mid);
+    if (Math.abs(fm) < 1e-6) return mid;
+    if (fLo * fm < 0) { hi = mid; fHi = fm; } else { lo = mid; fLo = fm; }
+  }
+  return (lo + hi) / 2;
+}
+
+function update() {
+  const initial = +$("initial").value || 0;
+  const rate = (+$("rate").value || 0) / 100;
+  const cfs = [-initial, ...flows.map(v => +v || 0)];
+
+  const npv = npvOf(rate, cfs);
+  const irr = irrOf(cfs);
+  const pvInflows = cfs.slice(1).reduce((s, cf, k) => s + cf / Math.pow(1 + rate, k + 1), 0);
+  const pi = initial > 0 ? pvInflows / initial : NaN;
+
+  // Headline NPV + verdict
+  $("npv").textContent = fmt(npv);
+  const v = $("verdict");
+  if (npv > 0.5) {
+    v.className = "verdict success";
+    v.querySelector("strong").textContent = "Creates value — NPV positive";
+  } else if (npv < -0.5) {
+    v.className = "verdict danger";
+    v.querySelector("strong").textContent = "Destroys value — NPV negative";
+  } else {
+    v.className = "verdict warn";
+    v.querySelector("strong").textContent = "Roughly break-even";
+  }
+
+  // IRR
+  if (irr == null) {
+    $("irr").textContent = "n/a";
+    $("irrSub").textContent = "no sign change";
+  } else {
+    $("irr").textContent = (irr * 100).toFixed(2) + "%";
+    $("irrSub").textContent = irr > rate ? "beats discount rate" : "below discount rate";
+  }
+
+  // Profitability index
+  $("pi").textContent = isFinite(pi) ? pi.toFixed(2) : "—";
+
+  // Payback (simple) on undiscounted flows; discounted on discounted flows
+  $("payback").textContent = paybackLabel(cfs, false);
+  $("dpayback").textContent = paybackLabel(cfs, true, rate);
+
+  // Breakdown table
+  const muted = "var(--text-muted)";
+  let cum = 0, dcum = 0;
+  let html = '<table style="width:100%;border-collapse:collapse;min-width:420px;">';
+  html += '<thead><tr style="text-align:right;color:' + muted + ';font-size:11px;">' +
+    '<th style="text-align:left;padding:6px 4px;">Period</th><th style="padding:6px 4px;">Cash flow</th><th style="padding:6px 4px;">Discounted</th><th style="padding:6px 4px;">Cumulative</th></tr></thead><tbody>';
+  cfs.forEach((cf, k) => {
+    const disc = cf / Math.pow(1 + rate, k);
+    cum += cf; dcum += disc;
+    html += '<tr style="text-align:right;border-top:1px solid var(--border);">' +
+      '<td style="text-align:left;padding:6px 4px;">' + (k === 0 ? "Now" : "Year " + k) + '</td>' +
+      '<td class="tabular" style="padding:6px 4px;">' + fmt(cf) + '</td>' +
+      '<td class="tabular" style="padding:6px 4px;color:' + muted + '">' + fmt(disc) + '</td>' +
+      '<td class="tabular" style="padding:6px 4px;color:' + (cum >= 0 ? "var(--success)" : "var(--danger)") + '">' + fmt(cum) + '</td></tr>';
+  });
+  html += '</tbody></table>';
+  $("breakdown").innerHTML = html;
+
+  drawChart(cfs);
+}
+
+function paybackLabel(cfs, discounted, rate) {
+  let cum = 0;
+  for (let k = 0; k < cfs.length; k++) {
+    const val = discounted ? cfs[k] / Math.pow(1 + rate, k) : cfs[k];
+    const before = cum;
+    cum += val;
+    if (cum >= 0 && k > 0) {
+      // interpolate within the period
+      const frac = before < 0 ? (-before) / val : 0;
+      const yrs = (k - 1) + frac;
+      return yrs.toFixed(2) + " yr";
+    }
+  }
+  return "never";
+}
+
+function drawChart(cfs) {
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  const labels = [], cumData = [];
+  let cum = 0;
+  cfs.forEach((cf, k) => { cum += cf; labels.push(k === 0 ? "Now" : "Yr " + k); cumData.push(cum); });
+  const pos = cumData.map(v => v >= 0 ? "#0f766e" : "#dc2626");
+  if (chart) {
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = cumData;
+    chart.data.datasets[0].backgroundColor = pos;
+    chart.update("none");
+  } else {
+    chart = new Chart($("chart"), {
+      type: "bar",
+      data: { labels, datasets: [{ data: cumData, label: "Cumulative cash flow", backgroundColor: pos, borderRadius: 3 }] },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: c => "Cumulative: " + fmt(c.parsed.y) } }
+        },
+        scales: {
+          y: { ticks: { callback: v => fmtShort(v), color: muted }, grid: { color: "rgba(125,125,125,0.10)" } },
+          x: { ticks: { color: muted }, grid: { display: false } }
+        }
+      }
+    });
+  }
+}
+function refreshChartColors() {
+  if (!chart) return;
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  chart.options.scales.x.ticks.color = muted;
+  chart.options.scales.y.ticks.color = muted;
+  chart.update("none");
+}
+
+$("flows").addEventListener("input", e => {
+  const i = e.target.dataset.i;
+  if (i != null) { flows[+i] = +e.target.value; update(); }
+});
+$("flows").addEventListener("click", e => {
+  const nb = e.target.closest(".num-btn");
+  if (nb) {
+    const input = nb.parentNode.querySelector('input[type="number"]');
+    if (!input) return;
+    if (nb.classList.contains("num-plus")) input.stepUp(); else input.stepDown();
+    flows[+input.dataset.i] = +input.value; update();
+    return;
+  }
+  const rm = e.target.dataset.rm;
+  if (rm != null) { flows.splice(+rm, 1); renderFlows(); update(); }
+});
+$("addFlow").addEventListener("click", () => { flows.push(0); renderFlows(); update(); });
+["initial", "rate"].forEach(id => $(id).addEventListener("input", update));
+$("currency").addEventListener("change", update);
+
+$("currency").value = detectDefaultCurrency();
+renderFlows();
+update();
+</script>
+</body>
+</html>

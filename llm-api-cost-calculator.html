@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Free LLM API Cost Calculator — Compare GPT, Claude, Gemini | Lekkal</title>
+<meta name="description" content="Free LLM API cost calculator. Enter input and output tokens per request and your request volume to estimate cost per call, per day, per month, and per year — and compare GPT, Claude, Gemini, and more side by side. Runs in your browser, no signup." />
+<meta name="keywords" content="LLM cost calculator, API cost calculator, OpenAI pricing calculator, Claude API cost, GPT-4o cost, token cost calculator, LLM pricing comparison, AI API cost estimator, cost per token" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<meta name="application-name" content="Lekkal" />
+<meta name="apple-mobile-web-app-title" content="Lekkal" />
+<meta name="distribution" content="global" />
+<meta name="rating" content="general" />
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="canonical" href="https://lekkal.com/llm-api-cost-calculator.html" />
+<link rel="alternate" hreflang="en" href="https://lekkal.com/llm-api-cost-calculator.html" />
+<link rel="alternate" hreflang="x-default" href="https://lekkal.com/llm-api-cost-calculator.html" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/icon-192.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/llm-api-cost-calculator.html" />
+<meta property="og:title" content="Free LLM API Cost Calculator" />
+<meta property="og:description" content="Estimate LLM API spend per call, day, and month — and compare GPT, Claude, Gemini and more side by side. Free, runs in your browser." />
+<meta property="og:image" content="https://lekkal.com/og-llm-cost.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Lekkal" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free LLM API Cost Calculator" />
+<meta name="twitter:description" content="Estimate and compare LLM API costs across GPT, Claude, Gemini and more. Free, in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-llm-cost.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "audience": {"@type": "BusinessAudience", "audienceType": "Founders and developers shipping AI features"},
+  "inLanguage": "en",
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23",
+  "name": "Lekkal LLM API Cost Calculator",
+  "url": "https://lekkal.com/llm-api-cost-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free LLM API cost calculator that estimates spend per request, day, month and year and compares models across providers.",
+  "featureList": [
+    "Cost per call, day, month and year",
+    "Separate input and output token pricing",
+    "Side-by-side model comparison",
+    "Covers OpenAI, Anthropic, Google and more",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "LLM API Cost Calculator", "item": "https://lekkal.com/llm-api-cost-calculator.html" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq summary", ".faq p"]},
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is LLM API cost calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Providers bill per token, with input (prompt) tokens and output (completion) tokens usually priced differently and quoted per million tokens. Cost per request = (input tokens / 1,000,000 × input price) + (output tokens / 1,000,000 × output price). Multiply by your request volume to get daily, monthly and yearly spend. This calculator does exactly that and lets you compare models." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a token?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A token is a chunk of text a model processes — roughly 4 characters or about 0.75 words in English. A 500-word prompt is roughly 650 tokens. Both the text you send (input) and the text the model generates (output) are counted, which is why output-heavy tasks can cost more even with short prompts." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is output more expensive than input?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For most models output tokens are priced higher — often 3 to 5 times the input price — because generating tokens is more compute-intensive than reading them. That means long completions, verbose formatting, or chatty system prompts can dominate your bill. Trimming output length is often the fastest way to cut cost." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these prices current?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The prices here are indicative list prices for quick estimation and are dated in the tool. Providers change pricing, add and retire models, and offer discounts for batch, cached, or committed usage. Always confirm the current rate on the provider's pricing page before budgeting." }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="stylesheet" href="styles.css" />
+<script src="nav.js" defer></script>
+<script src="ai-prices.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to estimate LLM API cost",
+  "description": "Estimate and compare the cost of running a model via API.",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Pick a model", "text": "Choose the model you plan to call." },
+    { "@type": "HowToStep", "position": 2, "name": "Enter tokens per request", "text": "Set typical input and output tokens for one call." },
+    { "@type": "HowToStep", "position": 3, "name": "Set your volume", "text": "Enter how many requests you expect per day." },
+    { "@type": "HowToStep", "position": 4, "name": "Read and compare", "text": "See cost per call, day, month and year, and compare models." }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://lekkal.com/llm-api-cost-calculator.html#webpage",
+  "url": "https://lekkal.com/llm-api-cost-calculator.html",
+  "name": "Free LLM API Cost Calculator",
+  "description": "Estimate LLM API spend per call, day, month and year and compare models across providers.",
+  "isPartOf": { "@id": "https://lekkal.com/#site" },
+  "primaryImageOfPage": { "@type": "ImageObject", "url": "https://lekkal.com/og-llm-cost.png", "width": 1200, "height": 630 },
+  "inLanguage": "en",
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23"
+}
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="/blog/">Blog</a>
+      <details class="nav-dropdown nav-mega">
+        <summary>
+          All tools
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="nav-dropdown-menu nav-mega-menu" role="menu">
+          <div class="mega-cols">
+            <div class="mega-col">
+              <div class="mega-section">Invoicing &amp; pricing</div>
+              <a href="/invoice-generator.html"><span>Invoice generator<span class="meta">PDF invoices, multi-currency</span></span></a>
+              <a href="/profit-margin-calculator.html"><span>Profit margin &amp; markup<span class="meta">margin vs markup</span></span></a>
+              <a href="/break-even-calculator.html"><span>Break-even<span class="meta">units · margin of safety</span></span></a>
+              <a href="/hourly-rate-calculator.html"><span>Hourly rate<span class="meta">freelance pricing</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">Startup &amp; SaaS</div>
+              <a href="/roi-calculator.html"><span>Marketing ROI<span class="meta">CAC · LTV · ROAS</span></span></a>
+              <a href="/burn-rate-calculator.html"><span>Burn rate &amp; runway<span class="meta">cash trajectory</span></span></a>
+              <a href="/cap-table-calculator.html"><span>Cap table &amp; dilution<span class="meta">ESOP · rounds</span></span></a>
+              <a href="/mrr-calculator.html"><span>MRR / ARR / NRR<span class="meta">SaaS metrics</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">Money &amp; planning</div>
+              <a href="/emi-calculator.html"><span>Loan &amp; EMI<span class="meta">payment + amortization</span></span></a>
+              <a href="/npv-irr-calculator.html"><span>NPV &amp; IRR<span class="meta">discounted cash flow</span></span></a>
+              <a href="/compound-interest-calculator.html"><span>Compound interest &amp; FIRE<span class="meta">corpus projection</span></span></a>
+              <a href="/expense-splitter.html"><span>Expense splitter<span class="meta">split bills, settle up</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">AI &amp; LLM</div>
+              <a href="/llm-api-cost-calculator.html"><span>LLM API cost<span class="meta">per-token pricing</span></span></a>
+              <a href="/ai-feature-unit-economics.html"><span>AI unit economics<span class="meta">cost per user · margin</span></span></a>
+              <a href="/ai-roi-calculator.html"><span>AI automation ROI<span class="meta">savings · payback</span></span></a>
+              <a href="/self-host-vs-api-calculator.html"><span>Self-host vs API<span class="meta">break-even volume</span></span></a>
+              <a href="/llm-token-counter.html"><span>Token counter<span class="meta">count + cost</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">India</div>
+              <a href="/gst-calculator.html"><span>GST calculator<span class="meta">CGST · SGST · IGST</span></span></a>
+              <a href="/income-tax-calculator.html"><span>Income tax<span class="meta">old vs new · FY 2025-26</span></span></a>
+              <a href="/sip-calculator.html"><span>SIP calculator<span class="meta">regular · step-up · lump sum</span></span></a>
+              <a href="/salary-breakup-calculator.html"><span>Salary breakup<span class="meta">CTC to in-hand</span></span></a>
+              <a class="disabled"><span>TDS calculator<span class="meta">Sec 192 / 194C / 194J</span></span><span class="pill soon">Soon</span></a>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <a href="/#tools" class="mega-all">Browse all tools on one page →</a>
+        </div>
+      </details>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>LLM API cost calculator</h1>
+  <p>Estimate what an AI feature will actually cost to run. Set the tokens per request and your volume to see cost per call, per day, per month and per year — then compare models across providers to find the cheapest one that does the job.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>Your usage</h2>
+
+      <div class="field">
+        <label>Model</label>
+        <select id="model" class="tool-input"></select>
+        <p class="soft" id="priceLine" style="font-size:11px;margin:4px 0 0;"></p>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label>Input tokens / request <span class="hint">prompt</span></label>
+          <input type="number" id="inTok" class="tool-input" value="1000" min="0" step="100" />
+        </div>
+        <div class="field">
+          <label>Output tokens / request <span class="hint">completion</span></label>
+          <input type="number" id="outTok" class="tool-input" value="500" min="0" step="100" />
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label>Requests / day</label>
+          <input type="number" id="reqDay" class="tool-input" value="1000" min="0" step="100" />
+        </div>
+        <div class="field">
+          <label>Cached input <span class="hint">% of prompt</span></label>
+          <input type="number" id="cachePct" class="tool-input" value="0" min="0" max="100" step="5" />
+          <p class="soft" style="font-size:11px;margin:4px 0 0;">Reused prompt prefix, billed at ~25% (rough).</p>
+        </div>
+      </div>
+
+      <div class="card-flat" style="border-left:3px solid var(--accent);margin-top:4px;">
+        <p class="muted" style="margin:0;font-size:12px;line-height:1.6;">
+          Indicative list prices in <strong>USD</strong>, last reviewed <span id="priceDate">—</span>. Providers change pricing and offer batch/cached discounts — confirm on the provider's page before budgeting.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Estimated cost</h2>
+
+      <div class="verdict success" id="verdict" style="margin-bottom: 14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <div class="text">
+          <strong>Cost per month</strong>
+          <span id="perMonth" class="tabular" style="font-size:22px;font-weight:600;">—</span>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Per request</div>
+          <div class="value tabular" id="perReq">—</div>
+          <div class="sub" id="perReqSub">input + output</div>
+        </div>
+        <div class="stat">
+          <div class="label">Per day</div>
+          <div class="value tabular" id="perDay">—</div>
+          <div class="sub" id="reqDaySub">requests/day</div>
+        </div>
+        <div class="stat">
+          <div class="label">Per year</div>
+          <div class="value tabular" id="perYear">—</div>
+          <div class="sub">at this volume</div>
+        </div>
+        <div class="stat">
+          <div class="label">Per 1K requests</div>
+          <div class="value tabular" id="per1k">—</div>
+          <div class="sub">handy unit</div>
+        </div>
+      </div>
+
+      <div id="split" style="font-size:13px;margin-top:16px;"></div>
+    </div>
+  </div>
+
+  <section class="card mt-6">
+    <h2>Compare every model at this usage</h2>
+    <p class="soft" style="font-size:12px;margin:0 0 10px;">Monthly cost for the same tokens and volume. Cheapest first; your pick is highlighted.</p>
+    <div id="compare" style="font-size:13px;overflow-x:auto;"></div>
+  </section>
+
+  <section class="grid-3 mt-6">
+    <div class="card-flat">
+      <p class="section-title">Output usually dominates</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">Output tokens are typically 3–5× the input price. A verbose model that writes long answers can cost more than a pricier model told to be terse. Cap output length first.</p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Right-size the model</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">A small model at a tenth of the price often handles classification, extraction, and routing fine. Reserve the flagship for the calls that genuinely need it.</p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Caching and batch cut bills</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">Reused prompt prefixes (cached input) and asynchronous batch endpoints are heavily discounted by most providers — worth it once volume is real.</p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About LLM API costs</h2>
+    <details class="faq" open>
+      <summary>How is LLM API cost calculated?</summary>
+      <p>Cost per request = <strong>(input tokens ÷ 1,000,000 × input price) + (output tokens ÷ 1,000,000 × output price)</strong>. Multiply by requests per day for daily spend, then by 30.44 for a month. Input and output are priced separately, and providers quote per million tokens.</p>
+    </details>
+    <details class="faq">
+      <summary>What is a token?</summary>
+      <p>A token is a chunk of text — roughly <strong>4 characters or 0.75 words</strong> in English. Both your prompt (input) and the model's reply (output) count.</p>
+    </details>
+    <details class="faq">
+      <summary>Why is output more expensive than input?</summary>
+      <p>Generating tokens costs more compute than reading them, so output is usually priced 3–5× higher. Long completions can dominate your bill — trimming output length is often the fastest saving.</p>
+    </details>
+    <details class="faq">
+      <summary>Are these prices current?</summary>
+      <p>They're indicative list prices, dated in the tool. Providers change pricing and offer batch, cached, and committed-use discounts. Always confirm on the provider's pricing page before budgeting.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. This calculator runs entirely in your browser. Nothing you enter is sent to any server.</p>
+    </details>
+  </section>
+</section>
+
+<section class="lead-capture">
+  <div class="lc-card" id="lc-card">
+    <div class="lc-text">
+      <span class="lc-eyebrow">More tools for AI builders</span>
+      <h3>Get new tools as they ship</h3>
+      <p>Get an email when we ship the next AI cost or unit-economics tool.</p>
+      <span class="lc-fine">No spam, no signup needed to use any tool. Unsubscribe any time.</span>
+    </div>
+    <form class="lc-form" action="/api/subscribe" method="POST">
+      <input type="hidden" name="source" value="llm-cost" />
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="lc-thanks">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Thanks — you're on the list. We'll only email when we ship.
+    </div>
+  </div>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>AI &amp; LLM</h4>
+      <a href="llm-api-cost-calculator.html">LLM API cost</a>
+      <a href="ai-feature-unit-economics.html">AI unit economics</a>
+      <a href="self-host-vs-api-calculator.html">Self-host vs API</a>
+    </div>
+    <div class="col">
+      <h4>All tools</h4>
+      <a href="index.html#tools">Browse →</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+});
+
+function usd(n, d) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  if (d == null) d = n < 1 ? (n < 0.01 ? 4 : 3) : 2;
+  return "$" + n.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+function num(n) { return isFinite(n) ? Math.round(n).toLocaleString("en-US") : "—"; }
+const DAYS = 30.44;
+
+populateModelSelect($("model"), "GPT-5.4");
+$("priceDate").textContent = window.AI_PRICES_UPDATED;
+
+// cost of one request for a given price row
+function reqCost(p, inTok, outTok, cacheFrac) {
+  const cachedIn = inTok * cacheFrac;
+  const freshIn = inTok - cachedIn;
+  const inCost = (freshIn * p.in + cachedIn * p.in * 0.25) / 1e6;
+  const outCost = (outTok * p.out) / 1e6;
+  return { inCost, outCost, total: inCost + outCost };
+}
+
+function update() {
+  const p = priceFor($("model").value);
+  if (!p) return;
+  const inTok = +$("inTok").value || 0;
+  const outTok = +$("outTok").value || 0;
+  const reqDay = +$("reqDay").value || 0;
+  const cacheFrac = Math.min(100, Math.max(0, +$("cachePct").value || 0)) / 100;
+
+  $("priceLine").textContent = "Input " + usd(p.in, 2) + " / 1M · Output " + usd(p.out, 2) + " / 1M";
+
+  const c = reqCost(p, inTok, outTok, cacheFrac);
+  const perDay = c.total * reqDay;
+  const perMonth = perDay * DAYS;
+  const perYear = perDay * 365;
+
+  $("perReq").textContent = usd(c.total);
+  $("per1k").textContent = usd(c.total * 1000, 2);
+  $("perDay").textContent = usd(perDay, 2);
+  $("reqDaySub").textContent = num(reqDay) + " requests/day";
+  $("perMonth").textContent = usd(perMonth, 2);
+  $("perYear").textContent = usd(perYear, 2);
+
+  const row = (label, val) => '<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span class="muted">' + label + '</span><span class="tabular">' + val + '</span></div>';
+  let html = "";
+  html += row("Input cost / request", usd(c.inCost));
+  html += row("Output cost / request", usd(c.outCost));
+  html += row("Tokens / request", num(inTok + outTok) + " (" + num(inTok) + " in + " + num(outTok) + " out)");
+  html += row("Requests / month", num(reqDay * DAYS));
+  $("split").innerHTML = html;
+
+  // compare table
+  const rows = window.AI_PRICES.map((mp, i) => ({ mp, i, m: reqCost(mp, inTok, outTok, cacheFrac).total * reqDay * DAYS }))
+    .sort((a, b) => a.m - b.m);
+  const sel = +$("model").value;
+  let ch = '<table style="width:100%;border-collapse:collapse;min-width:460px;">';
+  ch += '<thead><tr style="text-align:right;color:var(--text-muted);font-size:11px;"><th style="text-align:left;padding:6px 4px;">Model</th><th style="padding:6px 4px;">In /1M</th><th style="padding:6px 4px;">Out /1M</th><th style="padding:6px 4px;">Per month</th><th style="padding:6px 4px;">vs pick</th></tr></thead><tbody>';
+  const picked = rows.find(r => r.i === sel);
+  const pickedM = picked ? picked.m : 0;
+  rows.forEach(r => {
+    const isSel = r.i === sel;
+    const diff = pickedM > 0 ? (r.m / pickedM - 1) * 100 : 0;
+    const diffTxt = isSel ? "—" : (diff > 0 ? "+" : "") + diff.toFixed(0) + "%";
+    const diffColor = isSel ? "var(--text-soft)" : (diff > 0 ? "var(--danger)" : "var(--success)");
+    ch += '<tr style="text-align:right;border-top:1px solid var(--border);' + (isSel ? 'background:var(--accent-soft);' : '') + '">' +
+      '<td style="text-align:left;padding:7px 4px;font-weight:' + (isSel ? '600' : '400') + ';">' + r.mp.provider + ' · ' + r.mp.model + '</td>' +
+      '<td class="tabular" style="padding:7px 4px;color:var(--text-muted);">' + usd(r.mp.in, 2) + '</td>' +
+      '<td class="tabular" style="padding:7px 4px;color:var(--text-muted);">' + usd(r.mp.out, 2) + '</td>' +
+      '<td class="tabular" style="padding:7px 4px;font-weight:600;">' + usd(r.m, 2) + '</td>' +
+      '<td class="tabular" style="padding:7px 4px;color:' + diffColor + ';">' + diffTxt + '</td></tr>';
+  });
+  ch += '</tbody></table>';
+  $("compare").innerHTML = ch;
+}
+
+["model","inTok","outTok","reqDay","cachePct"].forEach(id => {
+  $(id).addEventListener("input", update);
+  $(id).addEventListener("change", update);
+});
+update();
+</script>
+</body>
+</html>

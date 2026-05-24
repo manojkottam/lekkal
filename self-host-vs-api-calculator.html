@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Self-Host vs API Calculator — LLM Break-Even Volume | Lekkal</title>
+<meta name="description" content="Free self-host vs API calculator for LLMs. Compare the fixed cost of running a model on your own GPUs against per-token API pricing to find the request volume where self-hosting becomes cheaper. Runs in your browser, no signup." />
+<meta name="keywords" content="self-host vs API, LLM self-hosting cost, GPU cost calculator, run own LLM cost, API vs self-host break-even, inference cost calculator, host LLM vs API, open model hosting cost" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<meta name="application-name" content="Lekkal" />
+<meta name="apple-mobile-web-app-title" content="Lekkal" />
+<meta name="distribution" content="global" />
+<meta name="rating" content="general" />
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="canonical" href="https://lekkal.com/self-host-vs-api-calculator.html" />
+<link rel="alternate" hreflang="en" href="https://lekkal.com/self-host-vs-api-calculator.html" />
+<link rel="alternate" hreflang="x-default" href="https://lekkal.com/self-host-vs-api-calculator.html" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/icon-192.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/self-host-vs-api-calculator.html" />
+<meta property="og:title" content="Self-Host vs API Calculator" />
+<meta property="og:description" content="Find the request volume where running your own GPUs beats per-token API pricing. Free, runs in your browser." />
+<meta property="og:image" content="https://lekkal.com/og-self-host.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Lekkal" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Self-Host vs API Calculator" />
+<meta name="twitter:description" content="The break-even request volume between self-hosting an LLM and paying per token. Free, in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-self-host.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "audience": {"@type": "BusinessAudience", "audienceType": "Engineering teams deciding how to serve an LLM"},
+  "inLanguage": "en",
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23",
+  "name": "Lekkal Self-Host vs API Calculator",
+  "url": "https://lekkal.com/self-host-vs-api-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free calculator comparing the fixed monthly cost of self-hosting an LLM on GPUs against per-token API pricing, with the break-even request volume and a crossover chart.",
+  "featureList": [
+    "Break-even request volume",
+    "API vs self-host monthly cost at your volume",
+    "GPU capacity check",
+    "Self-host cost per request",
+    "Crossover chart",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Self-Host vs API Calculator", "item": "https://lekkal.com/self-host-vs-api-calculator.html" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq summary", ".faq p"]},
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When does self-hosting an LLM become cheaper than an API?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Self-hosting is a mostly fixed cost — you pay for the GPUs whether they're busy or idle — while an API is purely variable, charged per token. Below the break-even volume the API wins because you only pay for what you use. Above it, the fixed GPU cost spreads over enough requests that self-hosting's cost per request drops below the API price. The break-even volume is the GPU monthly cost divided by the API cost per request." }
+    },
+    {
+      "@type": "Question",
+      "name": "What costs am I missing with self-hosting?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This compares raw GPU rental to API token cost. Real self-hosting also carries engineering time to set up and maintain serving, autoscaling and redundancy, idle capacity for traffic spikes, model and infrastructure updates, and on-call. Those make the true break-even higher than the pure-compute number, so treat this as the optimistic case for self-hosting." }
+    },
+    {
+      "@type": "Question",
+      "name": "What throughput should I assume?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Throughput depends on the model size, GPU, batch size, and how long your average request is. Short requests with good batching can hit many per second per GPU; long-context or large models far fewer. Use a number you've measured if you can, and keep the utilization realistic — sustained high utilization is hard to achieve with spiky traffic." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is cost the only thing that matters?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Data residency and privacy, latency control, avoiding vendor rate limits, and the ability to fine-tune can all justify self-hosting even below break-even. Equally, an API removes operational burden entirely. Use this as the cost input to a broader decision, not the whole decision." }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="stylesheet" href="styles.css" />
+<script src="nav.js" defer></script>
+<script src="ai-prices.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to compare self-hosting an LLM to an API",
+  "description": "Find the request volume where self-hosting beats per-token API pricing.",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Set the API baseline", "text": "Pick the API model and tokens per request." },
+    { "@type": "HowToStep", "position": 2, "name": "Describe the GPU setup", "text": "Enter GPU hourly cost, count, and utilization." },
+    { "@type": "HowToStep", "position": 3, "name": "Add throughput", "text": "Requests per second your setup can serve." },
+    { "@type": "HowToStep", "position": 4, "name": "Read the break-even", "text": "See the crossover volume and which is cheaper at yours." }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://lekkal.com/self-host-vs-api-calculator.html#webpage",
+  "url": "https://lekkal.com/self-host-vs-api-calculator.html",
+  "name": "Self-Host vs API Calculator",
+  "description": "Break-even request volume between self-hosting an LLM and per-token API pricing.",
+  "isPartOf": { "@id": "https://lekkal.com/#site" },
+  "primaryImageOfPage": { "@type": "ImageObject", "url": "https://lekkal.com/og-self-host.png", "width": 1200, "height": 630 },
+  "inLanguage": "en",
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23"
+}
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="/blog/">Blog</a>
+      <details class="nav-dropdown nav-mega">
+        <summary>
+          All tools
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="nav-dropdown-menu nav-mega-menu" role="menu">
+          <div class="mega-cols">
+            <div class="mega-col">
+              <div class="mega-section">Invoicing &amp; pricing</div>
+              <a href="/invoice-generator.html"><span>Invoice generator<span class="meta">PDF invoices, multi-currency</span></span></a>
+              <a href="/profit-margin-calculator.html"><span>Profit margin &amp; markup<span class="meta">margin vs markup</span></span></a>
+              <a href="/break-even-calculator.html"><span>Break-even<span class="meta">units · margin of safety</span></span></a>
+              <a href="/hourly-rate-calculator.html"><span>Hourly rate<span class="meta">freelance pricing</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">Startup &amp; SaaS</div>
+              <a href="/roi-calculator.html"><span>Marketing ROI<span class="meta">CAC · LTV · ROAS</span></span></a>
+              <a href="/burn-rate-calculator.html"><span>Burn rate &amp; runway<span class="meta">cash trajectory</span></span></a>
+              <a href="/cap-table-calculator.html"><span>Cap table &amp; dilution<span class="meta">ESOP · rounds</span></span></a>
+              <a href="/mrr-calculator.html"><span>MRR / ARR / NRR<span class="meta">SaaS metrics</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">Money &amp; planning</div>
+              <a href="/emi-calculator.html"><span>Loan &amp; EMI<span class="meta">payment + amortization</span></span></a>
+              <a href="/npv-irr-calculator.html"><span>NPV &amp; IRR<span class="meta">discounted cash flow</span></span></a>
+              <a href="/compound-interest-calculator.html"><span>Compound interest &amp; FIRE<span class="meta">corpus projection</span></span></a>
+              <a href="/expense-splitter.html"><span>Expense splitter<span class="meta">split bills, settle up</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">AI &amp; LLM</div>
+              <a href="/llm-api-cost-calculator.html"><span>LLM API cost<span class="meta">per-token pricing</span></span></a>
+              <a href="/ai-feature-unit-economics.html"><span>AI unit economics<span class="meta">cost per user · margin</span></span></a>
+              <a href="/ai-roi-calculator.html"><span>AI automation ROI<span class="meta">savings · payback</span></span></a>
+              <a href="/self-host-vs-api-calculator.html"><span>Self-host vs API<span class="meta">break-even volume</span></span></a>
+              <a href="/llm-token-counter.html"><span>Token counter<span class="meta">count + cost</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">India</div>
+              <a href="/gst-calculator.html"><span>GST calculator<span class="meta">CGST · SGST · IGST</span></span></a>
+              <a href="/income-tax-calculator.html"><span>Income tax<span class="meta">old vs new · FY 2025-26</span></span></a>
+              <a href="/sip-calculator.html"><span>SIP calculator<span class="meta">regular · step-up · lump sum</span></span></a>
+              <a href="/salary-breakup-calculator.html"><span>Salary breakup<span class="meta">CTC to in-hand</span></span></a>
+              <a class="disabled"><span>TDS calculator<span class="meta">Sec 192 / 194C / 194J</span></span><span class="pill soon">Soon</span></a>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <a href="/#tools" class="mega-all">Browse all tools on one page →</a>
+        </div>
+      </details>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>Self-host vs API calculator</h1>
+  <p>Per-token API pricing is pay-as-you-go; running your own GPUs is a fixed monthly cost. This finds the request volume where the fixed cost of self-hosting finally undercuts the API — and whether you're above or below it today.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>API baseline</h2>
+      <div class="field">
+        <label>Comparable API model</label>
+        <select id="model" class="tool-input"></select>
+        <p class="soft" id="priceLine" style="font-size:11px;margin:4px 0 0;"></p>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Input tokens / request</label>
+          <input type="number" id="inTok" class="tool-input" value="1200" min="0" step="100" />
+        </div>
+        <div class="field">
+          <label>Output tokens / request</label>
+          <input type="number" id="outTok" class="tool-input" value="400" min="0" step="100" />
+        </div>
+      </div>
+
+      <h2 style="margin-top:18px;">Self-host setup</h2>
+      <div class="row2">
+        <div class="field">
+          <label>GPU cost <span class="hint">$ / hour each</span></label>
+          <input type="number" id="gpuHr" class="tool-input" value="2.50" min="0" step="0.25" />
+        </div>
+        <div class="field">
+          <label>GPUs</label>
+          <input type="number" id="gpus" class="tool-input" value="1" min="1" step="1" />
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Throughput <span class="hint">req / sec, full load</span></label>
+          <input type="number" id="rps" class="tool-input" value="8" min="0" step="1" />
+        </div>
+        <div class="field">
+          <label>Utilization <span class="hint">% busy</span></label>
+          <input type="number" id="util" class="tool-input" value="50" min="1" max="100" step="5" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Your volume <span class="hint">requests / month</span></label>
+        <input type="number" id="vol" class="tool-input" value="2000000" min="0" step="100000" />
+      </div>
+      <p class="soft" style="font-size:11px;margin:2px 0 0;">USD. API prices reviewed <span id="priceDate">—</span>. GPU rent is the optimistic case — real self-hosting adds ops overhead.</p>
+    </div>
+
+    <div class="card">
+      <h2>The crossover</h2>
+
+      <div class="verdict success" id="verdict" style="margin-bottom: 14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M19 9l-5 5-4-4-3 3"/></svg>
+        <div class="text">
+          <strong>Break-even volume</strong>
+          <span id="breakeven" class="tabular" style="font-size:22px;font-weight:600;">—</span>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">API / month</div>
+          <div class="value tabular" id="apiMo">—</div>
+          <div class="sub">at your volume</div>
+        </div>
+        <div class="stat">
+          <div class="label">Self-host / month</div>
+          <div class="value tabular" id="shMo">—</div>
+          <div class="sub">fixed GPU cost</div>
+        </div>
+        <div class="stat">
+          <div class="label">Cheaper now</div>
+          <div class="value" id="winner" style="font-size:16px;">—</div>
+          <div class="sub" id="winnerSub">saving</div>
+        </div>
+        <div class="stat">
+          <div class="label">GPU capacity / mo</div>
+          <div class="value tabular" id="capacity">—</div>
+          <div class="sub" id="capSub">requests</div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;height:230px;position:relative;">
+        <canvas id="chart"></canvas>
+      </div>
+      <p class="soft" style="font-size:11px;margin:8px 0 0;text-align:center;">API scales with volume; self-host is flat. They cross at break-even.</p>
+    </div>
+  </div>
+
+  <section class="grid-3 mt-6">
+    <div class="card-flat">
+      <p class="section-title">Fixed vs variable</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">An API charges only for what you use, so it wins at low and spiky volume. GPUs cost the same idle or busy, so they only pay off once you keep them genuinely busy.</p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Utilization is everything</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">A GPU at 20% utilization costs five times as much per request as one at 100%. Spiky traffic that needs headroom for peaks is exactly where self-hosting economics get hard.</p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">This is the optimistic case</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">Raw GPU rent ignores setup, redundancy, on-call, and updates. The real break-even sits higher than the pure-compute number — treat this as the floor, not the verdict.</p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About self-hosting vs API</h2>
+    <details class="faq" open>
+      <summary>When does self-hosting get cheaper?</summary>
+      <p>Self-hosting is a fixed cost; an API is variable. Below the break-even volume the API wins; above it the fixed GPU cost spreads over enough requests to beat the per-token price. <strong>Break-even = GPU monthly cost ÷ API cost per request.</strong></p>
+    </details>
+    <details class="faq">
+      <summary>What costs am I missing?</summary>
+      <p>This compares raw GPU rent to API tokens. Real self-hosting also means setup and maintenance, redundancy, idle headroom for spikes, updates, and on-call — so the true break-even is higher. Treat this as the optimistic case.</p>
+    </details>
+    <details class="faq">
+      <summary>What throughput should I assume?</summary>
+      <p>It depends on model size, GPU, batching, and request length. Use a measured number if you have one, and keep utilization realistic — sustained high utilization is hard with spiky traffic.</p>
+    </details>
+    <details class="faq">
+      <summary>Is cost the only factor?</summary>
+      <p>No — data residency, latency, rate limits, and fine-tuning can justify self-hosting below break-even, while an API removes ops burden entirely. Use this as one input, not the whole decision.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. Everything runs in your browser; nothing is sent to a server.</p>
+    </details>
+  </section>
+</section>
+
+<section class="lead-capture">
+  <div class="lc-card" id="lc-card">
+    <div class="lc-text">
+      <span class="lc-eyebrow">More tools for AI builders</span>
+      <h3>Get new tools as they ship</h3>
+      <p>Get an email when we ship the next AI cost or infra tool.</p>
+      <span class="lc-fine">No spam, no signup needed to use any tool. Unsubscribe any time.</span>
+    </div>
+    <form class="lc-form" action="/api/subscribe" method="POST">
+      <input type="hidden" name="source" value="self-host-vs-api" />
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="lc-thanks">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Thanks — you're on the list. We'll only email when we ship.
+    </div>
+  </div>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>AI &amp; LLM</h4>
+      <a href="self-host-vs-api-calculator.html">Self-host vs API</a>
+      <a href="llm-api-cost-calculator.html">LLM API cost</a>
+      <a href="ai-feature-unit-economics.html">AI unit economics</a>
+    </div>
+    <div class="col">
+      <h4>All tools</h4>
+      <a href="index.html#tools">Browse →</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+  refreshChartColors();
+});
+
+function usd(n, d) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  if (d == null) d = 0;
+  return "$" + n.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+function fmtUSDshort(n) {
+  if (!isFinite(n)) return "—";
+  if (n >= 1e6) return "$" + (n/1e6).toFixed(1) + "M";
+  if (n >= 1000) return "$" + (n/1000).toFixed(1) + "K";
+  return "$" + Math.round(n);
+}
+function fmtReq(n) {
+  if (!isFinite(n)) return "—";
+  if (n >= 1e6) return (n/1e6).toFixed(2) + "M";
+  if (n >= 1000) return (n/1000).toFixed(0) + "K";
+  return Math.round(n).toLocaleString("en-US");
+}
+const HOURS_MO = 730;
+
+let chart = null;
+populateModelSelect($("model"), "Llama 3.3 70B (Groq)");
+$("priceDate").textContent = window.AI_PRICES_UPDATED;
+
+function update() {
+  const p = priceFor($("model").value);
+  if (!p) return;
+  const inTok = +$("inTok").value || 0;
+  const outTok = +$("outTok").value || 0;
+  const gpuHr = +$("gpuHr").value || 0;
+  const gpus = Math.max(1, +$("gpus").value || 1);
+  const rps = +$("rps").value || 0;
+  const util = Math.min(100, Math.max(1, +$("util").value || 1)) / 100;
+  const vol = +$("vol").value || 0;
+
+  $("priceLine").textContent = "Input " + usd(p.in, 2) + " / 1M · Output " + usd(p.out, 2) + " / 1M";
+
+  const apiPerReq = (inTok * p.in + outTok * p.out) / 1e6;
+  const shFixed = gpuHr * gpus * HOURS_MO;
+  const capacity = rps * 3600 * HOURS_MO * gpus * util;
+  const breakeven = apiPerReq > 0 ? shFixed / apiPerReq : Infinity;
+
+  const apiMo = apiPerReq * vol;
+  const shMo = shFixed;
+  const overCap = vol > capacity;
+
+  $("breakeven").textContent = isFinite(breakeven) ? fmtReq(breakeven) + " req/mo" : "—";
+  $("apiMo").textContent = usd(apiMo);
+  $("shMo").textContent = usd(shMo);
+  $("capacity").textContent = fmtReq(capacity);
+  $("capSub").textContent = overCap ? "⚠ below your volume" : "headroom ok";
+
+  const win = $("winner"), winSub = $("winnerSub"), v = $("verdict");
+  const saving = Math.abs(apiMo - shMo);
+  if (apiMo <= shMo) {
+    win.textContent = "API"; win.style.color = "var(--accent)";
+    winSub.textContent = "saves " + usd(saving) + "/mo";
+    v.className = "verdict success"; v.querySelector("strong").textContent = "API cheaper below break-even";
+  } else {
+    win.textContent = "Self-host"; win.style.color = "var(--accent)";
+    winSub.textContent = "saves " + usd(saving) + "/mo" + (overCap ? " — needs more GPUs" : "");
+    v.className = overCap ? "verdict warn" : "verdict success";
+    v.querySelector("strong").textContent = overCap ? "Self-host cheaper, but over capacity" : "Self-host cheaper above break-even";
+  }
+
+  drawChart(apiPerReq, shFixed, breakeven, vol);
+}
+
+function drawChart(apiPerReq, shFixed, breakeven, vol) {
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  let maxX = Math.max(isFinite(breakeven) ? breakeven * 2 : 0, vol * 1.3, 1e6);
+  const steps = 20, labels = [], apiData = [], shData = [];
+  for (let i = 0; i <= steps; i++) {
+    const x = maxX / steps * i;
+    labels.push(fmtReq(x));
+    apiData.push(apiPerReq * x);
+    shData.push(shFixed);
+  }
+  if (chart) {
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = apiData;
+    chart.data.datasets[1].data = shData;
+    chart.update("none");
+  } else {
+    chart = new Chart($("chart"), {
+      type: "line",
+      data: { labels, datasets: [
+        { data: apiData, label: "API", borderColor: "#0f766e", backgroundColor: "rgba(15,118,110,0.10)", fill: true, tension: 0, pointRadius: 0, borderWidth: 2 },
+        { data: shData, label: "Self-host", borderColor: "#f59e0b", backgroundColor: "transparent", fill: false, tension: 0, pointRadius: 0, borderWidth: 2, borderDash: [5,4] }
+      ] },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: true, position: "bottom", labels: { boxWidth: 12, color: muted, font: { size: 11 } } },
+          tooltip: { callbacks: { title: items => items[0].label + " req/mo", label: c => c.dataset.label + ": " + usd(c.parsed.y) } }
+        },
+        scales: {
+          y: { ticks: { callback: v => fmtUSDshort(v), color: muted }, grid: { color: "rgba(125,125,125,0.10)" } },
+          x: { ticks: { maxTicksLimit: 7, color: muted }, grid: { display: false }, title: { display: true, text: "Requests / month", color: muted, font: { size: 11 } } }
+        }
+      }
+    });
+  }
+}
+function refreshChartColors() {
+  if (!chart) return;
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  chart.options.scales.x.ticks.color = muted; chart.options.scales.y.ticks.color = muted;
+  chart.options.scales.x.title.color = muted; chart.options.plugins.legend.labels.color = muted;
+  chart.update("none");
+}
+
+["model","inTok","outTok","gpuHr","gpus","rps","util","vol"].forEach(id => {
+  $(id).addEventListener("input", update);
+  $(id).addEventListener("change", update);
+});
+update();
+</script>
+</body>
+</html>

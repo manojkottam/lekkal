@@ -105,7 +105,14 @@
         { "@type": "ListItem", "position": 11, "url": "https://lekkal.com/compound-interest-calculator.html", "name": "Compound Interest & FIRE Calculator" },
         { "@type": "ListItem", "position": 12, "url": "https://lekkal.com/break-even-calculator.html", "name": "Break-Even Calculator" },
         { "@type": "ListItem", "position": 13, "url": "https://lekkal.com/profit-margin-calculator.html", "name": "Profit Margin & Markup Calculator" },
-        { "@type": "ListItem", "position": 14, "url": "https://lekkal.com/roi-calculator.html", "name": "Marketing ROI Calculator" }
+        { "@type": "ListItem", "position": 14, "url": "https://lekkal.com/roi-calculator.html", "name": "Marketing ROI Calculator" },
+        { "@type": "ListItem", "position": 15, "url": "https://lekkal.com/npv-irr-calculator.html", "name": "NPV & IRR Calculator" },
+        { "@type": "ListItem", "position": 16, "url": "https://lekkal.com/expense-splitter.html", "name": "Expense Splitter" },
+        { "@type": "ListItem", "position": 17, "url": "https://lekkal.com/llm-api-cost-calculator.html", "name": "LLM API Cost Calculator" },
+        { "@type": "ListItem", "position": 18, "url": "https://lekkal.com/ai-feature-unit-economics.html", "name": "AI Feature Unit Economics Calculator" },
+        { "@type": "ListItem", "position": 19, "url": "https://lekkal.com/ai-roi-calculator.html", "name": "AI Automation ROI Calculator" },
+        { "@type": "ListItem", "position": 20, "url": "https://lekkal.com/self-host-vs-api-calculator.html", "name": "Self-Host vs API Calculator" },
+        { "@type": "ListItem", "position": 21, "url": "https://lekkal.com/llm-token-counter.html", "name": "LLM Token Counter" }
       ]
     }
   ]
@@ -166,17 +173,33 @@
         <div class="nav-dropdown-menu nav-mega-menu" role="menu">
           <div class="mega-cols">
             <div class="mega-col">
-              <div class="mega-section">Global</div>
+              <div class="mega-section">Invoicing &amp; pricing</div>
               <a href="/invoice-generator.html"><span>Invoice generator<span class="meta">PDF invoices, multi-currency</span></span></a>
+              <a href="/profit-margin-calculator.html"><span>Profit margin &amp; markup<span class="meta">margin vs markup</span></span></a>
+              <a href="/break-even-calculator.html"><span>Break-even<span class="meta">units · margin of safety</span></span></a>
+              <a href="/hourly-rate-calculator.html"><span>Hourly rate<span class="meta">freelance pricing</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">Startup &amp; SaaS</div>
               <a href="/roi-calculator.html"><span>Marketing ROI<span class="meta">CAC · LTV · ROAS</span></span></a>
-              <a href="/emi-calculator.html"><span>Loan &amp; EMI<span class="meta">payment + amortization</span></span></a>
               <a href="/burn-rate-calculator.html"><span>Burn rate &amp; runway<span class="meta">cash trajectory</span></span></a>
               <a href="/cap-table-calculator.html"><span>Cap table &amp; dilution<span class="meta">ESOP · rounds</span></span></a>
               <a href="/mrr-calculator.html"><span>MRR / ARR / NRR<span class="meta">SaaS metrics</span></span></a>
-              <a href="/break-even-calculator.html"><span>Break-even<span class="meta">units · margin of safety</span></span></a>
-              <a href="/profit-margin-calculator.html"><span>Profit margin &amp; markup<span class="meta">margin vs markup</span></span></a>
-              <a href="/hourly-rate-calculator.html"><span>Hourly rate<span class="meta">freelance pricing</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">Money &amp; planning</div>
+              <a href="/emi-calculator.html"><span>Loan &amp; EMI<span class="meta">payment + amortization</span></span></a>
+              <a href="/npv-irr-calculator.html"><span>NPV &amp; IRR<span class="meta">discounted cash flow</span></span></a>
               <a href="/compound-interest-calculator.html"><span>Compound interest &amp; FIRE<span class="meta">corpus projection</span></span></a>
+              <a href="/expense-splitter.html"><span>Expense splitter<span class="meta">split bills, settle up</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">AI &amp; LLM</div>
+              <a href="/llm-api-cost-calculator.html"><span>LLM API cost<span class="meta">per-token pricing</span></span></a>
+              <a href="/ai-feature-unit-economics.html"><span>AI unit economics<span class="meta">cost per user · margin</span></span></a>
+              <a href="/ai-roi-calculator.html"><span>AI automation ROI<span class="meta">savings · payback</span></span></a>
+              <a href="/self-host-vs-api-calculator.html"><span>Self-host vs API<span class="meta">break-even volume</span></span></a>
+              <a href="/llm-token-counter.html"><span>Token counter<span class="meta">count + cost</span></span></a>
             </div>
             <div class="mega-col">
               <div class="mega-section">India</div>
@@ -346,14 +369,68 @@
       <p>Cost + price → margin %, markup %, and gross profit. Or set a target margin to find your price. Settles the margin-vs-markup confusion for good.</p>
     </a>
 
-    <div class="tool-card" style="cursor:default;opacity:0.75;">
-      <div class="ic" style="background:var(--surface-2);color:var(--text-soft);">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <a href="npv-irr-calculator.html" class="tool-card new">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 5-6"/><circle cx="21" cy="7" r="0.5"/></svg>
       </div>
-      <span class="badge">Coming soon</span>
+      <span class="badge">New</span>
+      <h3>NPV & IRR calculator</h3>
+      <p>Discounted cash flow, made readable. Initial investment + discount rate + cash flows → NPV, IRR, payback period, and profitability index, with a cumulative cash-flow chart.</p>
+    </a>
+
+    <a href="expense-splitter.html" class="tool-card new">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+      </div>
+      <span class="badge">New</span>
       <h3>Expense splitter</h3>
-      <p>Settle group expenses from a trip, dinner, or shared rent. Multi-currency, custom shares, and a clean settlement summary.</p>
-    </div>
+      <p>Settle group expenses from a trip, dinner, or shared rent. Pick who's in on each cost and get the fewest payments needed to settle up. Multi-currency.</p>
+    </a>
+
+    <a href="llm-api-cost-calculator.html" class="tool-card new">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+      </div>
+      <span class="badge">New</span>
+      <h3>LLM API cost calculator</h3>
+      <p>Estimate AI spend per call, day, and month from tokens and volume — then compare GPT, Claude, Gemini and more side by side to find the cheapest model for the job.</p>
+    </a>
+
+    <a href="ai-feature-unit-economics.html" class="tool-card new">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+      </div>
+      <span class="badge">New</span>
+      <h3>AI feature unit economics</h3>
+      <p>Does your AI feature make money per user? Work out AI cost per user, gross margin, and the usage level where the feature stops paying for itself.</p>
+    </a>
+
+    <a href="ai-roi-calculator.html" class="tool-card new">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M19 9l-5 5-4-4-3 3"/></svg>
+      </div>
+      <span class="badge">New</span>
+      <h3>AI automation ROI</h3>
+      <p>Manual cost vs AI cost for a repetitive task → monthly savings, payback period on setup, and the hours you free up. Build the business case in seconds.</p>
+    </a>
+
+    <a href="self-host-vs-api-calculator.html" class="tool-card new">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+      </div>
+      <span class="badge">New</span>
+      <h3>Self-host vs API</h3>
+      <p>The fixed cost of running your own GPUs vs pay-as-you-go API pricing — see the request volume where self-hosting an LLM finally becomes cheaper.</p>
+    </a>
+
+    <a href="llm-token-counter.html" class="tool-card new">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+      </div>
+      <span class="badge">New</span>
+      <h3>LLM token counter</h3>
+      <p>Paste any text to estimate its tokens, then price it as a prompt across models. Runs in your browser — nothing you paste is uploaded.</p>
+    </a>
   </div>
 </section>
 
@@ -377,7 +454,7 @@
   </details>
   <details class="faq">
     <summary>Will you add more tools?</summary>
-    <p>Yes — expense splitter and HSN code lookup are next on the roadmap. We've shipped GST, EMI, burn rate / runway, and ROI calculators alongside the invoice generator. If there's a specific tool you'd find useful, drop us a note on GitHub.</p>
+    <p>Yes — we ship new tools regularly. Recent additions include the NPV &amp; IRR calculator and the expense splitter, alongside GST, EMI, burn rate / runway, and ROI calculators and the invoice generator. If there's a specific tool you'd find useful, drop us a note on GitHub.</p>
   </details>
 </section>
 

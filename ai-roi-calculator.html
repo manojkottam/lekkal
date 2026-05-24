@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>AI Automation ROI Calculator — Savings & Payback | Lekkal</title>
+<meta name="description" content="Free AI automation ROI calculator. Compare the cost of doing a task manually versus with AI to find your monthly savings, payback period on setup, and percentage cost reduction. Runs in your browser, no signup." />
+<meta name="keywords" content="AI ROI calculator, AI automation ROI, AI payback period, AI cost savings calculator, automation savings, AI business case, AI vs human cost, generative AI ROI" />
+<meta name="author" content="Lekkal" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f766e" />
+<meta name="application-name" content="Lekkal" />
+<meta name="apple-mobile-web-app-title" content="Lekkal" />
+<meta name="distribution" content="global" />
+<meta name="rating" content="general" />
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="canonical" href="https://lekkal.com/ai-roi-calculator.html" />
+<link rel="alternate" hreflang="en" href="https://lekkal.com/ai-roi-calculator.html" />
+<link rel="alternate" hreflang="x-default" href="https://lekkal.com/ai-roi-calculator.html" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/icon-192.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lekkal.com/ai-roi-calculator.html" />
+<meta property="og:title" content="AI Automation ROI Calculator" />
+<meta property="og:description" content="Manual vs AI cost for a task → monthly savings, payback period, and cost reduction. Free, runs in your browser." />
+<meta property="og:image" content="https://lekkal.com/og-ai-roi.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Lekkal" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI Automation ROI Calculator" />
+<meta name="twitter:description" content="Find the monthly savings and payback of automating a task with AI. Free, in your browser." />
+<meta name="twitter:image" content="https://lekkal.com/og-ai-roi.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "audience": {"@type": "BusinessAudience", "audienceType": "Operators and founders building a business case for AI"},
+  "inLanguage": "en",
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23",
+  "name": "Lekkal AI Automation ROI Calculator",
+  "url": "https://lekkal.com/ai-roi-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Lekkal", "url": "https://lekkal.com/" },
+  "description": "Free AI automation ROI calculator comparing manual task cost to AI cost, with monthly savings, payback period, and a cumulative savings chart.",
+  "featureList": [
+    "Manual vs AI cost per task and per month",
+    "Monthly and annual savings",
+    "Payback period on setup cost",
+    "Percentage cost reduction and hours saved",
+    "Cumulative net savings chart",
+    "No signup, no data collection"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Lekkal", "item": "https://lekkal.com/" },
+    { "@type": "ListItem", "position": 2, "name": "AI Automation ROI Calculator", "item": "https://lekkal.com/ai-roi-calculator.html" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq summary", ".faq p"]},
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you calculate ROI on AI automation?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Work out the cost of doing the task manually (time per task × people cost) and the cost of doing it with AI (model cost per task plus any residual human review). The difference is your monthly saving. Payback period is the one-time setup cost divided by the monthly saving, and ROI over a period is total savings minus all costs, divided by the costs." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I include human review time for AI?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Usually yes. Most AI workflows aren't fully hands-off — someone checks, edits, or handles exceptions. Leaving out that residual time overstates the savings. Enter the realistic minutes a person still spends per task after AI does the first pass; even a small amount changes the picture at volume." }
+    },
+    {
+      "@type": "Question",
+      "name": "What counts as the setup cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The one-time investment to get the automation working: engineering or prompt-building time, integration, testing, and any tooling you buy upfront. It's what the monthly savings have to pay back before the project is net positive." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a fast payback always better?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A short payback lowers risk, but it isn't the whole story. A project with a slightly longer payback that scales to far larger volumes or frees senior people for higher-value work can be the better choice. Use payback alongside total annual savings and how strategic the freed-up time is." }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="stylesheet" href="styles.css" />
+<script src="nav.js" defer></script>
+<script src="ai-prices.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to calculate AI automation ROI",
+  "description": "Compare manual and AI cost for a repeating task to find savings and payback.",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Describe the task volume", "text": "Set how many times the task runs per month and minutes per task today." },
+    { "@type": "HowToStep", "position": 2, "name": "Enter the people cost", "text": "The hourly rate of whoever does it now." },
+    { "@type": "HowToStep", "position": 3, "name": "Estimate the AI cost", "text": "Pick a model and tokens per task, plus any human review left." },
+    { "@type": "HowToStep", "position": 4, "name": "Add setup cost", "text": "See monthly savings and how fast it pays back." }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://lekkal.com/ai-roi-calculator.html#webpage",
+  "url": "https://lekkal.com/ai-roi-calculator.html",
+  "name": "AI Automation ROI Calculator",
+  "description": "Manual vs AI cost for a task with monthly savings, payback period, and cost reduction.",
+  "isPartOf": { "@id": "https://lekkal.com/#site" },
+  "primaryImageOfPage": { "@type": "ImageObject", "url": "https://lekkal.com/og-ai-roi.png", "width": 1200, "height": 630 },
+  "inLanguage": "en",
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23"
+}
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;"><div class="mark">L</div><div class="name">Lekkal</div></a>
+    <div class="links">
+      <a href="/blog/">Blog</a>
+      <details class="nav-dropdown nav-mega">
+        <summary>
+          All tools
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="nav-dropdown-menu nav-mega-menu" role="menu">
+          <div class="mega-cols">
+            <div class="mega-col">
+              <div class="mega-section">Invoicing &amp; pricing</div>
+              <a href="/invoice-generator.html"><span>Invoice generator<span class="meta">PDF invoices, multi-currency</span></span></a>
+              <a href="/profit-margin-calculator.html"><span>Profit margin &amp; markup<span class="meta">margin vs markup</span></span></a>
+              <a href="/break-even-calculator.html"><span>Break-even<span class="meta">units · margin of safety</span></span></a>
+              <a href="/hourly-rate-calculator.html"><span>Hourly rate<span class="meta">freelance pricing</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">Startup &amp; SaaS</div>
+              <a href="/roi-calculator.html"><span>Marketing ROI<span class="meta">CAC · LTV · ROAS</span></span></a>
+              <a href="/burn-rate-calculator.html"><span>Burn rate &amp; runway<span class="meta">cash trajectory</span></span></a>
+              <a href="/cap-table-calculator.html"><span>Cap table &amp; dilution<span class="meta">ESOP · rounds</span></span></a>
+              <a href="/mrr-calculator.html"><span>MRR / ARR / NRR<span class="meta">SaaS metrics</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">Money &amp; planning</div>
+              <a href="/emi-calculator.html"><span>Loan &amp; EMI<span class="meta">payment + amortization</span></span></a>
+              <a href="/npv-irr-calculator.html"><span>NPV &amp; IRR<span class="meta">discounted cash flow</span></span></a>
+              <a href="/compound-interest-calculator.html"><span>Compound interest &amp; FIRE<span class="meta">corpus projection</span></span></a>
+              <a href="/expense-splitter.html"><span>Expense splitter<span class="meta">split bills, settle up</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">AI &amp; LLM</div>
+              <a href="/llm-api-cost-calculator.html"><span>LLM API cost<span class="meta">per-token pricing</span></span></a>
+              <a href="/ai-feature-unit-economics.html"><span>AI unit economics<span class="meta">cost per user · margin</span></span></a>
+              <a href="/ai-roi-calculator.html"><span>AI automation ROI<span class="meta">savings · payback</span></span></a>
+              <a href="/self-host-vs-api-calculator.html"><span>Self-host vs API<span class="meta">break-even volume</span></span></a>
+              <a href="/llm-token-counter.html"><span>Token counter<span class="meta">count + cost</span></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-section">India</div>
+              <a href="/gst-calculator.html"><span>GST calculator<span class="meta">CGST · SGST · IGST</span></span></a>
+              <a href="/income-tax-calculator.html"><span>Income tax<span class="meta">old vs new · FY 2025-26</span></span></a>
+              <a href="/sip-calculator.html"><span>SIP calculator<span class="meta">regular · step-up · lump sum</span></span></a>
+              <a href="/salary-breakup-calculator.html"><span>Salary breakup<span class="meta">CTC to in-hand</span></span></a>
+              <a class="disabled"><span>TDS calculator<span class="meta">Sec 192 / 194C / 194J</span></span><span class="pill soon">Soon</span></a>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <a href="/#tools" class="mega-all">Browse all tools on one page →</a>
+        </div>
+      </details>
+    </div>
+    <div class="right">
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="wrap tool-hero">
+  <h1>AI automation ROI calculator</h1>
+  <p>Build the business case for automating a repetitive task with AI. Compare what it costs done by hand versus done by a model, and see your monthly savings, how fast the setup pays back, and the hours you free up.</p>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>The task</h2>
+
+      <div class="row2">
+        <div class="field">
+          <label>Tasks / month</label>
+          <input type="number" id="tasks" class="tool-input" value="2000" min="0" step="100" />
+        </div>
+        <div class="field">
+          <label>Minutes / task <span class="hint">manual</span></label>
+          <input type="number" id="mins" class="tool-input" value="6" min="0" step="1" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>People cost <span class="hint">$ / hour, fully loaded</span></label>
+        <input type="number" id="rate" class="tool-input" value="30" min="0" step="1" />
+      </div>
+
+      <h2 style="margin-top:18px;">The AI version</h2>
+      <div class="field">
+        <label>Model</label>
+        <select id="model" class="tool-input"></select>
+        <p class="soft" id="priceLine" style="font-size:11px;margin:4px 0 0;"></p>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Input tokens / task</label>
+          <input type="number" id="inTok" class="tool-input" value="1200" min="0" step="100" />
+        </div>
+        <div class="field">
+          <label>Output tokens / task</label>
+          <input type="number" id="outTok" class="tool-input" value="400" min="0" step="100" />
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Human review <span class="hint">min / task, after AI</span></label>
+          <input type="number" id="reviewMin" class="tool-input" value="1" min="0" step="0.5" />
+        </div>
+        <div class="field">
+          <label>Monthly tooling <span class="hint">$ fixed</span></label>
+          <input type="number" id="fixed" class="tool-input" value="0" min="0" step="10" />
+        </div>
+      </div>
+      <div class="field">
+        <label>One-time setup cost <span class="hint">build, integration</span></label>
+        <input type="number" id="setup" class="tool-input" value="5000" min="0" step="500" />
+      </div>
+      <p class="soft" style="font-size:11px;margin:2px 0 0;">All amounts in USD (model pricing is USD). Prices reviewed <span id="priceDate">—</span>.</p>
+    </div>
+
+    <div class="card">
+      <h2>The case</h2>
+
+      <div class="verdict success" id="verdict" style="margin-bottom: 14px;">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <div class="text">
+          <strong>Monthly savings</strong>
+          <span id="savings" class="tabular" style="font-size:22px;font-weight:600;">—</span>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="label">Payback</div>
+          <div class="value tabular" id="payback">—</div>
+          <div class="sub">on setup cost</div>
+        </div>
+        <div class="stat">
+          <div class="label">Cost reduction</div>
+          <div class="value tabular" id="reduction">—</div>
+          <div class="sub">vs manual</div>
+        </div>
+        <div class="stat">
+          <div class="label">Hours saved / mo</div>
+          <div class="value tabular" id="hours">—</div>
+          <div class="sub">freed-up time</div>
+        </div>
+        <div class="stat">
+          <div class="label">Year-1 net</div>
+          <div class="value tabular" id="year1">—</div>
+          <div class="sub">savings − setup</div>
+        </div>
+      </div>
+
+      <div id="breakdown" style="font-size:13px;margin-top:16px;"></div>
+
+      <div style="margin-top:18px;height:220px;position:relative;">
+        <canvas id="chart"></canvas>
+      </div>
+      <p class="soft" style="font-size:11px;margin:8px 0 0;text-align:center;">Cumulative net savings. It crosses zero at payback.</p>
+    </div>
+  </div>
+
+  <section class="grid-3 mt-6">
+    <div class="card-flat">
+      <p class="section-title">Be honest about review time</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">Few AI workflows are fully hands-off. The residual minutes a human spends checking and fixing output are where optimistic business cases quietly fall apart. Put a realistic number in.</p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Savings scale with volume</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">The model cost per task is tiny next to a person's time, so the more often a task runs, the stronger the case. Low-volume tasks rarely justify the setup.</p>
+    </div>
+    <div class="card-flat">
+      <p class="section-title">Freed time only counts if reused</p>
+      <p class="muted" style="margin:0;font-size:13px;line-height:1.6;">Hours saved become real money when people move to higher-value work or you avoid a hire. If the time just evaporates, the savings are softer than the chart suggests.</p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <h2>About AI automation ROI</h2>
+    <details class="faq" open>
+      <summary>How do you calculate ROI on AI automation?</summary>
+      <p>Manual cost = <strong>(minutes ÷ 60 × hourly rate) × tasks</strong>. AI cost = model cost per task + residual review time, × tasks, + fixed tooling. The gap is your monthly saving; <strong>payback = setup ÷ monthly saving</strong>.</p>
+    </details>
+    <details class="faq">
+      <summary>Should I include human review time?</summary>
+      <p>Usually yes — most AI workflows still need a person to check or handle exceptions. Omitting it overstates savings. Even a minute per task adds up at volume.</p>
+    </details>
+    <details class="faq">
+      <summary>What counts as setup cost?</summary>
+      <p>The one-time investment to get it working: engineering or prompt-building, integration, testing, and upfront tooling — what the savings must repay before the project is net positive.</p>
+    </details>
+    <details class="faq">
+      <summary>Is a fast payback always better?</summary>
+      <p>It lowers risk, but a longer-payback project that scales bigger or frees senior people can be the better call. Use payback alongside total annual savings.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my data stored anywhere?</summary>
+      <p>No. Everything runs in your browser; nothing is sent to a server.</p>
+    </details>
+  </section>
+</section>
+
+<section class="lead-capture">
+  <div class="lc-card" id="lc-card">
+    <div class="lc-text">
+      <span class="lc-eyebrow">More tools for AI builders</span>
+      <h3>Get new tools as they ship</h3>
+      <p>Get an email when we ship the next AI cost or ROI tool.</p>
+      <span class="lc-fine">No spam, no signup needed to use any tool. Unsubscribe any time.</span>
+    </div>
+    <form class="lc-form" action="/api/subscribe" method="POST">
+      <input type="hidden" name="source" value="ai-roi" />
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="lc-thanks">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Thanks — you're on the list. We'll only email when we ship.
+    </div>
+  </div>
+</section>
+
+<footer class="bottom">
+  <div class="inner">
+    <div class="meta">
+      <div class="brand"><div class="mark">L</div><div class="name">Lekkal</div></div>
+      <p>Free finance & bookkeeping tools that respect your time and keep your data in your browser.</p>
+    </div>
+    <div class="col">
+      <h4>AI &amp; LLM</h4>
+      <a href="ai-roi-calculator.html">AI automation ROI</a>
+      <a href="llm-api-cost-calculator.html">LLM API cost</a>
+      <a href="ai-feature-unit-economics.html">AI unit economics</a>
+    </div>
+    <div class="col">
+      <h4>All tools</h4>
+      <a href="index.html#tools">Browse →</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const t = localStorage.getItem("lekkal-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = t;
+$("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("lekkal-theme", next);
+  refreshChartColors();
+});
+
+function usd(n, d) {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  if (d == null) d = 0;
+  const neg = n < 0;
+  const s = "$" + Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+  return neg ? "−" + s : s;
+}
+function fmtShort(n) {
+  if (!isFinite(n)) return "—";
+  const a = Math.abs(n), sign = n < 0 ? "−" : "";
+  if (a >= 1e6) return sign + "$" + (a/1e6).toFixed(1) + "M";
+  if (a >= 1000) return sign + "$" + (a/1000).toFixed(1) + "K";
+  return sign + "$" + Math.round(a);
+}
+function num(n) { return isFinite(n) ? Math.round(n).toLocaleString("en-US") : "—"; }
+
+let chart = null;
+populateModelSelect($("model"), "GPT-5.4 mini");
+$("priceDate").textContent = window.AI_PRICES_UPDATED;
+
+function update() {
+  const p = priceFor($("model").value);
+  if (!p) return;
+  const tasks = +$("tasks").value || 0;
+  const mins = +$("mins").value || 0;
+  const rate = +$("rate").value || 0;
+  const inTok = +$("inTok").value || 0;
+  const outTok = +$("outTok").value || 0;
+  const reviewMin = +$("reviewMin").value || 0;
+  const fixed = +$("fixed").value || 0;
+  const setup = +$("setup").value || 0;
+
+  $("priceLine").textContent = "Input " + usd(p.in, 2) + " / 1M · Output " + usd(p.out, 2) + " / 1M";
+
+  const humanPerTask = (mins / 60) * rate;
+  const aiTokenCost = (inTok * p.in + outTok * p.out) / 1e6;
+  const aiReviewCost = (reviewMin / 60) * rate;
+  const aiPerTask = aiTokenCost + aiReviewCost;
+
+  const humanMonthly = humanPerTask * tasks;
+  const aiMonthly = aiPerTask * tasks + fixed;
+  const savings = humanMonthly - aiMonthly;
+  const reduction = humanMonthly > 0 ? savings / humanMonthly * 100 : 0;
+  const hoursSaved = Math.max(0, (mins - reviewMin)) / 60 * tasks;
+  const payback = savings > 0 ? setup / savings : Infinity;
+  const year1 = savings * 12 - setup;
+
+  $("savings").textContent = usd(savings);
+  $("payback").textContent = savings > 0 ? (payback < 1 ? "<1 mo" : payback.toFixed(1) + " mo") : "never";
+  $("reduction").textContent = humanMonthly > 0 ? reduction.toFixed(0) + "%" : "—";
+  $("hours").textContent = num(hoursSaved);
+  $("year1").textContent = usd(year1);
+
+  const v = $("verdict");
+  if (savings <= 0) { v.className = "verdict danger"; v.querySelector("strong").textContent = "AI costs more here"; }
+  else if (payback > 12) { v.className = "verdict warn"; v.querySelector("strong").textContent = "Slow payback"; }
+  else { v.className = "verdict success"; v.querySelector("strong").textContent = "Monthly savings"; }
+
+  const row = (l, val, color) => '<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span class="muted">' + l + '</span><span class="tabular" ' + (color ? 'style="color:' + color + '"' : '') + '>' + val + '</span></div>';
+  let html = "";
+  html += row("Manual cost / month", usd(humanMonthly));
+  html += row("AI cost / month", usd(aiMonthly));
+  html += row("— model tokens", usd(aiTokenCost * tasks));
+  html += row("— residual review", usd(aiReviewCost * tasks));
+  if (fixed > 0) html += row("— fixed tooling", usd(fixed));
+  html += '<div style="display:flex;justify-content:space-between;padding:9px 0;font-weight:600;border-top:1px solid var(--border-2);margin-top:2px;"><span>= Monthly savings</span><span class="tabular" style="color:' + (savings >= 0 ? 'var(--success)' : 'var(--danger)') + '">' + usd(savings) + '</span></div>';
+  $("breakdown").innerHTML = html;
+
+  drawChart(setup, savings);
+}
+
+function drawChart(setup, savings) {
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  const labels = [], data = [];
+  for (let m = 0; m <= 12; m++) { labels.push("M" + m); data.push(savings * m - setup); }
+  const colors = data.map(v => v >= 0 ? "#0f766e" : "#dc2626");
+  if (chart) {
+    chart.data.labels = labels; chart.data.datasets[0].data = data; chart.data.datasets[0].backgroundColor = colors; chart.update("none");
+  } else {
+    chart = new Chart($("chart"), {
+      type: "bar",
+      data: { labels, datasets: [{ data, label: "Cumulative net", backgroundColor: colors, borderRadius: 3 }] },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => "Net: " + usd(c.parsed.y) } } },
+        scales: {
+          y: { ticks: { callback: v => fmtShort(v), color: muted }, grid: { color: "rgba(125,125,125,0.10)" } },
+          x: { ticks: { color: muted }, grid: { display: false } }
+        }
+      }
+    });
+  }
+}
+function refreshChartColors() {
+  if (!chart) return;
+  const muted = getComputedStyle(document.body).getPropertyValue('--text-muted');
+  chart.options.scales.x.ticks.color = muted; chart.options.scales.y.ticks.color = muted; chart.update("none");
+}
+
+["tasks","mins","rate","model","inTok","outTok","reviewMin","fixed","setup"].forEach(id => {
+  $(id).addEventListener("input", update);
+  $(id).addEventListener("change", update);
+});
+update();
+</script>
+</body>
+</html>

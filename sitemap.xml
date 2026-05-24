@@ -201,4 +201,74 @@
       <image:title>How Much Should I Charge? A Freelance Hourly-Rate Formula</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://lekkal.com/npv-irr-calculator.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-npv-irr.png</image:loc>
+      <image:title>Free NPV &amp; IRR Calculator</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lekkal.com/expense-splitter.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-expense-split.png</image:loc>
+      <image:title>Free Expense Splitter</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lekkal.com/llm-api-cost-calculator.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-llm-cost.png</image:loc>
+      <image:title>Free LLM API Cost Calculator</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lekkal.com/ai-feature-unit-economics.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-ai-unit-economics.png</image:loc>
+      <image:title>AI Feature Unit Economics Calculator</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lekkal.com/ai-roi-calculator.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-ai-roi.png</image:loc>
+      <image:title>AI Automation ROI Calculator</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lekkal.com/self-host-vs-api-calculator.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-self-host.png</image:loc>
+      <image:title>Self-Host vs API Calculator</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lekkal.com/llm-token-counter.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://lekkal.com/og-token-counter.png</image:loc>
+      <image:title>LLM Token Counter</image:title>
+    </image:image>
+  </url>
 </urlset>
